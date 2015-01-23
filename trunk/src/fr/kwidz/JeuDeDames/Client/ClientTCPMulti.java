@@ -44,7 +44,6 @@ public class ClientTCPMulti {
         while(true) {
 
             message = sc.nextLine();
-            System.out.println("Envoi: " + message);
             output.println(message);
 
 
