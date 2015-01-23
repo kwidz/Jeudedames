@@ -7,6 +7,9 @@ package fr.kwidz.JeuDeDames.Graphisme;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +19,12 @@ public class Panneau extends JPanel{
     public Panneau()  {
         //this.setBackground(Color.red);
         //this.ajoutPion();
+        bouton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.print("clique");
+            }
+        });
         this.add(bouton);
 
     }
@@ -30,4 +39,6 @@ public class Panneau extends JPanel{
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
         add(picLabel);
     }
+
+
 }
