@@ -17,17 +17,17 @@ public class Dialogue {
 
     }
 
-    public void envoyer(Socket socket, String message){
+    public void envoyer(String message, PrintWriter myOutput){
         PrintWriter output = null;
         for (int i = 0; i < outputs.size(); i++) {
-            //if ((Socket)lesSockets.get(i) != socket){
+            if (outputs.get(i) != myOutput){
 
 
                 outputs.get(i).println(message);
                 outputs.get(i).flush();
 
 
-            //}
+            }
         }
     }
 }
