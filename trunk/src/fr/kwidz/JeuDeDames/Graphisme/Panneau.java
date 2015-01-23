@@ -14,8 +14,8 @@ import java.io.IOException;
 public class Panneau extends JPanel{
     JButton bouton = new JButton("jouer");
     public Panneau()  {
-        this.setBackground(Color.red);
-        this.ajoutPion();
+        //this.setBackground(Color.red);
+        //this.ajoutPion();
         this.add(bouton);
 
     }
