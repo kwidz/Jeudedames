@@ -46,7 +46,7 @@ public class ThreadConnexion extends Thread{
 
 
             System.out.println("Envoi: " + message);
-            d.envoyer(this.socketClient,message);
+            d.envoyer(message, output);
 
         }
     }
