@@ -14,15 +14,17 @@ import java.io.IOException;
 public class Panneau extends JPanel{
     public Panneau()  {
         this.setBackground(Color.red);
-        try {
             this.ajoutPion();
+
+    }
+
+    public void ajoutPion() {
+        BufferedImage myPicture = null;
+        try {
+            myPicture = ImageIO.read(new File("Images/pion.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void ajoutPion() throws IOException {
-        BufferedImage myPicture = ImageIO.read(new File("Images/pion.png"));
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
         add(picLabel);
     }
