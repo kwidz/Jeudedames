@@ -5,15 +5,14 @@ package fr.kwidz.JeuDeDames.Graphisme;
  */
 
 import javax.swing.JFrame;
-public class Fenetre {
-        public  Fenetre(){
-            JFrame maFenetre = new JFrame();
-
-            maFenetre.setTitle("Jeu de Dames");
-            maFenetre.setSize(400, 100);
-            maFenetre.setLocationRelativeTo(null);
-            maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            maFenetre.setVisible(true);
+public class Fenetre extends JFrame{
+        public  Fenetre(Panneau p){
+            this.setTitle("Jeu de Dames");
+            this.setSize(400, 100);
+            this.setLocationRelativeTo(null);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setContentPane(p);
+            this.setVisible(true);
         }
 
 
