@@ -22,7 +22,7 @@ public class ThreadConnexion extends Thread{
             input = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
             output = new PrintWriter(socketClient.getOutputStream());
 
-            d.outputs[0] = output;
+            d.outputs.add(output);
         } catch(IOException e) {
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);

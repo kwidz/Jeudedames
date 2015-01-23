@@ -13,7 +13,7 @@ public class ServeurTCPMulti {
 
 
     public static void main(String[] args){
-        ArrayList<Socket> lesClients = new ArrayList<Socket>();
+
         Dialogue d = new Dialogue();
         ServerSocket socketServeur = null;
         try {
@@ -28,7 +28,7 @@ public class ServeurTCPMulti {
             Socket socketClient;
             while(true) {
                 socketClient = socketServeur.accept();
-                lesClients.add(socketClient);
+
                 ThreadConnexion t = new ThreadConnexion(socketClient, d);
                 t.start();
             }

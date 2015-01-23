@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by kwidz on 23/01/15.
  */
 public class Dialogue {
-    public PrintWriter[] outputs = new PrintWriter[3];
+    public ArrayList <PrintWriter> outputs = new ArrayList<PrintWriter>();
 
     public Dialogue(){
 
@@ -19,12 +19,12 @@ public class Dialogue {
 
     public void envoyer(Socket socket, String message){
         PrintWriter output = null;
-        for (int i = 0; i < outputs.length; i++) {
+        for (int i = 0; i < outputs.size(); i++) {
             //if ((Socket)lesSockets.get(i) != socket){
 
 
-                outputs[0].println(message);
-                outputs[0].flush();
+                outputs.get(i).println(message);
+                outputs.get(i).flush();
 
 
             //}
