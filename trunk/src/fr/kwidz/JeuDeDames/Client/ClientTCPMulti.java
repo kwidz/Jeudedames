@@ -1,0 +1,60 @@
+package fr.kwidz.JeuDeDames.Client;
+
+import fr.kwidz.JeuDeDames.Serveur.ServeurTCPMulti;
+
+import java.io.*;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+/**
+ * Created by kwidz on 23/01/15.
+ */
+public class ClientTCPMulti {
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        // Creation de la socket
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", ServeurTCPMulti.portEcoute);
+        } catch(UnknownHostException e) {
+            System.err.println("Erreur sur l'hôte : " + e);
+            System.exit(-1);
+        } catch(IOException e) {
+            System.err.println("Creation de la socket impossible : " + e);
+            System.exit(-1);
+        }
+
+        // Association d'un flux d'entree et de sortie
+        BufferedReader input = null;
+        PrintWriter output = null;
+        try {
+            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+        } catch(IOException e) {
+            System.err.println("Association des flux impossible : " + e);
+            System.exit(-1);
+        }
+        String message = "";
+        ThreadEcoute t = new ThreadEcoute(input);
+        t.start();
+        while(true) {
+
+            message = sc.nextLine();
+            System.out.println("Envoi: " + message);
+            output.println(message);
+
+
+
+
+
+}
+
+
+
+
+    }
+}
