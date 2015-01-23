@@ -3,14 +3,18 @@ package fr.kwidz.JeuDeDames.Serveur;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * Created by kwidz on 23/01/15.
  */
 public class ServeurTCPMulti {
-    public static final int portEcoute = 56880;
+    public static final int portEcoute = 56888;
+
 
     public static void main(String[] args){
+        ArrayList<Socket> lesClients = new ArrayList<Socket>();
+        Dialogue d = new Dialogue();
         ServerSocket socketServeur = null;
         try {
             socketServeur = new ServerSocket(portEcoute);
@@ -24,7 +28,8 @@ public class ServeurTCPMulti {
             Socket socketClient;
             while(true) {
                 socketClient = socketServeur.accept();
-                ThreadConnexion t = new ThreadConnexion(socketClient);
+                lesClients.add(socketClient);
+                ThreadConnexion t = new ThreadConnexion(socketClient, d);
                 t.start();
             }
         } catch(IOException e) {

@@ -11,14 +11,18 @@ public class ThreadConnexion extends Thread{
     private BufferedReader input;
     private PrintWriter output;
     private Socket socketClient;
+    private Dialogue d;
 
-    public ThreadConnexion(Socket socketClient) {
+    public ThreadConnexion(Socket socketClient, Dialogue d) {
+        this.d = d;
         this.socketClient = socketClient;
 
         // Association d'un flux d'entree et de sortie
         try {
             input = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-            output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream())), true);
+            output = new PrintWriter(socketClient.getOutputStream());
+
+            d.outputs[0] = output;
         } catch(IOException e) {
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
@@ -29,6 +33,21 @@ public class ThreadConnexion extends Thread{
     @Override
     public void run() {
 
-        System.out.println("test");
+        while(true) {
+            String message = "";
+            try {
+                message = input.readLine();
+            } catch (IOException e) {
+                System.err.println("Erreur lors de la lecture : " + e);
+                System.exit(-1);
+            }
+            System.out.println("Lu: " + message);
+
+
+
+            System.out.println("Envoi: " + message);
+            d.envoyer(this.socketClient,message);
+
+        }
     }
 }
