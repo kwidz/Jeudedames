@@ -10,5 +10,7 @@ import java.awt.*;
 public class Panneau extends JPanel{
     public Panneau(){
         this.setBackground(Color.red);
+
+
     }
 }
