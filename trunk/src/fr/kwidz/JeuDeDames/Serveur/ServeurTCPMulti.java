@@ -40,7 +40,4 @@ public class ServeurTCPMulti {
             System.exit(-1);
         }
     }
-    }
-
-
 }
