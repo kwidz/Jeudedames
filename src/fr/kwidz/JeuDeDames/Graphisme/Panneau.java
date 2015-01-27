@@ -16,7 +16,17 @@ import java.io.File;
 import java.io.IOException;
 
 public class Panneau extends JPanel{
-    JButton bouton = new JButton("jouer");
+    public void paintComponent(Graphics g){
+        
+    }
+
+
+
+    }
+
+
+
+  /*JButton bouton = new JButton("jouer");
     public Panneau()  {
         //this.setBackground(Color.red);
         //this.ajoutPion();
@@ -38,6 +48,8 @@ public class Panneau extends JPanel{
 
     }
 
+
+
     public void ajoutPion() {
         BufferedImage myPicture = null;
         try {
@@ -47,7 +59,4 @@ public class Panneau extends JPanel{
         }
         JLabel picLabel = new JLabel(new ImageIcon(myPicture));
         add(picLabel);
-    }
-
-
-}
+    }*/
