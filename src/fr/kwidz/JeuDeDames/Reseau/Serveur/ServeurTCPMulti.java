@@ -1,10 +1,9 @@
-package fr.kwidz.JeuDeDames.Serveur;
+package fr.kwidz.JeuDeDames.Reseau.Serveur;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-
 /**
  * Created by kwidz on 23/01/15.
  */
