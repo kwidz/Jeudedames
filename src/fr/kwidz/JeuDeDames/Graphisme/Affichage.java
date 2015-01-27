@@ -6,6 +6,7 @@ package fr.kwidz.JeuDeDames.Graphisme;
 public class Affichage {
     Fenetre fenetre;
     public Affichage(){
+
         this.fenetre = new Fenetre(new Panneau());
     }
 }
