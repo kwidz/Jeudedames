@@ -4,6 +4,8 @@ package fr.kwidz.JeuDeDames.Graphisme;
  * Created by morgane on 23/01/15.
  */
 
+import fr.kwidz.JeuDeDames.Jeu.Damier;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -16,14 +18,22 @@ import java.io.File;
 import java.io.IOException;
 
 public class Panneau extends JPanel{
-
+    Damier damier;
     public void paintComponent(Graphics g){
 
     }
 
-
-
+    public Damier getDamier(){
+        return this.damier;
     }
+
+    public void setDamier(Damier d){
+        this.damier = d;
+    }
+
+
+
+}
 
 
 
