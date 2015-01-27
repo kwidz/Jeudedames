@@ -26,9 +26,10 @@ public class Panneau extends JPanel{
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
                     g.setColor(Color.black);
-                    g.drawRect(i*10,j*10,10,10);
+                    g.fillRect(i*10,j*10,10,10);
 
-                }
+                }else { g.setColor(Color.white);
+                    g.fillRect((i*10)+10,(j*10)+10,10,10);}
             }
         }
     }
