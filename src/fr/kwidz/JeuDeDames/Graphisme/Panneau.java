@@ -28,8 +28,9 @@ public class Panneau extends JPanel{
                     g.setColor(Color.black);
                     g.fillRect(i*10,j*10,10,10);
 
-                }else { g.setColor(Color.white);
-                    g.fillRect((i*10)+10,(j*10)+10,10,10);}
+
+                }else{g.setColor(Color.white);
+                    g.fillRect(i*10,j*10,10,10);}
             }
         }
     }
