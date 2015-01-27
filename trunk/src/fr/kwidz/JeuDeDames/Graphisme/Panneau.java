@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Panneau extends JPanel{
-    JButton[][] damier = new JButton[10][10];
+
     public void paintComponent(Graphics g){
 
     }
