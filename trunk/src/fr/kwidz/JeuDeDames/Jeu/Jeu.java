@@ -8,7 +8,7 @@ import fr.kwidz.JeuDeDames.Graphisme.Panneau;
  */
 public class Jeu {
     public Jeu(){
-        Panneau p = new Panneau();
-        Fenetre f = new Fenetre(p);
+        //Panneau p = new Panneau();
+        //Fenetre f = new Fenetre(p);
     }
 }
