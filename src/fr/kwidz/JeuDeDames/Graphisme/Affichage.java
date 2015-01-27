@@ -14,7 +14,7 @@ public class Affichage {
     }
 
     public void raffraichir(Damier d){
-        interfac.setDamier(d);
+        interfac.setDamier(d, fenetre.getWidth(), fenetre.getHeight());
         interfac.repaint();
     }
 }
