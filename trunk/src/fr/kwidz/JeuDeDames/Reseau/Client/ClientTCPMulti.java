@@ -1,5 +1,6 @@
 package fr.kwidz.JeuDeDames.Reseau.Client;
 
+import fr.kwidz.JeuDeDames.Reseau.*;
 import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
 
 import java.io.*;

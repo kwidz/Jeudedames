@@ -1,4 +1,4 @@
-package fr.kwidz.JeuDeDames.Serveur;
+package fr.kwidz.JeuDeDames.Reseau.Serveur;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
