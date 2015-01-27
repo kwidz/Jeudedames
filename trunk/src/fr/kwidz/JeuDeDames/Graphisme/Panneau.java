@@ -4,6 +4,7 @@ package fr.kwidz.JeuDeDames.Graphisme;
  * Created by morgane on 23/01/15.
  */
 
+import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
 
 import javax.imageio.ImageIO;
@@ -20,7 +21,16 @@ import java.io.IOException;
 public class Panneau extends JPanel{
     Damier damier;
     public void paintComponent(Graphics g){
+        if(this.damier != null)
+        for(int i = 0 ; i < 10 ; i++){
+            for(int j = 0 ; j < 10 ; j++){
+                if(this.damier.lesCases[i][j] instanceof CaseNoire){
+                    g.setColor(Color.black);
+                    g.drawRect(i*10,j*10,10,10);
 
+                }
+            }
+        }
     }
 
     public Damier getDamier(){

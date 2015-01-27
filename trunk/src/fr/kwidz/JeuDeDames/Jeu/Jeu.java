@@ -9,8 +9,11 @@ import fr.kwidz.JeuDeDames.Graphisme.Panneau;
  */
 public class Jeu {
     Affichage vueJeu;
+    Damier damier;
     public Jeu(){
+        this.damier = new Damier();
         vueJeu = new Affichage();
+        vueJeu.raffraichir(this.damier);
         //Panneau p = new Panneau();
         //Fenetre f = new Fenetre(p);
     }
