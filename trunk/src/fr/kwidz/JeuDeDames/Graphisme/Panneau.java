@@ -25,16 +25,19 @@ public class Panneau extends JPanel{
     public void paintComponent(Graphics g){
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
+
         if(this.damier != null)
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
+                    this.add(new JButton("test"));
                     g.setColor(new Color(182, 175, 157));
                     g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
                 }else{g.setColor(new Color(253, 252, 222));
-                    g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);}
+                    g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                    }
             }
         }
     }
