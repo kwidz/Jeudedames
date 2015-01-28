@@ -20,18 +20,20 @@ import java.io.IOException;
 
 public class Panneau extends JPanel{
     Damier damier;
-    int tailleFenetreW;
     int tailleFenetreH;
+    int tailleFenetreW;
     public void paintComponent(Graphics g){
+        tailleFenetreW = this.getWidth()/10;
+        tailleFenetreH = this.getHeight()/10;
         if(this.damier != null)
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    g.setColor(Color.black);
+                    g.setColor(new Color(187, 53, 51));
                     g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
-                }else{g.setColor(Color.white);
+                }else{g.setColor(new Color(220, 218, 230));
                     g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);}
             }
         }
@@ -41,10 +43,9 @@ public class Panneau extends JPanel{
         return this.damier;
     }
 
-    public void setDamier(Damier d, int tailleW, int tailleH){
+    public void setDamier(Damier d){
         this.damier = d;
-        this.tailleFenetreW = tailleW/10;
-        this.tailleFenetreH = tailleH/10;
+
     }
 
 
