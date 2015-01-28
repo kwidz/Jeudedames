@@ -5,9 +5,22 @@ package fr.kwidz.JeuDeDames.Graphisme;
  */
 
 import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
 public class Fenetre extends JFrame{
     Panneau tableauJeu;
         public  Fenetre(Panneau p){
+            this.addComponentListener(new ComponentAdapter()
+            {
+                public void componentResized(ComponentEvent evt) {
+                    Component c = (Component)evt.getSource();
+                    //........
+                    System.out.print("resize");
+                }
+            });
+
             this.tableauJeu = p;
             this.setTitle("Jeu de Dames");
             this.setSize(400, 400);
