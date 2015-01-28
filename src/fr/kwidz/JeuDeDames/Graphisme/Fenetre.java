@@ -12,14 +12,6 @@ import java.awt.event.ComponentEvent;
 public class Fenetre extends JFrame{
     Panneau tableauJeu;
         public  Fenetre(Panneau p){
-            this.addComponentListener(new ComponentAdapter()
-            {
-                public void componentResized(ComponentEvent evt) {
-                    Component c = (Component)evt.getSource();
-                    //........
-                    System.out.print("resize");
-                }
-            });
 
             this.tableauJeu = p;
             this.setTitle("Jeu de Dames");
