@@ -29,11 +29,11 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    g.setColor(new Color(187, 53, 51));
+                    g.setColor(new Color(182, 175, 157));
                     g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
-                }else{g.setColor(new Color(220, 218, 230));
+                }else{g.setColor(new Color(253, 252, 222));
                     g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);}
             }
         }
