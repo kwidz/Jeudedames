@@ -24,10 +24,13 @@ public class Panneau extends JPanel{
 
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
+                Bouton bouton =damier.lesCases[i][j].boutonContenu;
+                        /*bouton.setBorderPainted(false);
+                bouton.setFocusPainted(false);
+                bouton.setContentAreaFilled(false);*/
 
-
-                this.add(damier.lesCases[i][j].boutonContenu);
-                damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                this.add(bouton);
+                bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                    // this.add(new JButton(" "+i+";"+j+" "));
                     //g.setColor(new Color(182, 175, 157));
                     //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
