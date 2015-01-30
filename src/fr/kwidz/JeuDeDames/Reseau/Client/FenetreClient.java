@@ -12,9 +12,9 @@ public class FenetreClient extends JFrame implements ActionListener{
     JPanel p = new JPanel();
     JButton boutonJouer = new JButton("cliquez ici pour jouer un coup !");
     JLabel text = new JLabel("Bienvenue dans le jeu de Dames");
-    private boolean jeton;
+    private GestionaireDeTours jeton;
     PrintWriter outpout;
-    public FenetreClient(boolean jeton, PrintWriter output){
+    public FenetreClient(GestionaireDeTours jeton, PrintWriter output){
         this.outpout = output;
         this.jeton = jeton;
         JFrame fenetre = new JFrame();
@@ -33,11 +33,11 @@ public class FenetreClient extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(jeton){
+        if(jeton.isJeton()){
             text.setText("vouys venez de jouer un coup !");
             outpout.println("Le joueur a joué");
             outpout.flush();
-            jeton=false;
+            jeton.setJeton(false);
         }
         else{
             text.setText("votre adversaire est en train de jouer, veuillez attendre !");

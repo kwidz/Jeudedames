@@ -10,10 +10,10 @@ import java.nio.Buffer;
 public class ThreadEcoute extends Thread{
 
     BufferedReader input;
-    public boolean jetonDeJeu;
+    public GestionaireDeTours jetonDeJeu;
     public FenetreClient f;
 
-    public ThreadEcoute(BufferedReader input, boolean jetonDeJeu, FenetreClient f) {
+    public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, FenetreClient f) {
         this.input=input;this.jetonDeJeu=jetonDeJeu;
         this.f = f;
     }
@@ -26,7 +26,7 @@ public class ThreadEcoute extends Thread{
             try {
                 message = input.readLine();
                 System.out.println("Lu: " + message);
-                this.jetonDeJeu = true;
+                jetonDeJeu.setJeton(true);
                 f.text.setText("l'adversaire a joué, c'est a vous !");
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
