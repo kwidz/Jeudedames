@@ -10,9 +10,11 @@ import java.nio.Buffer;
 public class ThreadEcoute extends Thread{
 
     BufferedReader input;
+    private boolean jetonDeJeu;
 
-    public ThreadEcoute(BufferedReader input) {
-        this.input=input;
+
+    public ThreadEcoute(BufferedReader input, boolean jetonDeJeu) {
+        this.input=input;this.jetonDeJeu=jetonDeJeu;
     }
 
     @Override
@@ -23,6 +25,7 @@ public class ThreadEcoute extends Thread{
             try {
                 message = input.readLine();
                 System.out.println("Lu: " + message);
+                jetonDeJeu = true;
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);
