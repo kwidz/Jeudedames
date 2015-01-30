@@ -13,6 +13,7 @@ public class Bouton extends JButton{
     int width;
     int height;
     public Bouton(){
+        //this.setLayout(null);
         fondBouton = new JPanel();
         fondBouton.setBackground(Color.black);
         this.add(fondBouton);
