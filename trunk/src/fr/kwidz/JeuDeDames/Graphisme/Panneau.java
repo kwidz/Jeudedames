@@ -8,6 +8,8 @@ import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 public class Panneau extends JPanel{
@@ -24,12 +26,38 @@ public class Panneau extends JPanel{
 
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
-                Bouton bouton =damier.lesCases[i][j].boutonContenu;
+                final Bouton bouton =damier.lesCases[i][j].boutonContenu;
 
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
                     this.add(bouton);
                     bouton.setBackground(Color.black);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                    bouton.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            System.out.println(" " + bouton.posX + " " + bouton.posY+ " ");
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
 
                 }else{
                     this.add(bouton);
