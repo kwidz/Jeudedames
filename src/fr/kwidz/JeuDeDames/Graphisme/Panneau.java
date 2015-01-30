@@ -25,9 +25,10 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 Bouton bouton =damier.lesCases[i][j].boutonContenu;
-                        bouton.setBorderPainted(false);
+                bouton.setBorderPainted(false);
                 bouton.setFocusPainted(false);
                 bouton.setContentAreaFilled(false);
+
 
 
                 this.add(bouton);
