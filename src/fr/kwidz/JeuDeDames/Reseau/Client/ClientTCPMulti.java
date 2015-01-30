@@ -3,6 +3,10 @@ package fr.kwidz.JeuDeDames.Reseau.Client;
 import fr.kwidz.JeuDeDames.Reseau.*;
 import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -11,11 +15,24 @@ import java.util.Scanner;
 /**
  * Created by kwidz on 23/01/15.
  */
-public class ClientTCPMulti {
+public class ClientTCPMulti implements ActionListener{
+
 
 
     public static void main(String[] args) {
 
+
+        JPanel p = new JPanel();
+        JFrame fenetre = new JFrame();
+        fenetre.setTitle("Jeu de Dames En reseau");
+        fenetre.setSize(610, 630);
+        fenetre.setLocationRelativeTo(null);
+        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fenetre.setContentPane(p);
+        fenetre.setVisible(true);
+
+
+        boolean jetonDeJeu = false;
         Scanner sc = new Scanner(System.in);
         // Creation de la socket
         Socket socket = null;
@@ -40,21 +57,23 @@ public class ClientTCPMulti {
             System.exit(-1);
         }
         String message = "";
-        ThreadEcoute t = new ThreadEcoute(input);
+        ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu);
         t.start();
-        while(true) {
 
-            message = sc.nextLine();
-            output.println(message);
-
-
-
-
-
-}
+        JButton boutonJouer = new JButton("cliquez ici pour jouer un coup !");
+        JLabel text = new JLabel("Bienvenue dans le jeu de Dames");
+        p.add(boutonJouer);
+        p.add(text);
+        fenetre.setContentPane(p);
 
 
 
+
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
 
     }
 }
