@@ -17,7 +17,7 @@ public class Panneau extends JPanel{
     public Panneau(Damier d, Fenetre fenetre){
         fenetre.setContentPane(this);
         tailleFenetreW = fenetre.getWidth()/10;
-        tailleFenetreH = fenetre.getWidth()/10;
+        tailleFenetreH = fenetre.getHeight()/10;
         this.damier = d;
         this.setLayout(null);
         System.out.println(tailleFenetreW);
@@ -25,7 +25,7 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
 
-                Bouton b = new Bouton();
+
                 this.add(damier.lesCases[i][j].boutonContenu);
                 damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                    // this.add(new JButton(" "+i+";"+j+" "));
@@ -51,12 +51,14 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
+                    damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     //this.damier.lesCases[i][j].boutonContenu.ModifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
                     //g.setColor(new Color(182, 175, 157));
                     //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
                 }else{g.setColor(new Color(253, 252, 222));
+                    damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                    // g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     }
             }
