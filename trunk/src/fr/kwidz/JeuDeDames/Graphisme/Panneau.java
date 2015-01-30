@@ -29,7 +29,7 @@ public class Panneau extends JPanel{
                 bouton.setFocusPainted(false);
                 bouton.setContentAreaFilled(false);*/
 
-                bouton.setMargin(new Insets(0,0,0,0));
+                //bouton.setMargin(new Insets(0,0,0,0));
 
 
 
@@ -58,6 +58,7 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
+                    damier.lesCases[i][j].boutonContenu.setBackground(Color.BLACK);
                     damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     //this.damier.lesCases[i][j].boutonContenu.ModifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
                     //g.setColor(new Color(182, 175, 157));
@@ -65,6 +66,7 @@ public class Panneau extends JPanel{
 
 
                 }else{g.setColor(new Color(253, 252, 222));
+                    damier.lesCases[i][j].boutonContenu.setBackground(Color.white);
                     damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                    // g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     }
