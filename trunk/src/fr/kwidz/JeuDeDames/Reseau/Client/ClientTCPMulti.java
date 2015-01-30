@@ -16,7 +16,7 @@ public class ClientTCPMulti{
 
     public static void main(String[] args) {
 
-        boolean jetonDeJeu = true;
+        GestionaireDeTours jetonDeJeu = new GestionaireDeTours();
         Scanner sc = new Scanner(System.in);
         // Creation de la socket
         Socket socket = null;
@@ -44,12 +44,6 @@ public class ClientTCPMulti{
         String message = "";
         ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f);
         t.start();
-
-        while(true){
-            System.out.println(jetonDeJeu);
-        }
-
-
 
     }
 
