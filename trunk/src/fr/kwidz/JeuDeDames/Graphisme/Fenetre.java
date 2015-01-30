@@ -12,7 +12,7 @@ import java.awt.event.ComponentEvent;
 public class Fenetre extends JFrame{
     public Panneau tableauJeu;
     public Fenetre self = this;
-        public  Fenetre(Panneau p){
+        public  Fenetre(){
 
             this.addComponentListener(new ComponentAdapter()
             {
@@ -26,7 +26,7 @@ public class Fenetre extends JFrame{
                 }
             });
 
-            this.tableauJeu = p;
+            //this.tableauJeu = p;
             this.setTitle("Jeu de Dames");
             this.setSize(610, 630);
             this.setLocationRelativeTo(null);
@@ -35,7 +35,7 @@ public class Fenetre extends JFrame{
             this.add(b);
             b.modifierBouton(0,0,50,50);*/
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.setContentPane(this.tableauJeu);
+            //this.setContentPane(this.tableauJeu);
             this.setVisible(true);
         }
 

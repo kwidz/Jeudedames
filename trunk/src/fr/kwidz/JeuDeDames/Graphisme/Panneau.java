@@ -14,19 +14,20 @@ public class Panneau extends JPanel{
     Damier damier;
     int tailleFenetreH;
     int tailleFenetreW;
-    public Panneau(Damier d){
-        tailleFenetreW = this.getWidth();
-        tailleFenetreH = 630/10;
+    public Panneau(Damier d, Fenetre fenetre){
+        fenetre.setContentPane(this);
+        tailleFenetreW = fenetre.getWidth()/10;
+        tailleFenetreH = fenetre.getWidth()/10;
         this.damier = d;
-        //this.setLayout(null);
+        this.setLayout(null);
         System.out.println(tailleFenetreW);
 
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
 
                 Bouton b = new Bouton();
-                this.add(b);
-                b.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                this.add(damier.lesCases[i][j].boutonContenu);
+                damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                    // this.add(new JButton(" "+i+";"+j+" "));
                     //g.setColor(new Color(182, 175, 157));
                     //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
