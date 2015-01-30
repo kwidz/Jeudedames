@@ -13,13 +13,15 @@ public class Bouton extends JButton{
     int width;
     int height;
     public Bouton(){
-
+        fondBouton = new JPanel();
+        fondBouton.setBackground(Color.cyan);
         //La taille en hauteur et en largeur
-
+        this.add(fondBouton);
         //content.add(cell1, gbc);
     }
 
     public void modifierBouton(int x, int y, int w, int h){
+
         this.posX = x;
         this.posY = y;
         this.width = w;

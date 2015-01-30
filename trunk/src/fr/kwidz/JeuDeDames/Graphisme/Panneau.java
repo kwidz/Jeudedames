@@ -15,10 +15,10 @@ public class Panneau extends JPanel{
     int tailleFenetreH;
     int tailleFenetreW;
     public Panneau(Damier d){
-        tailleFenetreW = 610/10;
+        tailleFenetreW = this.getWidth();
         tailleFenetreH = 630/10;
         this.damier = d;
-        this.setLayout(null);
+        //this.setLayout(null);
         System.out.println(tailleFenetreW);
 
         for(int i = 0 ; i < 10 ; i++){
