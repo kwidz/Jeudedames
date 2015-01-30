@@ -25,19 +25,19 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 Bouton bouton =damier.lesCases[i][j].boutonContenu;
-                /*bouton.setBorderPainted(false);
-                bouton.setFocusPainted(false);
-                bouton.setContentAreaFilled(false);*/
 
-                //bouton.setMargin(new Insets(0,0,0,0));
+                if(this.damier.lesCases[i][j] instanceof CaseNoire){
+                    this.add(bouton);
+                    bouton.setBackground(Color.black);
+                    bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+
+                }else{
+                    this.add(bouton);
+                    bouton.setBackground(Color.white);
+                    bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                }
 
 
-
-                this.add(bouton);
-                bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
-                   // this.add(new JButton(" "+i+";"+j+" "));
-                    //g.setColor(new Color(182, 175, 157));
-                    //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
 
@@ -45,6 +45,7 @@ public class Panneau extends JPanel{
 
 
         }
+        this.repaint();
     }
 
     public void paintComponent(Graphics g){
@@ -58,17 +59,14 @@ public class Panneau extends JPanel{
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    damier.lesCases[i][j].boutonContenu.setBackground(Color.BLACK);
+
                     damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
-                    //this.damier.lesCases[i][j].boutonContenu.ModifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
-                    //g.setColor(new Color(182, 175, 157));
-                    //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
-                }else{g.setColor(new Color(253, 252, 222));
-                    damier.lesCases[i][j].boutonContenu.setBackground(Color.white);
+                }else{
+
                     damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
-                   // g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+
                     }
             }
         }
