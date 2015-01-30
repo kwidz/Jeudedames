@@ -8,8 +8,8 @@ import fr.kwidz.JeuDeDames.Jeu.Damier;
 public class Affichage {
      Fenetre fenetre;
     Panneau interfac;
-    public Affichage(){
-        this.interfac = new Panneau();
+    public Affichage(Damier d){
+        this.interfac = new Panneau(d);
         this.fenetre = new Fenetre(interfac);
        
     }

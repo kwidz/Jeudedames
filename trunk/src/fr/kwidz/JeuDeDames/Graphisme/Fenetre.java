@@ -30,6 +30,10 @@ public class Fenetre extends JFrame{
             this.setTitle("Jeu de Dames");
             this.setSize(610, 630);
             this.setLocationRelativeTo(null);
+            this.setLayout(null);
+            /*Bouton b = new Bouton();
+            this.add(b);
+            b.modifierBouton(0,0,50,50);*/
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.setContentPane(this.tableauJeu);
             this.setVisible(true);

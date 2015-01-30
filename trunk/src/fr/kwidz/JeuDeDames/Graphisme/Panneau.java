@@ -14,21 +14,49 @@ public class Panneau extends JPanel{
     Damier damier;
     int tailleFenetreH;
     int tailleFenetreW;
+    public Panneau(Damier d){
+        tailleFenetreW = 610/10;
+        tailleFenetreH = 630/10;
+        this.damier = d;
+        this.setLayout(null);
+        System.out.println(tailleFenetreW);
+
+        for(int i = 0 ; i < 10 ; i++){
+            for(int j = 0 ; j < 10 ; j++){
+
+                Bouton b = new Bouton();
+                this.add(b);
+                b.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                   // this.add(new JButton(" "+i+";"+j+" "));
+                    //g.setColor(new Color(182, 175, 157));
+                    //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+
+
+
+            }
+
+
+        }
+    }
+
     public void paintComponent(Graphics g){
+
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
-
+       // Bouton test = new Bouton();
+        //test.ModifierBouton(10*this.tailleFenetreW,10*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
+        //this.add(test.fondBouton, test.tableauB);
         if(this.damier != null)
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    this.add(new JButton("test"));
-                    g.setColor(new Color(182, 175, 157));
-                    g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                    //this.damier.lesCases[i][j].boutonContenu.ModifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
+                    //g.setColor(new Color(182, 175, 157));
+                    //g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
 
                 }else{g.setColor(new Color(253, 252, 222));
-                    g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                   // g.fillRect(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     }
             }
         }
