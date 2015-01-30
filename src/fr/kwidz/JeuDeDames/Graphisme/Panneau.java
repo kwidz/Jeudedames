@@ -32,10 +32,11 @@ public class Panneau extends JPanel{
                     this.add(bouton);
                     bouton.setBackground(Color.black);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                    bouton.modifierCoordonneeCase(i,j);
                     bouton.addMouseListener(new MouseListener() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-                            System.out.println(" " + bouton.posX + " " + bouton.posY+ " ");
+                            System.out.println("x : " + bouton.caseX + " y :" + bouton.caseY+ " ");
                         }
 
                         @Override

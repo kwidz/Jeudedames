@@ -12,6 +12,8 @@ public class Bouton extends JPanel{
     int posY;
     int width;
     int height;
+    int caseX;
+    int caseY;
     public Bouton(){
         //this.setLayout(null);
         //this.setBackground(Color.black);
@@ -31,6 +33,12 @@ public class Bouton extends JPanel{
         this.width = w;
         this.height = h;
         this.setBounds(this.posX,this.posY,this.width, this.height);
+    }
+
+    public void modifierCoordonneeCase(int x, int y){
+        this.caseX = x;
+        this.caseY = y;
+
     }
 
 
