@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by morgane on 28/01/15.
  */
-public class Bouton extends JButton{
+public class Bouton extends JPanel{
     JPanel fondBouton;
     int posX;
     int posY;
@@ -14,9 +14,11 @@ public class Bouton extends JButton{
     int height;
     public Bouton(){
         //this.setLayout(null);
-        fondBouton = new JPanel();
-        fondBouton.setBackground(Color.black);
-        this.add(fondBouton);
+        //this.setBackground(Color.black);
+
+        //fondBouton = new JPanel();
+        //fondBouton.setBackground(Color.black);
+        //this.add(fondBouton);
         //La taille en hauteur et en largeur
 
         //content.add(cell1, gbc);
