@@ -1,12 +1,7 @@
 package fr.kwidz.JeuDeDames.Reseau.Client;
 
-import fr.kwidz.JeuDeDames.Reseau.*;
 import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -15,24 +10,13 @@ import java.util.Scanner;
 /**
  * Created by kwidz on 23/01/15.
  */
-public class ClientTCPMulti implements ActionListener{
+public class ClientTCPMulti{
 
 
 
     public static void main(String[] args) {
 
-
-        JPanel p = new JPanel();
-        JFrame fenetre = new JFrame();
-        fenetre.setTitle("Jeu de Dames En reseau");
-        fenetre.setSize(610, 630);
-        fenetre.setLocationRelativeTo(null);
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setContentPane(p);
-        fenetre.setVisible(true);
-
-
-        boolean jetonDeJeu = false;
+        boolean jetonDeJeu = true;
         Scanner sc = new Scanner(System.in);
         // Creation de la socket
         Socket socket = null;
@@ -56,24 +40,17 @@ public class ClientTCPMulti implements ActionListener{
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
         }
+        FenetreClient f = new FenetreClient(jetonDeJeu, output);
         String message = "";
-        ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu);
+        ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f);
         t.start();
 
-        JButton boutonJouer = new JButton("cliquez ici pour jouer un coup !");
-        JLabel text = new JLabel("Bienvenue dans le jeu de Dames");
-        p.add(boutonJouer);
-        p.add(text);
-        fenetre.setContentPane(p);
-
-
+        while(true){
+            System.out.println(jetonDeJeu);
+        }
 
 
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }
 }
