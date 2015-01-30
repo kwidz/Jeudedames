@@ -14,9 +14,9 @@ public class Bouton extends JButton{
     int height;
     public Bouton(){
         fondBouton = new JPanel();
-        fondBouton.setBackground(Color.cyan);
+
         //La taille en hauteur et en largeur
-        this.add(fondBouton);
+
         //content.add(cell1, gbc);
     }
 
