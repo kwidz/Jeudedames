@@ -9,9 +9,9 @@ public class Affichage {
      Fenetre fenetre;
     Panneau interfac;
     public Affichage(Damier d){
-        this.interfac = new Panneau(d);
-        this.fenetre = new Fenetre(interfac);
-       
+
+        this.fenetre = new Fenetre();
+        this.interfac = new Panneau(d,fenetre);
     }
 
     public void raffraichir(Damier d){
