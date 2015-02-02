@@ -24,6 +24,8 @@ public class Bouton extends JPanel{
         //La taille en hauteur et en largeur
 
         //content.add(cell1, gbc);
+
+
     }
 
     public void modifierBouton(int x, int y, int w, int h){
