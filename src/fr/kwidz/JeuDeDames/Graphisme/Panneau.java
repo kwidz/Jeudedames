@@ -34,9 +34,17 @@ public class Panneau extends JPanel{
 
             try {
                 imageTest = ImageIO.read(new File("Images/minion.png"));
+
             } catch (IOException ex) {
                 System.out.print("ERREUR charge Image");
             }
+
+
+
+
+        System.out.print(imageTest.getHeight());
+
+
 
 
         for(int i = 0 ; i < 10 ; i++){
@@ -81,6 +89,7 @@ public class Panneau extends JPanel{
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
                     JLabel picLabel = new JLabel(new ImageIcon(imageTest));
+
                     bouton.add(picLabel);
 
                 }
@@ -102,6 +111,8 @@ public class Panneau extends JPanel{
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
 
+
+
         if(this.damier != null)
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
@@ -117,7 +128,7 @@ public class Panneau extends JPanel{
                     }
             }
         }
-        g.drawImage(imageTest,50,50, 70,90,null);
+        //g.drawImage(imageTest,50,50, 70,90,null);
 
 
 
