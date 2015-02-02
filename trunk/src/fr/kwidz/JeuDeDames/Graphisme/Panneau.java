@@ -44,7 +44,7 @@ public class Panneau extends JPanel{
                 final Bouton bouton =damier.lesCases[i][j].boutonContenu;
 
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    //this.add(bouton);
+                    this.add(bouton);
                     bouton.setBackground(Color.black);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     bouton.modifierCoordonneeCase(i,j);
@@ -76,9 +76,13 @@ public class Panneau extends JPanel{
                     });
 
                 }else{
-                    //this.add(bouton);
+                    this.add(bouton);
                     bouton.setBackground(Color.white);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+
+                    JLabel picLabel = new JLabel(new ImageIcon(imageTest));
+                    bouton.add(picLabel);
+
                 }
 
 
