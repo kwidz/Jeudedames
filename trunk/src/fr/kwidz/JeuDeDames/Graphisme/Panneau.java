@@ -33,7 +33,7 @@ public class Panneau extends JPanel{
 
 
             try {
-                imageTest = ImageIO.read(new File("Image/minion.png"));
+                imageTest = ImageIO.read(new File("Images/minion.png"));
             } catch (IOException ex) {
                 System.out.print("ERREUR charge Image");
             }
@@ -44,7 +44,7 @@ public class Panneau extends JPanel{
                 final Bouton bouton =damier.lesCases[i][j].boutonContenu;
 
                 if(this.damier.lesCases[i][j] instanceof CaseNoire){
-                    this.add(bouton);
+                    //this.add(bouton);
                     bouton.setBackground(Color.black);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                     bouton.modifierCoordonneeCase(i,j);
@@ -76,7 +76,7 @@ public class Panneau extends JPanel{
                     });
 
                 }else{
-                    this.add(bouton);
+                    //this.add(bouton);
                     bouton.setBackground(Color.white);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
                 }
@@ -89,6 +89,7 @@ public class Panneau extends JPanel{
 
 
         }
+
         this.repaint();
     }
 
@@ -112,8 +113,10 @@ public class Panneau extends JPanel{
                     }
             }
         }
+        g.drawImage(imageTest,50,50, 70,90,null);
 
-        g.drawImage(imageTest, 0,0, null);
+
+
     }
 
     public Damier getDamier(){
