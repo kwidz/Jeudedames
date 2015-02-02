@@ -6,16 +6,22 @@ package fr.kwidz.JeuDeDames.Graphisme;
 
 import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 public class Panneau extends JPanel{
     Damier damier;
     int tailleFenetreH;
     int tailleFenetreW;
+    BufferedImage imageTest;
     public Panneau(Damier d, Fenetre fenetre){
         fenetre.setContentPane(this);
         tailleFenetreW = fenetre.getWidth()/10;
@@ -23,6 +29,15 @@ public class Panneau extends JPanel{
         this.damier = d;
         this.setLayout(null);
         System.out.println(tailleFenetreW);
+
+
+
+            try {
+                imageTest = ImageIO.read(new File("Image/minion.png"));
+            } catch (IOException ex) {
+                System.out.print("ERREUR charge Image");
+            }
+
 
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
@@ -81,9 +96,7 @@ public class Panneau extends JPanel{
 
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
-       // Bouton test = new Bouton();
-        //test.ModifierBouton(10*this.tailleFenetreW,10*this.tailleFenetreH,Color.black,tailleFenetreH,tailleFenetreW);
-        //this.add(test.fondBouton, test.tableauB);
+
         if(this.damier != null)
         for(int i = 0 ; i < 10 ; i++){
             for(int j = 0 ; j < 10 ; j++){
@@ -99,6 +112,8 @@ public class Panneau extends JPanel{
                     }
             }
         }
+
+        g.drawImage(imageTest, 0,0, null);
     }
 
     public Damier getDamier(){
