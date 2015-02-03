@@ -30,12 +30,12 @@ public class Dialogue {
             }
         }*/
         if (joueur%2==0){
-            outputs.get(joueur-1).println(message);
-            outputs.get(joueur-1).flush();
+            outputs.get(joueur-2).println(message);
+            outputs.get(joueur-2).flush();
         }else
         {
-            outputs.get(joueur+1).println(message);
-            outputs.get(joueur+1).flush();
+            outputs.get(joueur).println(message);
+            outputs.get(joueur).flush();
         }
     }
 }
