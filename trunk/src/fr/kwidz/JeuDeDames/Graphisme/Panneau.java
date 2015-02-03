@@ -113,9 +113,9 @@ public class Panneau extends JPanel{
                         damier.lesCases[i][j].boutonContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                         if(damier.lesCases[i][j].pion != null){
                             if(damier.lesCases[i][j].pion.blanc){
-                                damier.lesCases[i][j].boutonContenu.dessinerPion(i , j , tailleFenetreW-10, tailleFenetreH-10, Color.white);
+                                damier.lesCases[i][j].boutonContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white);
                             }else{
-                                damier.lesCases[i][j].boutonContenu.dessinerPion(i , j , tailleFenetreW-10, tailleFenetreH-10, Color.red);
+                                damier.lesCases[i][j].boutonContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red);
                             }
                         }
 
