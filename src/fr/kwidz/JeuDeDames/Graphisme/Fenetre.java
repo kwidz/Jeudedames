@@ -17,6 +17,7 @@ public class Fenetre extends JFrame{
             this.addComponentListener(new ComponentAdapter()
             {
                 public void componentResized(ComponentEvent evt) {
+
                     if(self.getHeight()>self.getWidth()) {
                         self.setSize(self.getHeight(), self.getHeight());
                     }

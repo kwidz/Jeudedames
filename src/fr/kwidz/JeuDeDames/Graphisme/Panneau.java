@@ -100,9 +100,9 @@ public class Panneau extends JPanel{
 
     public void paintComponent(Graphics g){
 
+
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
-
 
 
         if(this.damier != null) {
@@ -111,7 +111,7 @@ public class Panneau extends JPanel{
                     if (this.damier.lesCases[i][j] instanceof CaseNoire) {
 
                         damier.lesCases[i][j].boutonContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
-
+                        damier.lesCases[i][j].boutonContenu.dessinerPion(i , j , tailleFenetreW, tailleFenetreH);
 
                     } else {
 
@@ -120,7 +120,10 @@ public class Panneau extends JPanel{
                     }
                 }
             }
+
+
         }
+
 
 
 
