@@ -25,6 +25,7 @@ public class ThreadEcoute extends Thread{
             String message = "";
             try {
                 message = input.readLine();
+                System.out.println("message : "+message);
                 if(message=="joueur1"){
                     jetonDeJeu.setJeton(false);
                     f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");

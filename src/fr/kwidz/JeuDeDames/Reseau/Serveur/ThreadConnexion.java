@@ -17,7 +17,7 @@ public class ThreadConnexion extends Thread{
     public ThreadConnexion(Socket socketClient, Dialogue d) {
         this.d = d;
         this.socketClient = socketClient;
-
+        System.out.println("connection d'un client");
         // Association d'un flux d'entree et de sortie
         try {
             input = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
@@ -31,14 +31,21 @@ public class ThreadConnexion extends Thread{
         String player="";
         if(d.outputs.size()%2==0){
             player="joueur2";
+            System.out.println("le joueur 2 arrive");
         }
         else{
             player="joueur1";
+            System.out.println("le joueur 1 arrive");
+
         }
         this.joueur=d.outputs.size();
-        output.print(player);
-        output.flush();
+        if(player.equals("joueur1"))
+            d.envoyer(player,output,joueur+1);
+        else
+            d.envoyer(player,output,joueur-1);
+
         if(player=="joueur2"){
+            System.out.println("le joueur 2 se connecte");
             d.envoyer("connectionJ2",output,this.joueur);
         }
     }
