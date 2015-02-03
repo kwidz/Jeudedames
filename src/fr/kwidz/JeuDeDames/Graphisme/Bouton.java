@@ -19,6 +19,7 @@ public class Bouton extends JPanel{
     int pionPosY;
     int pionWidth = 0;
     int pionHeight;
+    Color couleurPion;
 
 
 
@@ -46,17 +47,18 @@ this.repaint();
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         if(this.pionWidth != 0){
-            g.setColor(Color.red);
+            g.setColor(this.couleurPion);
             g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
         }
         this.repaint();
     }
 
-    public void dessinerPion(int x, int y, int w, int h){
+    public void dessinerPion(int x, int y, int w, int h, Color c){
         this.pionPosX = x;
         this.pionPosY = y;
         this.pionWidth = w;
         this.pionHeight = h;
+        this.couleurPion = c;
        // this.g.setColor(Color.red);
         //this.g.fillOval(this.pionPosX,this.pionPosY,this.pionWidth,this.pionHeight);
        this.repaint();
