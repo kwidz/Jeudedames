@@ -111,7 +111,7 @@ public class Panneau extends JPanel{
                     if (this.damier.lesCases[i][j] instanceof CaseNoire) {
 
                         damier.lesCases[i][j].boutonContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
-                        damier.lesCases[i][j].boutonContenu.dessinerPion(i , j , tailleFenetreW-10, tailleFenetreH-10);
+                        damier.lesCases[i][j].boutonContenu.dessinerPion(i , j , tailleFenetreW-10, tailleFenetreH-10, Color.blue);
 
                     } else {
 
