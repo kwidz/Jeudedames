@@ -25,16 +25,16 @@ public class ThreadEcoute extends Thread{
             String message = "";
             try {
                 message = input.readLine();
-                System.out.println("message : "+message);
-                if(message=="joueur1"){
+                System.out.println("message : " + message);
+                if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
                     f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
                 }else
-                if(message=="joueur2"){
+                if(message.equals("joueur2")){
                     jetonDeJeu.setJeton(false);
                     f.text.setText("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
                 }else
-                if(message=="connectionJ2"){
+                if(message.equals("connectionJ2")){
                     jetonDeJeu.setJeton(true);
                     f.text.setText("Un joueur s'est connecté a vous de jouer !");
                 }else {
