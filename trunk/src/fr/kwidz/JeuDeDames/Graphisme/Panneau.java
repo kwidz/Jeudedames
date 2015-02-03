@@ -21,7 +21,8 @@ public class Panneau extends JPanel{
     Damier damier;
     int tailleFenetreH;
     int tailleFenetreW;
-    BufferedImage imageTest;
+
+
     public Panneau(Damier d, Fenetre fenetre){
         fenetre.setContentPane(this);
         tailleFenetreW = fenetre.getWidth()/10;
@@ -32,17 +33,9 @@ public class Panneau extends JPanel{
 
 
 
-            try {
-                imageTest = ImageIO.read(new File("Images/minion.png"));
-
-            } catch (IOException ex) {
-                System.out.print("ERREUR charge Image");
-            }
 
 
 
-
-        System.out.print(imageTest.getHeight());
 
 
 
@@ -88,9 +81,7 @@ public class Panneau extends JPanel{
                     bouton.setBackground(Color.white);
                     bouton.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
 
-                    JLabel picLabel = new JLabel(new ImageIcon(imageTest));
 
-                    bouton.add(picLabel);
 
                 }
 
@@ -104,6 +95,7 @@ public class Panneau extends JPanel{
         }
 
         this.repaint();
+
     }
 
     public void paintComponent(Graphics g){
@@ -113,22 +105,24 @@ public class Panneau extends JPanel{
 
 
 
-        if(this.damier != null)
-        for(int i = 0 ; i < 10 ; i++){
-            for(int j = 0 ; j < 10 ; j++){
-                if(this.damier.lesCases[i][j] instanceof CaseNoire){
+        if(this.damier != null) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < 10; j++) {
+                    if (this.damier.lesCases[i][j] instanceof CaseNoire) {
 
-                    damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                        damier.lesCases[i][j].boutonContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
 
 
-                }else{
+                    } else {
 
-                    damier.lesCases[i][j].boutonContenu.modifierBouton(i*this.tailleFenetreW,j*this.tailleFenetreH,tailleFenetreW,tailleFenetreH);
+                        damier.lesCases[i][j].boutonContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
 
                     }
+                }
             }
         }
-        //g.drawImage(imageTest,50,50, 70,90,null);
+
+
 
 
 
@@ -147,39 +141,3 @@ public class Panneau extends JPanel{
 
 }
 
-
-
-  /*JButton bouton = new JButton("jouer");
-    public Panneau()  {
-        //this.setBackground(Color.red);
-        //this.ajoutPion();
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                System.out.print("cliqueSouri");
-            }
-        });
-        bouton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.print("clique");
-
-            }
-        });
-        this.add(bouton);
-
-    }
-
-
-
-    public void ajoutPion() {
-        BufferedImage myPicture = null;
-        try {
-            myPicture = ImageIO.read(new File("Images/pion.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-        add(picLabel);
-    }*/
