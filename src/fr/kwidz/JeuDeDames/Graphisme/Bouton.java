@@ -14,16 +14,13 @@ public class Bouton extends JPanel{
     int height;
     int caseX;
     int caseY;
+
+    int pionPosX;
+    int pionPosY;
+    int pionWidth = 0;
+    int pionHeight;
+
     public Bouton(){
-        //this.setLayout(null);
-        //this.setBackground(Color.black);
-
-        //fondBouton = new JPanel();
-        //fondBouton.setBackground(Color.black);
-        //this.add(fondBouton);
-        //La taille en hauteur et en largeur
-
-        //content.add(cell1, gbc);
 
 
     }
@@ -35,6 +32,7 @@ public class Bouton extends JPanel{
         this.width = w;
         this.height = h;
         this.setBounds(this.posX,this.posY,this.width, this.height);
+
     }
 
     public void modifierCoordonneeCase(int x, int y){
@@ -43,6 +41,20 @@ public class Bouton extends JPanel{
 
     }
 
+    /*public void paintComponent(Graphics g){
+        if(this.pionWidth != 0){
+            g.setColor(Color.red);
+            g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+        }
 
+    }*/
+
+    public void dessinerPion(int x, int y, int w, int h){
+        this.pionPosX = x;
+        this.pionPosY = y;
+        this.pionWidth = w;
+         this.pionHeight = h;
+        this.repaint();
+    }
 
 }
