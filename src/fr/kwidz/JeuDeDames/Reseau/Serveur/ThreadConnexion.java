@@ -12,6 +12,7 @@ public class ThreadConnexion extends Thread{
     private PrintWriter output;
     private Socket socketClient;
     private Dialogue d;
+    private int joueur;
 
     public ThreadConnexion(Socket socketClient, Dialogue d) {
         this.d = d;
@@ -27,6 +28,15 @@ public class ThreadConnexion extends Thread{
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
         }
+        String player="";
+        if(d.outputs.size()%2==0){
+            player="joueur2";
+        }
+        else{
+            player="joueur1";
+        }
+        output.print(player);
+        output.flush();
     }
 
 
@@ -46,7 +56,7 @@ public class ThreadConnexion extends Thread{
 
 
             System.out.println("Envoi: " + message);
-            d.envoyer(message, output);
+            d.envoyer(message, output,joueur);
 
         }
     }

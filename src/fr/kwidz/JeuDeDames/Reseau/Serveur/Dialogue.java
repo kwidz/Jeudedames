@@ -17,7 +17,7 @@ public class Dialogue {
 
     }
 
-    public void envoyer(String message, PrintWriter myOutput){
+    public void envoyer(String message, PrintWriter myOutput, int joueur){
         PrintWriter output = null;
         for (int i = 0; i < outputs.size(); i++) {
             if (outputs.get(i) != myOutput){
