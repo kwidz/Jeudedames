@@ -25,9 +25,22 @@ public class ThreadEcoute extends Thread{
             String message = "";
             try {
                 message = input.readLine();
-                System.out.println("Lu: " + message);
-                jetonDeJeu.setJeton(true);
-                f.text.setText("l'adversaire a joué, c'est a vous !");
+                if(message=="joueur1"){
+                    jetonDeJeu.setJeton(false);
+                    f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
+                }else
+                if(message=="joueur2"){
+                    jetonDeJeu.setJeton(false);
+                    f.text.setText("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
+                }else
+                if(message=="connectionJ2"){
+                    jetonDeJeu.setJeton(true);
+                    f.text.setText("Un joueur s'est connecté a vous de jouer !");
+                }else {
+                    System.out.println("Lu: " + message);
+                    jetonDeJeu.setJeton(true);
+                    f.text.setText("l'adversaire a joué, c'est a vous !");
+                }
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);

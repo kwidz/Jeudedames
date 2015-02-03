@@ -38,6 +38,9 @@ public class ThreadConnexion extends Thread{
         this.joueur=d.outputs.size();
         output.print(player);
         output.flush();
+        if(player=="joueur2"){
+            d.envoyer("connectionJ2",output,this.joueur);
+        }
     }
 
 
