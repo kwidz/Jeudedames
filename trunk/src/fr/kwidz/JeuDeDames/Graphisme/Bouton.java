@@ -45,7 +45,9 @@ this.repaint();
     }
 
     public void paintComponent(Graphics g){
+        //g.dispose();
         super.paintComponent(g);
+
         if(this.pionWidth != 0){
             g.setColor(this.couleurPion);
             g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
