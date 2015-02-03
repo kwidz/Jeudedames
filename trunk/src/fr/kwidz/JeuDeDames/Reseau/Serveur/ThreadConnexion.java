@@ -35,6 +35,7 @@ public class ThreadConnexion extends Thread{
         else{
             player="joueur1";
         }
+        this.joueur=d.outputs.size();
         output.print(player);
         output.flush();
     }

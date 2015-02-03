@@ -19,7 +19,7 @@ public class Dialogue {
 
     public void envoyer(String message, PrintWriter myOutput, int joueur){
         PrintWriter output = null;
-        for (int i = 0; i < outputs.size(); i++) {
+        /*for (int i = 0; i < outputs.size(); i++) {
             if (outputs.get(i) != myOutput){
 
 
@@ -28,6 +28,14 @@ public class Dialogue {
 
 
             }
+        }*/
+        if (joueur%2==0){
+            outputs.get(joueur-1).println(message);
+            outputs.get(joueur-1).flush();
+        }else
+        {
+            outputs.get(joueur+1).println(message);
+            outputs.get(joueur+1).flush();
         }
     }
 }
