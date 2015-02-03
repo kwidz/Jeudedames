@@ -19,6 +19,7 @@ import java.io.IOException;
 
 public class Panneau extends JPanel{
     Damier damier;
+    public Panneau self = this;
     int tailleFenetreH;
     int tailleFenetreW;
 
@@ -53,6 +54,8 @@ public class Panneau extends JPanel{
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             System.out.println("x : " + bouton.caseX + " y :" + bouton.caseY+ " ");
+                            //self.damier.lesCases[bouton.caseX][bouton.caseY].pion = null;
+                           // self.repaint();
                         }
 
                         @Override
@@ -100,7 +103,7 @@ public class Panneau extends JPanel{
 
     public void paintComponent(Graphics g){
 
-
+    //g.dispose();
         tailleFenetreW = this.getWidth()/10;
         tailleFenetreH = this.getHeight()/10;
 
