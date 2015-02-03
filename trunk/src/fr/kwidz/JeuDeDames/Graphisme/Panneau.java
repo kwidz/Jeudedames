@@ -6,10 +6,12 @@ package fr.kwidz.JeuDeDames.Graphisme;
 
 import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
+import fr.kwidz.JeuDeDames.Jeu.Pion;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -53,9 +55,20 @@ public class Panneau extends JPanel{
                     bouton.addMouseListener(new MouseListener() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
+
                             System.out.println("x : " + bouton.caseX + " y :" + bouton.caseY+ " ");
-                            //self.damier.lesCases[bouton.caseX][bouton.caseY].pion = null;
-                           // self.repaint();
+                            if(self.damier.lesCases[bouton.caseX][bouton.caseY].pion != null){
+                                self.damier.lesCases[bouton.caseX][bouton.caseY].pion = null;
+                            }else{
+                                if(e.getButton() == MouseEvent.BUTTON1){
+                                    self.damier.lesCases[bouton.caseX][bouton.caseY].pion = new Pion(true);
+                                }else{
+                                    self.damier.lesCases[bouton.caseX][bouton.caseY].pion = new Pion(false);
+                                }
+
+                            }
+
+                           self.repaint();
                         }
 
                         @Override
@@ -120,6 +133,8 @@ public class Panneau extends JPanel{
                             }else{
                                 damier.lesCases[i][j].boutonContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red);
                             }
+                        }else{
+                            damier.lesCases[i][j].boutonContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
                         }
 
 
