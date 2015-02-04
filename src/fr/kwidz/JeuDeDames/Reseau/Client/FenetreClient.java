@@ -14,6 +14,7 @@ public class FenetreClient extends JFrame implements ActionListener{
     JLabel text = new JLabel("Bienvenue dans le jeu de Dames");
     private GestionaireDeTours jeton;
     PrintWriter outpout;
+
     public FenetreClient(GestionaireDeTours jeton, PrintWriter output){
         this.outpout = output;
         this.jeton = jeton;
@@ -28,7 +29,6 @@ public class FenetreClient extends JFrame implements ActionListener{
         p.add(boutonJouer);
         p.add(text);
         this.setContentPane(p);
-
     }
 
     @Override
