@@ -66,12 +66,16 @@ public class Panneau extends JPanel{
                             }
                             self.repaint();
                             */
-
-                            if(listeCaseSelectionne.indexOf(e.getSource()) == -1){
+                            CaseDrawable caseClique = (CaseDrawable) e.getSource();
+                            if(listeCaseSelectionne.indexOf(caseClique) == -1){ //si il n'est pas dans le tableau
                                 System.out.println("contient pas");
-                                listeCaseSelectionne.add(e.getSource());
-                            }else{
+                                caseClique.setBackground(Color.gray);
+                                //caseClique.effacerPion();
+                                listeCaseSelectionne.add(caseClique);
+                                System.out.println(listeCaseSelectionne.size());
+                            }else{ // il a déja été selectionne, donc il faut le désélectionner
                                 System.out.println("contient");
+                                self.deselectionnerTouteCase();
                             }
 
 
@@ -140,7 +144,7 @@ public class Panneau extends JPanel{
                                 damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red);
                             }
                         }else{
-                            damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
+                            //damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
                         }
 
 
@@ -169,6 +173,16 @@ public class Panneau extends JPanel{
     public void setDamier(Damier d){
         this.damier = d;
 
+    }
+
+    public void deselectionnerTouteCase(){
+
+        for(int i = 0; i< listeCaseSelectionne.size() ; i++){
+            CaseDrawable c = (CaseDrawable) listeCaseSelectionne.get(i);
+            c.setBackground(Color.black);
+            //listeCaseSelectionne.remove(i);
+        }
+        listeCaseSelectionne.clear();
     }
 
 
