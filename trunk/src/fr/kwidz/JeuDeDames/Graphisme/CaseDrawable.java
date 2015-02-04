@@ -51,6 +51,8 @@ this.repaint();
         if(this.pionWidth != 0){
             g.setColor(this.couleurPion);
             g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+        }else{
+            g.dispose();
         }
         this.repaint();
     }
@@ -64,6 +66,11 @@ this.repaint();
        // this.g.setColor(Color.red);
         //this.g.fillOval(this.pionPosX,this.pionPosY,this.pionWidth,this.pionHeight);
        this.repaint();
+    }
+
+    public void effacerPion(){
+        this.pionWidth = 0;
+        this.repaint();
     }
 
 }
