@@ -2,6 +2,7 @@ package fr.kwidz.JeuDeDames.Reseau.Client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.SocketException;
 import java.nio.Buffer;
 
 /**
@@ -12,16 +13,26 @@ public class ThreadEcoute extends Thread{
     BufferedReader input;
     public GestionaireDeTours jetonDeJeu;
     public FenetreClient f;
+    private boolean tourne = true;
+
+    public void setTourne(boolean tourne) {
+        this.tourne = tourne;
+    }
 
     public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, FenetreClient f) {
         this.input=input;this.jetonDeJeu=jetonDeJeu;
         this.f = f;
     }
-
+/*
+*
+* TODO : Améliorer le mvc pour éviter de changer le texte de la fenetre directement dans cette classe.
+*
+* */
     @Override
     public void run() {
 
-        while (true) {
+        while (tourne) {
+            System.out.println(tourne);
             String message = "";
             try {
                 message = input.readLine();
@@ -42,12 +53,20 @@ public class ThreadEcoute extends Thread{
                     jetonDeJeu.setJeton(true);
                     f.text.setText("l'adversaire a joué, c'est a vous !");
                 }
+            } catch (SocketException e){
+                System.err.println("Erreur lors de la lecture : " + e);
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);
 
             }
 
+        }
+        System.out.print("##########################");
+        try {
+            input.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

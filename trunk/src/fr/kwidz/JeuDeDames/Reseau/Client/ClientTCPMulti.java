@@ -17,6 +17,7 @@ public class ClientTCPMulti{
 
     public static void main(String[] args) {
 
+        DialogueAvecServeur dialogue;
         GestionaireDeTours jetonDeJeu = new GestionaireDeTours();
         Scanner sc = new Scanner(System.in);
         // Creation de la socket
@@ -36,19 +37,17 @@ public class ClientTCPMulti{
         PrintWriter output = null;
         try {
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            output = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+
         } catch(IOException e) {
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
         }
-        FenetreClient f = new FenetreClient(jetonDeJeu, output);
+        dialogue = new DialogueAvecServeur(socket);
+        FenetreClient f = new FenetreClient(jetonDeJeu, dialogue);
         String message = "";
         ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f);
+        dialogue.setThread(t);
         t.start();
-
-    }
-
-    public void fermerSockets(){
 
     }
 
