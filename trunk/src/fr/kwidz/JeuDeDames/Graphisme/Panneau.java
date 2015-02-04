@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 
 public class Panneau extends JPanel{
@@ -19,6 +20,7 @@ public class Panneau extends JPanel{
     public Panneau self = this;
     int tailleFenetreH;
     int tailleFenetreW;
+    ArrayList listeCaseSelectionne = new ArrayList();
 
 
     public Panneau(Damier d, Fenetre fenetre){
@@ -51,7 +53,7 @@ public class Panneau extends JPanel{
                         @Override
                         public void mouseClicked(MouseEvent e) {
 
-                            System.out.println("x : " + caseDrawableContenu.caseX + " y :" + caseDrawableContenu.caseY + " ");
+                            /*System.out.println("x : " + caseDrawableContenu.caseX + " y :" + caseDrawableContenu.caseY + " ");
                             if (self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion != null) {
                                 self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion = null;
                             } else {
@@ -62,8 +64,17 @@ public class Panneau extends JPanel{
                                 }
 
                             }
-
                             self.repaint();
+                            */
+
+                            if(listeCaseSelectionne.indexOf(e.getSource()) == -1){
+                                System.out.println("contient pas");
+                                listeCaseSelectionne.add(e.getSource());
+                            }else{
+                                System.out.println("contient");
+                            }
+
+
                         }
 
                         @Override
