@@ -52,27 +52,22 @@ public class Panneau extends JPanel{
                     caseDrawableContenu.addMouseListener(new MouseListener() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
-
-                            /*System.out.println("x : " + caseDrawableContenu.caseX + " y :" + caseDrawableContenu.caseY + " ");
-                            if (self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion != null) {
-                                self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion = null;
-                            } else {
-                                if (e.getButton() == MouseEvent.BUTTON1) {
-                                    self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion = new Pion(true);
-                                } else {
-                                    self.damier.lesCases[caseDrawableContenu.caseX][caseDrawableContenu.caseY].pion = new Pion(false);
-                                }
-
-                            }
-                            self.repaint();
-                            */
+                            //pour l'instant nous partirons du principe que le joueur
+                            // ne change pas davis et qu'il ne selectionne que deux case
                             CaseDrawable caseClique = (CaseDrawable) e.getSource();
                             if(listeCaseSelectionne.indexOf(caseClique) == -1){ //si il n'est pas dans le tableau
-                                System.out.println("contient pas");
-                                caseClique.setBackground(Color.gray);
-                                //caseClique.effacerPion();
-                                listeCaseSelectionne.add(caseClique);
-                                System.out.println(listeCaseSelectionne.size());
+                                if(listeCaseSelectionne.isEmpty()){ // si le tableau est vide alors cette case est la premiere
+                                    System.out.println("contient pas");
+                                    caseClique.setBackground(Color.gray);
+                                    listeCaseSelectionne.add(caseClique);
+                                }else{ // cette case est la case ou le pion doit se déplacer
+                                    CaseDrawable caseDeDebut = (CaseDrawable) listeCaseSelectionne.get(0);
+                                    caseClique.effacerPion();
+                                    caseClique.dessinerPion(caseDeDebut.pionPosX,caseDeDebut.pionPosY, caseDeDebut.pionWidth, caseDeDebut.pionHeight, caseDeDebut.couleurPion);
+                                    caseDeDebut.effacerPion();
+                                    self.deselectionnerTouteCase();
+                                }
+
                             }else{ // il a déja été selectionne, donc il faut le désélectionner
                                 System.out.println("contient");
                                 self.deselectionnerTouteCase();
