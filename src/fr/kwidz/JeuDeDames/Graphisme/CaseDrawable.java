@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by morgane on 28/01/15.
  */
-public class Bouton extends JPanel{
+public class CaseDrawable extends JPanel{
     JPanel fondBouton;
     int posX;
     int posY;
@@ -23,7 +23,7 @@ public class Bouton extends JPanel{
 
 
 
-    public Bouton(){
+    public CaseDrawable(){
 this.repaint();
 
     }
