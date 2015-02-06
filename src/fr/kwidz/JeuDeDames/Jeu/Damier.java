@@ -1,6 +1,7 @@
 package fr.kwidz.JeuDeDames.Jeu;
 
 
+import java.util.ArrayList;
 
 /**
  * Created by kwidz on 27/01/15.
@@ -30,5 +31,9 @@ public class Damier {
             }
             white=!white;
         }
+    }
+
+    public Case TrouverCheminPossible(Case uneCase){  //pour l'instant cette methode renvois une case aleatoire
+       return lesCases[2][3];
     }
 }

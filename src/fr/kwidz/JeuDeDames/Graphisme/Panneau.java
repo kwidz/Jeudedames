@@ -21,7 +21,7 @@ public class Panneau extends JPanel{
     public Panneau self = this;
     int tailleFenetreH;
     int tailleFenetreW;
-    ArrayList listeCaseSelectionne = new ArrayList();
+    //ArrayList listeCaseSelectionne = new ArrayList();
 
 
     public Panneau(Damier d, Fenetre fenetre){
@@ -172,7 +172,7 @@ public class Panneau extends JPanel{
 
     }
 
-    public void deselectionnerTouteCase(){
+ /*   public void deselectionnerTouteCase(){
 
         for(int i = 0; i< listeCaseSelectionne.size() ; i++){
             CaseDrawable c = (CaseDrawable) listeCaseSelectionne.get(i);
@@ -180,7 +180,7 @@ public class Panneau extends JPanel{
             //listeCaseSelectionne.remove(i);
         }
         listeCaseSelectionne.clear();
-    }
+    }*/
 
 
 
