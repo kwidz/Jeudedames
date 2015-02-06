@@ -57,9 +57,7 @@ this.repaint();
             g.dispose();
         }
 
-        if(this.estSelectionnee){
-            this.setBackground(Color.gray);
-        }
+
         this.repaint();
     }
 
@@ -81,10 +79,12 @@ this.repaint();
 
     public void Selectionner(){
         estSelectionnee = true;
+        this.setBackground(Color.gray);
     }
 
     public void DeSelectionner(){
         estSelectionnee = false;
+        this.setBackground(Color.black);
     }
 
 }
