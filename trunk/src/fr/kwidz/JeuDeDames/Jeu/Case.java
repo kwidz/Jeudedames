@@ -8,7 +8,10 @@ import fr.kwidz.JeuDeDames.Graphisme.CaseDrawable;
 public class Case{
     public CaseDrawable caseDrawableContenu;
     public Pion pion;
+    public Boolean estSelectionne;
     public Case(){
+
         caseDrawableContenu = new CaseDrawable();
+        estSelectionne =false;
     }
 }

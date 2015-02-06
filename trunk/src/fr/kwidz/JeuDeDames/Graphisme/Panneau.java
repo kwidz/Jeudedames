@@ -6,6 +6,7 @@ package fr.kwidz.JeuDeDames.Graphisme;
 
 import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
+import fr.kwidz.JeuDeDames.Jeu.EcouteCase;
 import fr.kwidz.JeuDeDames.Jeu.Pion;
 
 import javax.swing.*;
@@ -49,7 +50,8 @@ public class Panneau extends JPanel{
                     caseDrawableContenu.setBackground(Color.black);
                     caseDrawableContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                     caseDrawableContenu.modifierCoordonneeCase(i, j);
-                    caseDrawableContenu.addMouseListener(new MouseListener() {
+                    caseDrawableContenu.addMouseListener(new EcouteCase(this.damier.lesCases[i][j], this.damier));
+                    /*caseDrawableContenu.addMouseListener(new MouseListener() {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                             //pour l'instant nous partirons du principe que le joueur
@@ -95,7 +97,7 @@ public class Panneau extends JPanel{
                         public void mouseExited(MouseEvent e) {
 
                         }
-                    });
+                    });*/
 
                 }else{
                     this.add(caseDrawableContenu);
