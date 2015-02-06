@@ -45,7 +45,7 @@ public class Dialogue {
 
     public void supprimer(PrintWriter output, int joueur) {
         if(outputs.indexOf(output) != -1) {
-            System.out.print("deconexion");
+            System.out.println("deconexion########################");
             if (joueur % 2 == 0) {
 
                 outputs.remove(joueur - 2);
