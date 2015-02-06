@@ -2,6 +2,7 @@ package fr.kwidz.JeuDeDames.Jeu;
 
 import fr.kwidz.JeuDeDames.Graphisme.CaseDrawable;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -20,8 +21,18 @@ public class EcouteCase implements MouseListener{
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        System.out.print("test");
-        this.lacase.Selectionner();
+
+        if(this.lacase.pion != null){
+            System.out.print("test");
+            if(this.lacase.estSelectionne){
+                this.lacase.DeSelectionner();
+                this.contenuCase.setBackground(Color.black);
+            }else{
+                this.lacase.Selectionner();
+            }
+        }
+
+
 
 
 

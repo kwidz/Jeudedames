@@ -20,4 +20,9 @@ public class Case{
         this.caseDrawableContenu.Selectionner();
         this.caseDrawableContenu.repaint();
     }
+    public void DeSelectionner(){
+        this.estSelectionne =false;
+        this.caseDrawableContenu.DeSelectionner();
+        this.caseDrawableContenu.repaint();
+    }
 }
