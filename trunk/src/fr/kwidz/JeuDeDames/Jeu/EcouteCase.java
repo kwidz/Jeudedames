@@ -21,6 +21,9 @@ public class EcouteCase implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.print("test");
+        this.lacase.Selectionner();
+
+
 
     }
 

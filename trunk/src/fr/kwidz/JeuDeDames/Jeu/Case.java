@@ -14,4 +14,10 @@ public class Case{
         caseDrawableContenu = new CaseDrawable();
         estSelectionne =false;
     }
+
+    public void Selectionner(){
+        this.estSelectionne =true;
+        this.caseDrawableContenu.Selectionner();
+        this.caseDrawableContenu.repaint();
+    }
 }
