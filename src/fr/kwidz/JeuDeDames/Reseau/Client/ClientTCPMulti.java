@@ -45,7 +45,7 @@ public class ClientTCPMulti{
         dialogue = new DialogueAvecServeur(socket);
         FenetreClient f = new FenetreClient(jetonDeJeu, dialogue);
         String message = "";
-        ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f);
+        ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f, dialogue);
         dialogue.setThread(t);
         t.start();
 

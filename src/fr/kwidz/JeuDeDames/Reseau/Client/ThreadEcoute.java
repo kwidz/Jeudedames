@@ -13,15 +13,17 @@ public class ThreadEcoute extends Thread{
     BufferedReader input;
     public GestionaireDeTours jetonDeJeu;
     public FenetreClient f;
+    private DialogueAvecServeur dialogue;
     private boolean tourne = true;
 
     public void setTourne(boolean tourne) {
         this.tourne = tourne;
     }
 
-    public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, FenetreClient f) {
+    public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, FenetreClient f, DialogueAvecServeur dialogue) {
         this.input=input;this.jetonDeJeu=jetonDeJeu;
         this.f = f;
+        this.dialogue=dialogue;
     }
 /*
 *
@@ -48,7 +50,13 @@ public class ThreadEcoute extends Thread{
                 if(message.equals("connectionJ2")){
                     jetonDeJeu.setJeton(true);
                     f.text.setText("Un joueur s'est connecté a vous de jouer !");
-                }else {
+                }else
+                if(message.equals("deconexion")){
+                    jetonDeJeu.setJeton(true);
+                    f.text.setText("L'adversaire s'est déconecté ! vous avez gagné !");
+                    dialogue.deconexion();
+                }
+                else{
                     System.out.println("Lu: " + message);
                     jetonDeJeu.setJeton(true);
                     f.text.setText("l'adversaire a joué, c'est a vous !");
