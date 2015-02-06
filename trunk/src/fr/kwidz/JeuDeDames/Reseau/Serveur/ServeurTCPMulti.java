@@ -29,6 +29,7 @@ public class ServeurTCPMulti {
                 socketClient = socketServeur.accept();
 
                 ThreadConnexion t = new ThreadConnexion(socketClient, d);
+                d.threads.add(t);
                 t.start();
             }
         } catch(IOException e) {
