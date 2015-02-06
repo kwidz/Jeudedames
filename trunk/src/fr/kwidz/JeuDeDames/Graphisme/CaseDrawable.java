@@ -13,8 +13,8 @@ public class CaseDrawable extends JPanel{
     int posY;
     int width;
     int height;
-    int caseX;
-    int caseY;
+    public int caseX;
+    public int caseY;
 
     int pionPosX;
     int pionPosY;

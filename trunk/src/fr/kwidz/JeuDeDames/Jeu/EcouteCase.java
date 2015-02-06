@@ -26,10 +26,10 @@ public class EcouteCase implements MouseListener{
             System.out.print("test");
             if(this.lacase.estSelectionne){
                 this.lacase.DeSelectionner();
-                this.leDamier.TrouverCheminPossible(this.lacase).DeSelectionner();
+                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY).DeSelectionner();
             }else{
                 this.lacase.Selectionner();
-                this.leDamier.TrouverCheminPossible(this.lacase).Selectionner();
+                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY).Selectionner();
             }
         }
 
