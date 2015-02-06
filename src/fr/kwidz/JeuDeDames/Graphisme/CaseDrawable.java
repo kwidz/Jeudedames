@@ -1,6 +1,7 @@
 package fr.kwidz.JeuDeDames.Graphisme;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 /**
@@ -58,8 +59,6 @@ this.repaint();
 
         if(this.estSelectionnee){
             this.setBackground(Color.gray);
-        }else{
-            this.setBackground(Color.black);
         }
         this.repaint();
     }
