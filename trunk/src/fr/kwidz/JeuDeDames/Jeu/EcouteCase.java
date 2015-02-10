@@ -72,10 +72,7 @@ public class EcouteCase implements MouseListener{
         }else{
             System.out.print("je rentre ici");
             if(this.lacase.estSelectionne && this.lacase.choisissable){
-                Case caseDepart = (Case) this.leDamier.getChemin().get(0);
-                this.lacase.pion = new Pion(caseDepart.pion.blanc);
-                this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
-                caseDepart.EffacerPion();
+                jouerUnCoups();
 
 
 
@@ -114,5 +111,12 @@ public class EcouteCase implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
 
+    }
+
+    private void jouerUnCoups(){
+        Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+        this.lacase.pion = new Pion(caseDepart.pion.blanc);
+        this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
+        caseDepart.EffacerPion();
     }
 }
