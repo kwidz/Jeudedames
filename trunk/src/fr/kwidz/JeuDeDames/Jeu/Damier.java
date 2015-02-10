@@ -34,11 +34,18 @@ public class Damier {
         }
     }
 
-    public ArrayList<Case> TrouverCheminPossible(int casex, int casey){  //pour l'instant cette methode renvois une case aleatoire
+    public void TrouverCheminPossible(int casex, int casey){  //pour l'instant cette methode renvois une case aleatoire
         lesCases[casex+1][casey+1].choisissable = true;
-        ArrayList chemin = new ArrayList();
         chemin.add(lesCases[casex][casey]);
         chemin.add(lesCases[casex+1][casey+1]);
-        return chemin;
+
+    }
+
+    public ArrayList<Case> getChemin(){
+        return this.chemin;
+    }
+
+    public void EffacerChemin(){
+        this.chemin = new ArrayList<Case>();
     }
 }
