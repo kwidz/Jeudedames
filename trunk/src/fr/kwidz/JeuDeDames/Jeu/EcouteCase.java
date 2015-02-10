@@ -60,6 +60,23 @@ public class EcouteCase implements MouseListener{
                     c.Selectionner();
                 }
             }
+        }else{
+            if(this.lacase.estSelectionne && this.lacase.choisissable){
+                Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+                this.lacase.pion = new Pion(caseDepart.pion.blanc);
+                caseDepart.EffacerPion();
+                this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
+
+
+            }
+            this.lacase.DeSelectionner();
+            chemin = leDamier.getChemin();
+            for(int i=0 ; i < chemin.size() ; i++){
+                Case c = (Case)chemin.get(i);
+                c.choisissable = false;
+                c.DeSelectionner();
+            }
+            leDamier.EffacerChemin();
         }
 
 
