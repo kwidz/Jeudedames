@@ -11,10 +11,12 @@ public class Case{
     public CaseDrawable caseDrawableContenu;
     public Pion pion;
     public Boolean estSelectionne;
+    public Boolean choisissable;
     public Case(){
 
         caseDrawableContenu = new CaseDrawable();
         estSelectionne =false;
+        choisissable = false;
     }
 
     public void Selectionner(){
