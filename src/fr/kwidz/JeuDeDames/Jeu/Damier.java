@@ -38,6 +38,7 @@ public class Damier {
         lesCases[casex+1][casey+1].choisissable = true;
         chemin.add(lesCases[casex][casey]);
         chemin.add(lesCases[casex+1][casey+1]);
+        chemin.add(lesCases[casex-1][casey+1]);
 
     }
 
