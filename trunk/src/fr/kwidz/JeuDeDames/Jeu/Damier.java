@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Damier {
     public Case[][] lesCases = new Case[10][10]; //Le dammier contient un tableau de 10*10 cases
+    ArrayList<Case> chemin = new ArrayList<Case>();
     public Damier(){
         boolean white=true;
         for (int i = 0; i < 10; i++) {
@@ -36,6 +37,7 @@ public class Damier {
     public ArrayList<Case> TrouverCheminPossible(int casex, int casey){  //pour l'instant cette methode renvois une case aleatoire
         lesCases[casex+1][casey+1].choisissable = true;
         ArrayList chemin = new ArrayList();
+        chemin.add(lesCases[casex][casey]);
         chemin.add(lesCases[casex+1][casey+1]);
         return chemin;
     }
