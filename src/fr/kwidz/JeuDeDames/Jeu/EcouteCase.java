@@ -15,6 +15,7 @@ public class EcouteCase implements MouseListener{
     public Damier leDamier;
     public CaseDrawable contenuCase;
     public Case caseDepart;
+    ArrayList chemin = new ArrayList();
 
     public  EcouteCase(Case unecase, Damier undamier){
         this.lacase = unecase;
@@ -23,32 +24,37 @@ public class EcouteCase implements MouseListener{
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-        ArrayList chemin = new ArrayList();
-        chemin.addAll( this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY));
+
+        //chemin.addAll( this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY));
         if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
-                if(this.lacase.choisissable){
-                    Color c = this.caseDepart.caseDrawableContenu.couleurPion;
-                    this.caseDepart.EffacerPion();
+                if(this.lacase.choisissable) {
+                    Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+                    Color c = caseDepart.caseDrawableContenu.couleurPion;
+                    caseDepart.EffacerPion();
                     this.lacase.caseDrawableContenu.modifierCouleurPion(c);
 
-                }else{
-                    this.lacase.DeSelectionner();
-                    for(int i=0 ; i < chemin.size() ; i++){
-                        Case c = (Case)chemin.get(i);
-                        c.choisissable = false;
-                        c.DeSelectionner();
-                    }
-
                 }
+                this.lacase.DeSelectionner();
+                chemin = leDamier.getChemin();
+                for(int i=0 ; i < chemin.size() ; i++){
+                    Case c = (Case)chemin.get(i);
+                    c.choisissable = false;
+                    c.DeSelectionner();
+                }
+                leDamier.EffacerChemin();
+
+
+
 
 
 
             }else{
-                caseDepart = this.lacase;
+                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
                 this.lacase.Selectionner();
-                for(int i=0 ; i < chemin.size() ; i++){
+                chemin = this.leDamier.getChemin();
+                for(int i=1 ; i < chemin.size() ; i++){
                     Case c = (Case)chemin.get(i);
                     c.choisissable = true;
                     c.Selectionner();
