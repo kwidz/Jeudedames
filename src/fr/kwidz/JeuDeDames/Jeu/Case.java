@@ -30,4 +30,9 @@ public class Case{
         this.caseDrawableContenu.DeSelectionner();
         this.caseDrawableContenu.repaint();
     }
+
+    public void EffacerPion(){
+        this.pion = null;
+        this.caseDrawableContenu.effacerPion();
+    }
 }

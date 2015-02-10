@@ -20,7 +20,7 @@ public class CaseDrawable extends JPanel{
     int pionPosY;
     int pionWidth = 0;
     int pionHeight;
-    Color couleurPion;
+    public Color couleurPion;
     Boolean estSelectionnee;
 
 
@@ -85,6 +85,11 @@ this.repaint();
     public void DeSelectionner(){
         estSelectionnee = false;
         this.setBackground(Color.black);
+    }
+
+    public void modifierCouleurPion(Color c){
+        this.couleurPion = c;
+        this.repaint();
     }
 
 }

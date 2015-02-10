@@ -14,6 +14,7 @@ public class EcouteCase implements MouseListener{
     public Case lacase;
     public Damier leDamier;
     public CaseDrawable contenuCase;
+    public Case caseDepart;
 
     public  EcouteCase(Case unecase, Damier undamier){
         this.lacase = unecase;
@@ -27,15 +28,25 @@ public class EcouteCase implements MouseListener{
         if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
-                this.lacase.DeSelectionner();
-               for(int i=0 ; i < chemin.size() ; i++){
-                   Case c = (Case)chemin.get(i);
-                   c.choisissable = false;
-                   c.DeSelectionner();
-               }
+                if(this.lacase.choisissable){
+                    Color c = this.caseDepart.caseDrawableContenu.couleurPion;
+                    this.caseDepart.EffacerPion();
+                    this.lacase.caseDrawableContenu.modifierCouleurPion(c);
+
+                }else{
+                    this.lacase.DeSelectionner();
+                    for(int i=0 ; i < chemin.size() ; i++){
+                        Case c = (Case)chemin.get(i);
+                        c.choisissable = false;
+                        c.DeSelectionner();
+                    }
+
+                }
+
 
 
             }else{
+                caseDepart = this.lacase;
                 this.lacase.Selectionner();
                 for(int i=0 ; i < chemin.size() ; i++){
                     Case c = (Case)chemin.get(i);
