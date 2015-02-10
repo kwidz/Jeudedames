@@ -5,6 +5,7 @@ import fr.kwidz.JeuDeDames.Graphisme.CaseDrawable;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 /**
  * Created by morgane on 06/02/15.
@@ -21,15 +22,26 @@ public class EcouteCase implements MouseListener{
     }
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        ArrayList chemin = new ArrayList();
+        chemin.addAll( this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY));
         if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
                 this.lacase.DeSelectionner();
-                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY).DeSelectionner();
+               for(int i=0 ; i < chemin.size() ; i++){
+                   Case c = (Case)chemin.get(i);
+                   c.choisissable = false;
+                   c.DeSelectionner();
+               }
+
+
             }else{
                 this.lacase.Selectionner();
-                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY).Selectionner();
+                for(int i=0 ; i < chemin.size() ; i++){
+                    Case c = (Case)chemin.get(i);
+                    c.choisissable = true;
+                    c.Selectionner();
+                }
             }
         }
 
