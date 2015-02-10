@@ -51,53 +51,7 @@ public class Panneau extends JPanel{
                     caseDrawableContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                     caseDrawableContenu.modifierCoordonneeCase(i, j);
                     caseDrawableContenu.addMouseListener(new EcouteCase(this.damier.lesCases[i][j], this.damier));
-                    /*caseDrawableContenu.addMouseListener(new MouseListener() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            //pour l'instant nous partirons du principe que le joueur
-                            // ne change pas davis et qu'il ne selectionne que deux case
-                            CaseDrawable caseClique = (CaseDrawable) e.getSource();
-                            if(listeCaseSelectionne.indexOf(caseClique) == -1){ //si il n'est pas dans le tableau
-                                if(listeCaseSelectionne.isEmpty()){ // si le tableau est vide alors cette case est la premiere
-                                    System.out.println("contient pas");
-                                    caseClique.setBackground(Color.gray);
-                                    listeCaseSelectionne.add(caseClique);
-                                }else{ // cette case est la case ou le pion doit se déplacer
-                                    CaseDrawable caseDeDebut = (CaseDrawable) listeCaseSelectionne.get(0);
-                                    caseClique.effacerPion();
-                                    caseClique.dessinerPion(caseDeDebut.pionPosX,caseDeDebut.pionPosY, caseDeDebut.pionWidth, caseDeDebut.pionHeight, caseDeDebut.couleurPion);
-                                    caseDeDebut.effacerPion();
-                                    self.deselectionnerTouteCase();
-                                }
 
-                            }else{ // il a déja été selectionne, donc il faut le désélectionner
-                                System.out.println("contient");
-                                self.deselectionnerTouteCase();
-                            }
-
-
-                        }
-
-                        @Override
-                        public void mousePressed(MouseEvent e) {
-
-                        }
-
-                        @Override
-                        public void mouseReleased(MouseEvent e) {
-
-                        }
-
-                        @Override
-                        public void mouseEntered(MouseEvent e) {
-
-                        }
-
-                        @Override
-                        public void mouseExited(MouseEvent e) {
-
-                        }
-                    });*/
 
                 }else{
                     this.add(caseDrawableContenu);
@@ -171,17 +125,6 @@ public class Panneau extends JPanel{
         this.damier = d;
 
     }
-
- /*   public void deselectionnerTouteCase(){
-
-        for(int i = 0; i< listeCaseSelectionne.size() ; i++){
-            CaseDrawable c = (CaseDrawable) listeCaseSelectionne.get(i);
-            c.setBackground(Color.black);
-            //listeCaseSelectionne.remove(i);
-        }
-        listeCaseSelectionne.clear();
-    }*/
-
 
 
 }
