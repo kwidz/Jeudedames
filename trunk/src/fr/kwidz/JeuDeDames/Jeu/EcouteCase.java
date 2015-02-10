@@ -51,6 +51,15 @@ public class EcouteCase implements MouseListener{
 
 
             }else{
+                if(!this.leDamier.getChemin().isEmpty()){
+                    chemin = leDamier.getChemin();
+                    for(int i=0 ; i < chemin.size() ; i++){
+                        Case c = (Case)chemin.get(i);
+                        c.choisissable = false;
+                        c.DeSelectionner();
+                    }
+                    leDamier.EffacerChemin();
+                }
                 this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
                 this.lacase.Selectionner();
                 chemin = this.leDamier.getChemin();
