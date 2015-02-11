@@ -7,7 +7,6 @@ import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
@@ -58,18 +57,6 @@ public class Echange {
     public void deconexion(){
 
         dialogue.deconexion();
-    }
-
-    public void jouerUnCoup(){
-        if(jeton.isJeton()){
-            System.out.println("vouys venez de jouer un coup !");
-            dialogue.jouerUnCoups();
-            jeton.setJeton(false);
-
-        }
-        else{
-            System.out.println("votre adversaire est en train de jouer, veuillez attendre !");
-        }
     }
 
 }

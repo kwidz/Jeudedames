@@ -1,12 +1,14 @@
+/*
 package fr.kwidz.JeuDeDames.Reseau.Client;
 
-import javax.security.auth.callback.Callback;
 import javax.swing.*;
 import java.awt.event.*;
 
+*/
 /**
  * Created by kwidz on 30/01/15.
- */
+ *//*
+
 public class FenetreClient extends JFrame implements ActionListener{
     JPanel p = new JPanel();
     JButton boutonJouer = new JButton("cliquez ici pour jouer un coup !");
@@ -50,7 +52,7 @@ public class FenetreClient extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(jeton.isJeton()){
             text.setText("vouys venez de jouer un coup !");
-            dialogue.jouerUnCoups();
+            dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
 
             jeton.setJeton(false);
         }
@@ -64,3 +66,4 @@ public class FenetreClient extends JFrame implements ActionListener{
         dialogue.deconexion();
     }
 }
+*/
