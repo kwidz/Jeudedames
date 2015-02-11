@@ -76,7 +76,6 @@ public class EcouteCase implements MouseListener{
                 }
             }
         }else{
-            System.out.print("je rentre ici");
             if(this.lacase.estSelectionne && this.lacase.choisissable){
                 jouerUnCoups();
 
