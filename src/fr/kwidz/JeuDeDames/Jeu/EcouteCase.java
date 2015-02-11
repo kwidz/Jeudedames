@@ -1,6 +1,8 @@
 package fr.kwidz.JeuDeDames.Jeu;
 
 import fr.kwidz.JeuDeDames.Graphisme.CaseDrawable;
+import fr.kwidz.JeuDeDames.Reseau.Client.DialogueAvecServeur;
+import fr.kwidz.JeuDeDames.Reseau.Client.GestionaireDeTours;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -15,12 +17,16 @@ public class EcouteCase implements MouseListener{
     public Damier leDamier;
     public CaseDrawable contenuCase;
     public Case caseDepart;
+    public GestionaireDeTours jeton;
+    public DialogueAvecServeur dialogue;
     ArrayList chemin = new ArrayList();
 
-    public  EcouteCase(Case unecase, Damier undamier){
+    public  EcouteCase(Case unecase, Damier undamier, GestionaireDeTours jeton, DialogueAvecServeur dialogue){
         this.lacase = unecase;
         this.leDamier = undamier;
         this.contenuCase = unecase.caseDrawableContenu;
+        this.dialogue=dialogue;
+        this.jeton=jeton;
     }
     @Override
     public void mouseClicked(MouseEvent e) {

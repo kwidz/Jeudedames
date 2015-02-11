@@ -8,6 +8,8 @@ import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
 import fr.kwidz.JeuDeDames.Jeu.Damier;
 import fr.kwidz.JeuDeDames.Jeu.EcouteCase;
 import fr.kwidz.JeuDeDames.Jeu.Pion;
+import fr.kwidz.JeuDeDames.Reseau.Client.DialogueAvecServeur;
+import fr.kwidz.JeuDeDames.Reseau.Client.GestionaireDeTours;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,7 +26,7 @@ public class Panneau extends JPanel{
     //ArrayList listeCaseSelectionne = new ArrayList();
 
 
-    public Panneau(Damier d, Fenetre fenetre){
+    public Panneau(Damier d, Fenetre fenetre, GestionaireDeTours jeton, DialogueAvecServeur dialogue){
         fenetre.setContentPane(this);
         tailleFenetreW = fenetre.getWidth()/10;
         tailleFenetreH = fenetre.getHeight()/10;
@@ -50,7 +52,7 @@ public class Panneau extends JPanel{
                     caseDrawableContenu.setBackground(Color.black);
                     caseDrawableContenu.modifierBouton(i * this.tailleFenetreW, j * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                     caseDrawableContenu.modifierCoordonneeCase(i, j);
-                    caseDrawableContenu.addMouseListener(new EcouteCase(this.damier.lesCases[i][j], this.damier));
+                    caseDrawableContenu.addMouseListener(new EcouteCase(this.damier.lesCases[i][j], this.damier,jeton,dialogue));
 
 
                 }else{
