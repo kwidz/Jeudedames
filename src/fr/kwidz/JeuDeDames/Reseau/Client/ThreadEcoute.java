@@ -43,25 +43,25 @@ public class ThreadEcoute extends Thread{
                 System.out.println("message : " + message);
                 if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
-                   // f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
+                    System.out.println("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
                 }else
                 if(message.equals("joueur2")){
                     jetonDeJeu.setJeton(false);
-                   // f.text.setText("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
+                    System.out.println("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
                 }else
                 if(message.equals("connectionJ2")){
                     jetonDeJeu.setJeton(true);
-                   //f.text.setText("Un joueur s'est connecté a vous de jouer !");
+                    System.out.println("Un joueur s'est connecté a vous de jouer !");
                 }else
                 if(message.equals("deconexion")){
                     jetonDeJeu.setJeton(true);
-                   // f.text.setText("L'adversaire s'est déconecté ! vous avez gagné !");
+                    System.out.println("L'adversaire s'est déconecté ! vous avez gagné !");
                     dialogue.deconexion();
                 }
                 else{
                     System.out.println("Lu: " + message);
                     jetonDeJeu.setJeton(true);
-                   // f.text.setText("l'adversaire a joué, c'est a vous !");
+                    System.out.println("l'adversaire a joué, c'est a vous !");
                 }
             } catch (SocketException e){
                 System.err.println("Erreur lors de la lecture : " + e);
