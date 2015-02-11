@@ -3,18 +3,21 @@ package fr.kwidz.JeuDeDames.Jeu;
 import fr.kwidz.JeuDeDames.Graphisme.Affichage;
 import fr.kwidz.JeuDeDames.Graphisme.Fenetre;
 import fr.kwidz.JeuDeDames.Graphisme.Panneau;
+import fr.kwidz.JeuDeDames.Reseau.Client.Echange;
 
 /**
  * Created by morgane on 23/01/15.
  */
 public class Jeu {
-    Affichage vueJeu;
+
     Damier damier;
+    public Echange echange;
     public Jeu(){
         this.damier = new Damier();
-        vueJeu = new Affichage(damier);
+        this.echange = new Echange(damier);
+        /*vueJeu = new Affichage(damier);
         vueJeu.raffraichir(this.damier);
-        //Panneau p = new Panneau();
+*/        //Panneau p = new Panneau();
         //Fenetre f = new Fenetre(p);
     }
 

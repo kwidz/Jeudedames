@@ -1,5 +1,7 @@
 package fr.kwidz.JeuDeDames.Reseau.Client;
 
+import fr.kwidz.JeuDeDames.Graphisme.Affichage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
@@ -12,7 +14,7 @@ public class ThreadEcoute extends Thread{
 
     BufferedReader input;
     public GestionaireDeTours jetonDeJeu;
-    public FenetreClient f;
+    public Affichage f;
     private DialogueAvecServeur dialogue;
     private boolean tourne = true;
 
@@ -20,7 +22,7 @@ public class ThreadEcoute extends Thread{
         this.tourne = tourne;
     }
 
-    public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, FenetreClient f, DialogueAvecServeur dialogue) {
+    public ThreadEcoute(BufferedReader input, GestionaireDeTours jetonDeJeu, Affichage f, DialogueAvecServeur dialogue) {
         this.input=input;this.jetonDeJeu=jetonDeJeu;
         this.f = f;
         this.dialogue=dialogue;
@@ -41,25 +43,25 @@ public class ThreadEcoute extends Thread{
                 System.out.println("message : " + message);
                 if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
-                    f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
+                   // f.text.setText("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
                 }else
                 if(message.equals("joueur2")){
                     jetonDeJeu.setJeton(false);
-                    f.text.setText("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
+                   // f.text.setText("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
                 }else
                 if(message.equals("connectionJ2")){
                     jetonDeJeu.setJeton(true);
-                    f.text.setText("Un joueur s'est connecté a vous de jouer !");
+                   //f.text.setText("Un joueur s'est connecté a vous de jouer !");
                 }else
                 if(message.equals("deconexion")){
                     jetonDeJeu.setJeton(true);
-                    f.text.setText("L'adversaire s'est déconecté ! vous avez gagné !");
+                   // f.text.setText("L'adversaire s'est déconecté ! vous avez gagné !");
                     dialogue.deconexion();
                 }
                 else{
                     System.out.println("Lu: " + message);
                     jetonDeJeu.setJeton(true);
-                    f.text.setText("l'adversaire a joué, c'est a vous !");
+                   // f.text.setText("l'adversaire a joué, c'est a vous !");
                 }
             } catch (SocketException e){
                 System.err.println("Erreur lors de la lecture : " + e);
