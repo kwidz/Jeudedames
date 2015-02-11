@@ -4,10 +4,7 @@ package fr.kwidz.JeuDeDames.Graphisme;
  * Created by morgane on 23/01/15.
  */
 
-import fr.kwidz.JeuDeDames.Jeu.CaseNoire;
-import fr.kwidz.JeuDeDames.Jeu.Damier;
-import fr.kwidz.JeuDeDames.Jeu.EcouteCase;
-import fr.kwidz.JeuDeDames.Jeu.Pion;
+import fr.kwidz.JeuDeDames.Jeu.*;
 import fr.kwidz.JeuDeDames.Reseau.Client.DialogueAvecServeur;
 import fr.kwidz.JeuDeDames.Reseau.Client.GestionaireDeTours;
 
@@ -126,6 +123,15 @@ public class Panneau extends JPanel{
     public void setDamier(Damier d){
         this.damier = d;
 
+    }
+
+
+    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee){
+        Case caseDepart = this.damier.lesCases[xDepart][yDepart];
+        Case caseArrivee = this.damier.lesCases[xArrivee][yArrivee];
+        caseArrivee.pion = new Pion(caseDepart.pion.blanc);
+        caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
+        caseDepart.EffacerPion();
     }
 
 
