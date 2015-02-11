@@ -35,13 +35,13 @@ public class EcouteCase implements MouseListener{
         if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
-                if(this.lacase.choisissable) {
+                /*if(this.lacase.choisissable) {
                     Case caseDepart = (Case) this.leDamier.getChemin().get(0);
                     Color c = caseDepart.caseDrawableContenu.couleurPion;
                     caseDepart.EffacerPion();
                     this.lacase.caseDrawableContenu.modifierCouleurPion(c);
 
-                }
+                }*/
                 this.lacase.DeSelectionner();
                 chemin = leDamier.getChemin();
                 for(int i=0 ; i < chemin.size() ; i++){
