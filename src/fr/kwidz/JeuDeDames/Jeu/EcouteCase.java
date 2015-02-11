@@ -126,7 +126,7 @@ public class EcouteCase implements MouseListener{
             caseDepart.EffacerPion();
             String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
             System.out.println(mouvement);
-            dialogue.jouerUnCoups();
+            dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX,caseDepart.caseDrawableContenu.caseY,this.lacase.caseDrawableContenu.caseX,this.lacase.caseDrawableContenu.caseY);
             jeton.setJeton(false);
         }
     }

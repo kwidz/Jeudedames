@@ -43,8 +43,8 @@ public class DialogueAvecServeur {
         }
     }
 
-    public void jouerUnCoups() {
-        output.println("Le joueur a joué");
+    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY) {
+        output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
         output.flush();
     }
 }

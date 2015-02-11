@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
 import java.nio.Buffer;
+import java.util.StringTokenizer;
 
 /**
  * Created by kwidz on 23/01/15.
@@ -60,7 +61,16 @@ public class ThreadEcoute extends Thread{
                 }
                 else{
                     System.out.println("Lu: " + message);
-                    f.interfacePaneau.jouerUnCoup(0,3,1,4);
+                    StringTokenizer coordonnees = new StringTokenizer(message,";");
+                    int xDepart, yDepart, xArrive, yArrive;
+                    StringTokenizer xyDepart = new StringTokenizer(coordonnees.nextToken(),",");
+                    StringTokenizer xyArrive = new StringTokenizer(coordonnees.nextToken(),",");
+                    xDepart = Integer.parseInt(xyDepart.nextToken());
+                    yDepart = Integer.parseInt(xyDepart.nextToken());
+                    xArrive = Integer.parseInt(xyArrive.nextToken());
+                    yArrive = Integer.parseInt(xyArrive.nextToken());
+
+                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive);
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");
                 }
