@@ -119,11 +119,15 @@ public class EcouteCase implements MouseListener{
     }
 
     private void jouerUnCoups(){
-        Case caseDepart = (Case) this.leDamier.getChemin().get(0);
-        this.lacase.pion = new Pion(caseDepart.pion.blanc);
-        this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
-        caseDepart.EffacerPion();
-        String mouvement = new String("caseDepart="+caseDepart.caseDrawableContenu.caseX+","+caseDepart.caseDrawableContenu.caseY+";caseArrivee="+this.lacase.caseDrawableContenu.caseX+","+this.lacase.caseDrawableContenu.caseY);
-        System.out.println(mouvement);
+        if(jeton.isJeton()) {
+            Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+            this.lacase.pion = new Pion(caseDepart.pion.blanc);
+            this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
+            caseDepart.EffacerPion();
+            String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
+            System.out.println(mouvement);
+            dialogue.jouerUnCoups();
+            jeton.setJeton(false);
+        }
     }
 }

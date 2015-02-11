@@ -42,12 +42,12 @@ public class ClientTCPMulti{
             System.err.println("Association des flux impossible : " + e);
             System.exit(-1);
         }
-        dialogue = new DialogueAvecServeur(socket);
+        /*dialogue = new DialogueAvecServeur(socket);
         FenetreClient f = new FenetreClient(jetonDeJeu, dialogue);
         String message = "";
         ThreadEcoute t = new ThreadEcoute(input, jetonDeJeu, f, dialogue);
         dialogue.setThread(t);
-        t.start();
+        t.start();*/
 
     }
 

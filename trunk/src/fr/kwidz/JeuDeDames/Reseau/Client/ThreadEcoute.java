@@ -60,6 +60,7 @@ public class ThreadEcoute extends Thread{
                 }
                 else{
                     System.out.println("Lu: " + message);
+                    f.interfacePaneau.jouerUnCoup(0,3,1,4);
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");
                 }
