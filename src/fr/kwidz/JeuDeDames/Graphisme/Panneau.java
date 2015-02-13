@@ -29,15 +29,6 @@ public class Panneau extends JPanel{
         tailleFenetreH = fenetre.getHeight()/10;
         this.damier = d;
         this.setLayout(null);
-        System.out.println(tailleFenetreW);
-
-
-
-
-
-
-
-
 
 
         for(int i = 0 ; i < 10 ; i++){
