@@ -34,7 +34,7 @@ public class EcouteCase implements MouseListener{
     public void mouseClicked(MouseEvent e) {
 
 
-        if(jeton.isJeton()){  // si c'est a son tour de jouer
+     /*   if(jeton.isJeton()){  // si c'est a son tour de jouer
             if(this.lacase.pion != null){
                 if( (joueur1 && this.lacase.pion.blanc)  || (!joueur1 && (this.lacase.pion.blanc)==false) ){   //si il clique sur son le bon pion
                     if(this.lacase.estSelectionne) {
@@ -78,7 +78,7 @@ public class EcouteCase implements MouseListener{
                 leDamier.EffacerChemin();
             }
 
-        }
+        }*/
 
 
 
@@ -88,7 +88,7 @@ public class EcouteCase implements MouseListener{
 
 
 
-/*        if(this.lacase.pion != null){
+       if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
                 this.lacase.DeSelectionner();
@@ -139,7 +139,7 @@ public class EcouteCase implements MouseListener{
                 c.DeSelectionner();
             }
             leDamier.EffacerChemin();
-        }*/
+        }
 
 
 
