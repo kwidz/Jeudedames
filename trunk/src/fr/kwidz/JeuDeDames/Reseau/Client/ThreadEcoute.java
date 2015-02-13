@@ -44,10 +44,12 @@ public class ThreadEcoute extends Thread{
                 System.out.println("message : " + message);
                 if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
+                    jetonDeJeu.setJoueur1(true);
                     System.out.println("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
                 }else
                 if(message.equals("joueur2")){
                     jetonDeJeu.setJeton(false);
+                    jetonDeJeu.setJoueur1(false);
                     System.out.println("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
                 }else
                 if(message.equals("connectionJ2")){

@@ -119,6 +119,11 @@ public class EcouteCase implements MouseListener{
     }
 
     private void jouerUnCoups(){
+        if(jeton.isJoueur1()){
+            System.out.println("HERE IS JOUEUR1");
+        }else{
+            System.out.println("HERE IS JOUEUR2");
+        }
         if(jeton.isJeton()) {
             Case caseDepart = (Case) this.leDamier.getChemin().get(0);
             this.lacase.pion = new Pion(caseDepart.pion.blanc);
