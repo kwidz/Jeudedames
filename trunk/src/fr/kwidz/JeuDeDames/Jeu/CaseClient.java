@@ -12,7 +12,7 @@ public class CaseClient extends Case{
     public CaseDrawable caseDrawableContenu;
 
     public Boolean estSelectionne;
-    public Boolean choisissable;
+
 
     public CaseClient() {
 
