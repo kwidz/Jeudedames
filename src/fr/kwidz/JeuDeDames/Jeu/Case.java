@@ -6,6 +6,7 @@ package fr.kwidz.JeuDeDames.Jeu;
 public class Case {
 
     public Pion pion;
+    public Boolean choisissable;
 
     public Case(){
 
