@@ -1,18 +1,40 @@
 package fr.kwidz.JeuDeDames.Jeu;
 
-/**
- * Created by kwidz on 17/02/15.
- */
-public class Case {
+import fr.kwidz.JeuDeDames.Graphisme.CaseDrawable;
 
+/**
+ * Created by morgane on 27/01/15.
+ */
+public class Case{
+
+    public CaseDrawable caseDrawableContenu;
+    public Boolean estSelectionne;
     public Pion pion;
     public Boolean choisissable;
 
-    public Case(){
+    public Case() {
 
+        caseDrawableContenu = new CaseDrawable();
+        estSelectionne =false;
+        choisissable = false;
     }
 
-    public void EffacerPion() {
+
+    public void Selectionner(){
+        this.estSelectionne =true;
+        this.caseDrawableContenu.Selectionner();
+        this.caseDrawableContenu.repaint();
+        //Ici nous appelerons la fonction qui dira sur quelle case on peut cliquer
+    }
+
+    public void DeSelectionner(){
+        this.estSelectionne =false;
+        this.caseDrawableContenu.DeSelectionner();
+        this.caseDrawableContenu.repaint();
+    }
+
+    public void EffacerPion(){
         this.pion = null;
+        this.caseDrawableContenu.effacerPion();
     }
 }
