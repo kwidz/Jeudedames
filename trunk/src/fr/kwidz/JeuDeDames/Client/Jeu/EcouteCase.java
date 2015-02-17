@@ -32,61 +32,8 @@ public class EcouteCase implements MouseListener{
     public void mouseClicked(MouseEvent e) {
 
 
-     /*   if(jeton.isJeton()){  // si c'est a son tour de jouer
-            if(this.lacase.pion != null){
-                if( (joueur1 && this.lacase.pion.blanc)  || (!joueur1 && (this.lacase.pion.blanc)==false) ){   //si il clique sur son le bon pion
-                    if(this.lacase.estSelectionne) {
-                        this.lacase.DeSelectionner();
-                        chemin = leDamier.getChemin();
-                        for (int i = 0; i < chemin.size(); i++) {
-                            Case c = (Case) chemin.get(i);
-                            c.choisissable = false;
-                            c.DeSelectionner();
-                        }
-                        leDamier.EffacerChemin();
-                    }else{
-                        leDamier.EffacerChemin();
-                        this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
-                        this.lacase.Selectionner();
-                        chemin = this.leDamier.getChemin();
-                        for(int i=1 ; i < chemin.size() ; i++){
-                            Case c = (Case)chemin.get(i);
-                            c.choisissable = true;
-                            c.Selectionner();
-                        }
-                    }
 
-
-
-
-                    }else{
-
-                }
-            }else{
-                if(this.lacase.estSelectionne && this.lacase.choisissable){
-                    jouerUnCoups();
-                }
-                this.lacase.DeSelectionner();
-                chemin = leDamier.getChemin();
-                for(int i=0 ; i < chemin.size() ; i++){
-                    Case c = (Case)chemin.get(i);
-                    c.choisissable = false;
-                    c.DeSelectionner();
-                }
-                leDamier.EffacerChemin();
-            }
-
-        }*/
-
-
-
-
-
-
-
-
-
-       if(this.lacase.pion != null){
+      /* if(this.lacase.pion != null){
             System.out.print("test");
             if(this.lacase.estSelectionne){
                 this.lacase.DeSelectionner();
@@ -138,9 +85,42 @@ public class EcouteCase implements MouseListener{
             }
             leDamier.EffacerChemin();
         }
+*/
 
+if(jeton.isJeton()){
+    if(this.peutJoueur()){
+        jouerUnCoups();
+        this.lacase.DeSelectionner();
+        chemin = leDamier.getChemin();
+        for(int i=0 ; i < chemin.size() ; i++){
+            Case c = (Case)chemin.get(i);
+            c.choisissable = false;
+            c.DeSelectionner();
+        }
+        leDamier.EffacerChemin();
+    }else{
+        if(this.estSelectionnable()){
+            this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
+            this.lacase.Selectionner();
+            chemin = this.leDamier.getChemin();
+            for(int i=1 ; i < chemin.size() ; i++){
+                Case c = (Case)chemin.get(i);
+                c.choisissable = true;
+                c.Selectionner();
+            }
+        }else{
+            this.lacase.DeSelectionner();
+            chemin = leDamier.getChemin();
+            for(int i=0 ; i < chemin.size() ; i++){
+                Case c = (Case)chemin.get(i);
+                c.choisissable = false;
+                c.DeSelectionner();
+            }
+            leDamier.EffacerChemin();
+        }
+    }
 
-
+}
 
 
     }
@@ -181,5 +161,35 @@ public class EcouteCase implements MouseListener{
             dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX,caseDepart.caseDrawableContenu.caseY,this.lacase.caseDrawableContenu.caseX,this.lacase.caseDrawableContenu.caseY);
             jeton.setJeton(false);
         }
+    }
+
+
+    public boolean peutJoueur(){
+        if(this.lacase.estSelectionne && this.lacase.choisissable && (this.lacase.pion == null)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public boolean estSelectionnable(){
+        if(lacase.pion != null){
+            if(jeton.isJoueur1() ){
+                if(lacase.pion.blanc){
+                    if(this.lacase.estSelectionne == false){
+                        return true;
+                    }
+                }
+            }else{
+                if(lacase.pion.blanc == false){
+                    if(this.lacase.estSelectionne == false){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+
+
     }
 }
