@@ -1,4 +1,4 @@
-package fr.kwidz.JeuDeDames.Reseau.Client;
+package fr.kwidz.JeuDeDames.Client.Reseau;
 
 /**
  * Created by kwidz on 30/01/15.

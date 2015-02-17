@@ -1,10 +1,8 @@
-package fr.kwidz.JeuDeDames.Reseau.Serveur;
+package fr.kwidz.JeuDeDames.Serveur;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import fr.kwidz.JeuDeDames.Serveur.Reseau.ThreadConnexion;
+
 import java.io.PrintWriter;
-import java.net.Socket;
 import java.util.ArrayList;
 
 /**

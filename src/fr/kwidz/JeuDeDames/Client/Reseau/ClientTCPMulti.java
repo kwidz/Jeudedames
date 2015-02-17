@@ -1,6 +1,7 @@
-package fr.kwidz.JeuDeDames.Reseau.Client;
+package fr.kwidz.JeuDeDames.Client.Reseau;
 
-import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
+
+import fr.kwidz.JeuDeDames.Serveur.Reseau.ServeurTCPMulti;
 
 import java.io.*;
 import java.net.Socket;

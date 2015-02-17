@@ -1,11 +1,10 @@
-package fr.kwidz.JeuDeDames.Graphisme;
+package fr.kwidz.JeuDeDames.Client.Graphisme;
 
 /**
  * Created by morgane on 23/01/15.
  */
 
 import javax.swing.JFrame;
-import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 

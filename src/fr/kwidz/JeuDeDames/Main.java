@@ -1,8 +1,6 @@
 package fr.kwidz.JeuDeDames;
 
-import fr.kwidz.JeuDeDames.Graphisme.Fenetre;
-import fr.kwidz.JeuDeDames.Graphisme.Panneau;
-import fr.kwidz.JeuDeDames.Jeu.Jeu;
+import fr.kwidz.JeuDeDames.Client.Jeu.Jeu;
 
 public class Main {
 

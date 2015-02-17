@@ -1,7 +1,6 @@
-package fr.kwidz.JeuDeDames.Graphisme;
+package fr.kwidz.JeuDeDames.Client.Graphisme;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 /**

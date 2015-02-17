@@ -1,8 +1,10 @@
-package fr.kwidz.JeuDeDames.Reseau.Client;
+package fr.kwidz.JeuDeDames.Client.Reseau;
 
-import fr.kwidz.JeuDeDames.Graphisme.Affichage;
-import fr.kwidz.JeuDeDames.Jeu.Damier;
-import fr.kwidz.JeuDeDames.Reseau.Serveur.ServeurTCPMulti;
+
+import fr.kwidz.JeuDeDames.Client.Graphisme.Affichage;
+import fr.kwidz.JeuDeDames.Client.Jeu.Damier;
+
+import fr.kwidz.JeuDeDames.Serveur.Reseau.ServeurTCPMulti;
 
 import java.io.BufferedReader;
 import java.io.IOException;
