@@ -1,4 +1,7 @@
-package fr.kwidz.JeuDeDames.Reseau.Client;
+package fr.kwidz.JeuDeDames.Client.Reseau;
+
+
+import fr.kwidz.JeuDeDames.Client.Reseau.ThreadEcoute;
 
 import java.io.*;
 import java.net.Socket;

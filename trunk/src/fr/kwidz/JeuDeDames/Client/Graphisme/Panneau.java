@@ -1,18 +1,15 @@
-package fr.kwidz.JeuDeDames.Graphisme;
+package fr.kwidz.JeuDeDames.Client.Graphisme;
 
 /**
  * Created by morgane on 23/01/15.
  */
 
-import fr.kwidz.JeuDeDames.Jeu.*;
-import fr.kwidz.JeuDeDames.Reseau.Client.DialogueAvecServeur;
-import fr.kwidz.JeuDeDames.Reseau.Client.GestionaireDeTours;
+import fr.kwidz.JeuDeDames.Client.Jeu.*;
+import fr.kwidz.JeuDeDames.Client.Reseau.DialogueAvecServeur;
+import fr.kwidz.JeuDeDames.Client.Reseau.GestionaireDeTours;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
 
 public class Panneau extends JPanel{

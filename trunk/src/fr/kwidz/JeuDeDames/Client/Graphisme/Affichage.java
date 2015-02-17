@@ -1,8 +1,8 @@
-package fr.kwidz.JeuDeDames.Graphisme;
+package fr.kwidz.JeuDeDames.Client.Graphisme;
 
-import fr.kwidz.JeuDeDames.Jeu.Damier;
-import fr.kwidz.JeuDeDames.Reseau.Client.DialogueAvecServeur;
-import fr.kwidz.JeuDeDames.Reseau.Client.GestionaireDeTours;
+import fr.kwidz.JeuDeDames.Client.Jeu.Damier;
+import fr.kwidz.JeuDeDames.Client.Reseau.DialogueAvecServeur;
+import fr.kwidz.JeuDeDames.Client.Reseau.GestionaireDeTours;
 
 /**
  * Created by morgane on 27/01/15.

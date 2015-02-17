@@ -1,11 +1,11 @@
-package fr.kwidz.JeuDeDames.Reseau.Client;
+package fr.kwidz.JeuDeDames.Client.Reseau;
 
-import fr.kwidz.JeuDeDames.Graphisme.Affichage;
+
+import fr.kwidz.JeuDeDames.Client.Graphisme.Affichage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
-import java.nio.Buffer;
 import java.util.StringTokenizer;
 
 /**
