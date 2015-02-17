@@ -33,59 +33,7 @@ public class EcouteCase implements MouseListener{
 
 
 
-      /* if(this.lacase.pion != null){
-            System.out.print("test");
-            if(this.lacase.estSelectionne){
-                this.lacase.DeSelectionner();
-                chemin = leDamier.getChemin();
-                for(int i=0 ; i < chemin.size() ; i++){
-                    Case c = (Case)chemin.get(i);
-                    c.choisissable = false;
-                    c.DeSelectionner();
-                }
-                leDamier.EffacerChemin();
 
-
-
-
-
-
-            }else{
-                if(!this.leDamier.getChemin().isEmpty()){
-                    chemin = leDamier.getChemin();
-                    for(int i=0 ; i < chemin.size() ; i++){
-                        Case c = (Case)chemin.get(i);
-                        c.choisissable = false;
-                        c.DeSelectionner();
-                    }
-                    leDamier.EffacerChemin();
-                }
-                this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
-                this.lacase.Selectionner();
-                chemin = this.leDamier.getChemin();
-                for(int i=1 ; i < chemin.size() ; i++){
-                    Case c = (Case)chemin.get(i);
-                    c.choisissable = true;
-                    c.Selectionner();
-                }
-            }
-        }else{
-            if(this.lacase.estSelectionne && this.lacase.choisissable){
-                jouerUnCoups();
-
-
-
-            }
-            this.lacase.DeSelectionner();
-            chemin = leDamier.getChemin();
-            for(int i=0 ; i < chemin.size() ; i++){
-                Case c = (Case)chemin.get(i);
-                c.choisissable = false;
-                c.DeSelectionner();
-            }
-            leDamier.EffacerChemin();
-        }
-*/
 
 if(jeton.isJeton()){
     if(this.peutJoueur()){
