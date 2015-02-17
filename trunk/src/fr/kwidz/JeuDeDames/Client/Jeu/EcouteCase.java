@@ -55,7 +55,7 @@ if(jeton.isJeton()){
                 c.DeSelectionner();
             }
             leDamier.EffacerChemin();
-            this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY);
+            this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY, joueur1);
             this.lacase.Selectionner();
             chemin = this.leDamier.getChemin();
             for(int i=1 ; i < chemin.size() ; i++){
