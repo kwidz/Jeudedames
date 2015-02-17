@@ -12,9 +12,13 @@ public class Jeu {
 
     Damier damier;
     public Echange echange;
+    public Joueur joueur1;
+    public Joueur joueur2;
     public Jeu(){
         this.damier = new Damier();
         this.echange = new Echange(damier);
+        this.joueur1 = new Joueur();
+        this.joueur2 = new Joueur();
         /*vueJeu = new Affichage(damier);
         vueJeu.raffraichir(this.damier);
 */        //Panneau p = new Panneau();
