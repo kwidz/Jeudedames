@@ -34,13 +34,54 @@ public class Damier {
         }
     }
 
-    public void TrouverCheminPossible(int casex, int casey){  //pour l'instant cette methode renvois une case aleatoire
+    public void TrouverCheminPossible(int casex, int casey, boolean blanc){  //pour l'instant cette methode renvois une case aleatoire
 
-        chemin.add(lesCases[casex][casey]);
+      /*  chemin.add(lesCases[casex][casey]);
         chemin.add(lesCases[casex+1][casey+1]);
         chemin.add(lesCases[casex-1][casey+1]);
         chemin.add(lesCases[casex-1][casey-1]);
-        chemin.add(lesCases[casex+1][casey-1]);
+        chemin.add(lesCases[casex+1][casey-1]);*/
+        chemin.add(lesCases[casex][casey]);
+
+        if(blanc){
+            if(lesCases[casex+1][casey+1].pion == null){
+                chemin.add(lesCases[casex+1][casey+1]);
+            }else{
+                if(lesCases[casex+2][casey+2].pion == null){
+                    chemin.add(lesCases[casex+2][casey+2]);
+                }
+            }
+
+
+            if(lesCases[casex+1][casey-1].pion == null){
+                chemin.add(lesCases[casex+1][casey-1]);
+            }else{
+                if(lesCases[casex+2][casey-2].pion == null){
+                    chemin.add(lesCases[casex+2][casey-2]);
+                }
+            }
+
+        }else{
+            if(lesCases[casex-1][casey-1].pion == null){
+                chemin.add(lesCases[casex-1][casey-1]);
+            }else{
+                if(lesCases[casex-2][casey-2].pion == null){
+                    chemin.add(lesCases[casex-2][casey-2]);
+                }
+            }
+
+
+            if(lesCases[casex-1][casey+1].pion == null){
+                chemin.add(lesCases[casex-1][casey+1]);
+            }else{
+                if(lesCases[casex-2][casey+2].pion == null){
+                    chemin.add(lesCases[casex-2][casey+2]);
+                }
+            }
+        }
+
+
+
 
     }
 
