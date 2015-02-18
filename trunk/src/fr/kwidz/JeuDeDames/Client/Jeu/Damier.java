@@ -16,20 +16,29 @@ public class Damier {
                 if (white) {
                     lesCases[i][j] = new CaseBlanche();
                     white = !white;
+                    System.out.print("O");
                 }
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
                         lesCases[i][j].pion = new Pion(true);
+                        System.out.print("#");
                     }
+                    else
                     if(i>5){
                         lesCases[i][j].pion = new Pion(false);
+                        System.out.print("#");
                     }
+                    else{
+                        System.out.print("0");
+                    }
+
                     white = !white;
                 }
 
 
             }
+            System.out.println();
             white=!white;
         }
     }
@@ -93,4 +102,5 @@ public class Damier {
     public void EffacerChemin(){
         this.chemin = new ArrayList<Case>();
     }
+
 }
