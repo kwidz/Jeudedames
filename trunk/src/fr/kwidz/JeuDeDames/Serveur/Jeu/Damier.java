@@ -31,4 +31,36 @@ public class Damier {
             white=!white;
         }
     }
+
+
+
+    public String toString(){
+        String s = new String();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (lesCases[i][j] instanceof CaseNoire){
+                    if(lesCases[i][j].pion != null){
+                        if(lesCases[i][j].pion.blanc){
+                            s+="+";
+                        }
+                        else{
+                            s+="O";
+                        }
+                    }
+                    else
+                    {
+                        s+="*";
+                    }
+                }
+                else
+                if (lesCases[i][j] instanceof CaseBlanche){
+                    s+="#";
+                }
+            }
+            s+="\n";
+        }
+        return s;
+    }
+
+
 }
