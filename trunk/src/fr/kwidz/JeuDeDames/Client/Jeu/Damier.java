@@ -42,43 +42,44 @@ public class Damier {
         chemin.add(lesCases[casex-1][casey-1]);
         chemin.add(lesCases[casex+1][casey-1]);*/
         chemin.add(lesCases[casex][casey]);
-
+        System.out.print(blanc);
         if(blanc){
-            if(lesCases[casex+1][casey+1].pion == null){
+
+            //if(lesCases[casex+1][casey+1].pion == null){
                 chemin.add(lesCases[casex+1][casey+1]);
-            }else{
+           /* }else{
                 if(lesCases[casex+2][casey+2].pion == null){
                     chemin.add(lesCases[casex+2][casey+2]);
                 }
-            }
+            }*/
 
 
-            if(lesCases[casex+1][casey-1].pion == null){
+            /*if(lesCases[casex+1][casey-1].pion == null){
                 chemin.add(lesCases[casex+1][casey-1]);
             }else{
                 if(lesCases[casex+2][casey-2].pion == null){
                     chemin.add(lesCases[casex+2][casey-2]);
                 }
-            }
+            }*/
 
-        }else{
+        }/*else{
             if(lesCases[casex-1][casey-1].pion == null){
                 chemin.add(lesCases[casex-1][casey-1]);
             }else{
                 if(lesCases[casex-2][casey-2].pion == null){
                     chemin.add(lesCases[casex-2][casey-2]);
                 }
-            }
+            }*/
 
 
-            if(lesCases[casex-1][casey+1].pion == null){
+           /* if(lesCases[casex-1][casey+1].pion == null){
                 chemin.add(lesCases[casex-1][casey+1]);
             }else{
                 if(lesCases[casex-2][casey+2].pion == null){
                     chemin.add(lesCases[casex-2][casey+2]);
                 }
-            }
-        }
+            }*/
+        //}
 
 
 
