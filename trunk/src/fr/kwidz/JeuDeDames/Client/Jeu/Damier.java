@@ -56,45 +56,66 @@ public class Damier {
         //System.out.print("dammier"+blanc);
 
         if(blanc){
+            if(casex+1 < 10 && casey+1 < 10){
+                if(lesCases[casex+1][casey+1].pion == null){
+                    chemin.add(lesCases[casex+1][casey+1]);
+                }else{
 
-            if(lesCases[casex+1][casey+1].pion == null){
-                chemin.add(lesCases[casex+1][casey+1]);
-           }else{
-                System.out.println("passe dans le esle blanc");
-                if(lesCases[casex+2][casey+2].pion == null){
-                    chemin.add(lesCases[casex+2][casey+2]);
+                    if(casex+2 < 10 && casey+2 < 10){
+                        if(lesCases[casex+2][casey+2].pion == null){
+                            chemin.add(lesCases[casex+2][casey+2]);
+                        }
+                    }
+
                 }
             }
 
 
-            if(lesCases[casex+1][casey-1].pion == null){
-                chemin.add(lesCases[casex+1][casey-1]);
-            }else{
-                System.out.println("passe dans le esle blanc");
-                if(lesCases[casex+2][casey-2].pion == null){
-                    chemin.add(lesCases[casex+2][casey-2]);
+            if(casex+1 < 10 && casey-1 > -1){
+                if(lesCases[casex+1][casey-1].pion == null){
+                    chemin.add(lesCases[casex+1][casey-1]);
+                }else{
+                    if(casex+2 < 10 && casey-2 > -1){
+                        if(lesCases[casex+2][casey-2].pion == null){
+                            chemin.add(lesCases[casex+2][casey-2]);
+                        }
+                    }
+
                 }
             }
+
 
         }else{
-            if(lesCases[casex-1][casey-1].pion == null){
-                chemin.add(lesCases[casex-1][casey-1]);
-            }else{
-                System.out.println("passe dans le else rouge");
-                if(lesCases[casex-2][casey-2].pion == null){
-                    chemin.add(lesCases[casex-2][casey-2]);
+
+
+            if(casex-1 > -1 && casey-1 > -1){
+                if(lesCases[casex-1][casey-1].pion == null){
+                    chemin.add(lesCases[casex-1][casey-1]);
+                }else{
+
+                    if(casex-2 > -1 && casey-2  > -1){
+                        if(lesCases[casex-2][casey-2].pion == null){
+                            chemin.add(lesCases[casex-2][casey-2]);
+                        }
+                    }
+
                 }
             }
 
 
-            if(lesCases[casex-1][casey+1].pion == null){
-                chemin.add(lesCases[casex-1][casey+1]);
-            }else{
-                System.out.println("passe dans le else rouge");
-                if(lesCases[casex-2][casey+2].pion == null){
-                    chemin.add(lesCases[casex-2][casey+2]);
+            if(casex-1 > -1  && casey+1 < 10){
+                if(lesCases[casex-1][casey+1].pion == null){
+                    chemin.add(lesCases[casex-1][casey+1]);
+                }else{
+                    if(casex-2 > -1 && casey+2 < 10){
+                        if(lesCases[casex-2][casey+2].pion == null){
+                            chemin.add(lesCases[casex - 2][casey + 2]);
+                        }
+                    }
+
                 }
             }
+
         }
 
 
