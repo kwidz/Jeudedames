@@ -1,7 +1,5 @@
-package fr.kwidz.JeuDeDames.Serveur.Reseau.Jeu;
+package fr.kwidz.JeuDeDames.Serveur.Jeu;
 
-
-import java.util.ArrayList;
 
 /**
  * Created by kwidz on 27/01/15.
