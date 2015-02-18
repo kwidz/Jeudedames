@@ -19,10 +19,10 @@ public class Damier {
                 }
                 else {
                     lesCases[i][j] = new CaseNoire();
-                    if(j<4){
+                    if(i<4){
                         lesCases[i][j].pion = new Pion(true);
                     }
-                    if(j>5){
+                    if(i>5){
                         lesCases[i][j].pion = new Pion(false);
                     }
                     white = !white;
