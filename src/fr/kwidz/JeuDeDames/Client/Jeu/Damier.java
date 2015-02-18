@@ -60,6 +60,7 @@ public class Damier {
             if(lesCases[casex+1][casey+1].pion == null){
                 chemin.add(lesCases[casex+1][casey+1]);
            }else{
+                System.out.println("passe dans le esle blanc");
                 if(lesCases[casex+2][casey+2].pion == null){
                     chemin.add(lesCases[casex+2][casey+2]);
                 }
@@ -69,6 +70,7 @@ public class Damier {
             if(lesCases[casex+1][casey-1].pion == null){
                 chemin.add(lesCases[casex+1][casey-1]);
             }else{
+                System.out.println("passe dans le esle blanc");
                 if(lesCases[casex+2][casey-2].pion == null){
                     chemin.add(lesCases[casex+2][casey-2]);
                 }
@@ -78,6 +80,7 @@ public class Damier {
             if(lesCases[casex-1][casey-1].pion == null){
                 chemin.add(lesCases[casex-1][casey-1]);
             }else{
+                System.out.println("passe dans le else rouge");
                 if(lesCases[casex-2][casey-2].pion == null){
                     chemin.add(lesCases[casex-2][casey-2]);
                 }
@@ -87,6 +90,7 @@ public class Damier {
             if(lesCases[casex-1][casey+1].pion == null){
                 chemin.add(lesCases[casex-1][casey+1]);
             }else{
+                System.out.println("passe dans le else rouge");
                 if(lesCases[casex-2][casey+2].pion == null){
                     chemin.add(lesCases[casex-2][casey+2]);
                 }
