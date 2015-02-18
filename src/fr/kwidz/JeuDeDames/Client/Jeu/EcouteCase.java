@@ -26,13 +26,13 @@ public class EcouteCase implements MouseListener{
         this.contenuCase = unecase.caseDrawableContenu;
         this.dialogue=dialogue;
         this.jeton=jeton;
-        this.joueur1 = jeton.isJoueur1();
+
     }
     @Override
     public void mouseClicked(MouseEvent e) {
 
 
-
+System.out.println("dans ecoute case :" + this.jeton.isJoueur1());
 
 
 if(jeton.isJeton()){
@@ -55,7 +55,7 @@ if(jeton.isJeton()){
                 c.DeSelectionner();
             }
             leDamier.EffacerChemin();
-            this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY, joueur1);
+            this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY, this.jeton.isJoueur1());
             this.lacase.Selectionner();
             chemin = this.leDamier.getChemin();
             for(int i=1 ; i < chemin.size() ; i++){
