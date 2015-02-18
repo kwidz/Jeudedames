@@ -1,6 +1,4 @@
-package fr.kwidz.JeuDeDames.Serveur.Reseau.Jeu;
-
-import fr.kwidz.JeuDeDames.Client.Reseau.Echange;
+package fr.kwidz.JeuDeDames.Serveur.Jeu;
 
 /**
  * Created by morgane on 23/01/15.
