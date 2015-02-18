@@ -5,7 +5,7 @@ package fr.kwidz.JeuDeDames.Serveur.Jeu;
  */
 public class Case{
 
-    public Pion pion;
+    public Piece pion;
 
 
     public Case() {
@@ -13,7 +13,11 @@ public class Case{
 
     }
 
-    public void EffacerPion(){
+    public Piece getPion() {
+        return pion;
+    }
+
+    public void effacerPion(){
         this.pion = null;
 
     }
