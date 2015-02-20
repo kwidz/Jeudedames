@@ -6,6 +6,7 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 public class GestionaireDeTours {
     private boolean jeton = true;
     private boolean joueur1;
+    private String messageFenetre;
     public GestionaireDeTours(){
 
     }
@@ -24,5 +25,13 @@ public class GestionaireDeTours {
 
     public void setJoueur1(boolean joueur1){
         this.joueur1 = joueur1;
+    }
+
+    public String getMessageFenetre() {
+        return messageFenetre;
+    }
+
+    public void setMessageFenetre(String messageFenetre) {
+        this.messageFenetre = messageFenetre;
     }
 }
