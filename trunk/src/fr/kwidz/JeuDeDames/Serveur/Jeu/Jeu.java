@@ -15,20 +15,22 @@ public class Jeu {
 
     public Jeu(){
         this.damier = new Damier();
-        this.joueur1 = new Joueur();
-        this.joueur2 = new Joueur();
+        this.joueur1 = new Joueur(true);
+        this.joueur2 = new Joueur(false);
 
     }
 
 
     public void jouerUnCoup(ArrayList lesCoups) {
-        for (int i = 0; i < lesCoups.size(); i+=2) {
-            Piece p = damier.lesCases[((Point)(lesCoups.get(i))).x][((Point)(lesCoups.get(i))).y].getPion();
-            Piece p2 = new Pion((Pion)p);
-            damier.lesCases[((Point)(lesCoups.get(i+1))).x][((Point)(lesCoups.get(i+1))).y].pion = p2;
-            damier.lesCases[((Point)(lesCoups.get(i))).x][((Point)(lesCoups.get(i))).y].effacerPion();
+        for (int i = 0; i < lesCoups.size(); i += 2) {
+            Piece p = damier.lesCases[((Point) (lesCoups.get(i))).x][((Point) (lesCoups.get(i))).y].getPion();
+            Piece p2 = new Pion((Pion) p);
+            damier.lesCases[((Point) (lesCoups.get(i + 1))).x][((Point) (lesCoups.get(i + 1))).y].pion = p2;
+            damier.lesCases[((Point) (lesCoups.get(i))).x][((Point) (lesCoups.get(i))).y].effacerPion();
 
         }
         System.out.print(damier);
     }
+
+
 }
