@@ -87,16 +87,13 @@ public class Damier {
 
 
 
-            if(casex+1 < 10 && casey-1 > -1){
-                if(lesCases[casex+1][casey-1].pion == null){
-                    chemin.add(lesCases[casex+1][casey-1]);
-                }else{
-                    if(casex+2 < 10 && casey-2 > -1){
-                        if(lesCases[casex+2][casey-2].pion == null){
-                            chemin.add(lesCases[casex+2][casey-2]);
-                        }
-                    }
 
+
+            if(this.verification(casex,casey,1,-1)){
+                chemin.add(lesCases[casex+1][casey-1]);
+            }else{
+                if(this.verification(casex,casey,2,-2)){
+                    chemin.add(lesCases[casex+2][casey-2]);
                 }
             }
 
