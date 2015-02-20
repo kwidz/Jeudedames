@@ -44,8 +44,6 @@ public class Joueur {
                         !d.lesCases[i][j].pion.blanc) {
                     return false;
                 }
-
-
             }
         }
         return  true;
