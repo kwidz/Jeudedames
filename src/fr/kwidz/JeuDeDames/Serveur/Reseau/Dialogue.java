@@ -26,13 +26,14 @@ public class Dialogue {
         if (joueur%2==0){
             if(message !="joueur1" && message !="joueur2" && message != "connectionJ2" && message != "deconexion")
             jeu.jouerUnCoup(jeu.joueur2.jouerUnCoup(message));
-
+            System.out.print(jeu.joueur1.isPerdu(jeu.damier));
             outputs.get(joueur-2).println(message);
             outputs.get(joueur-2).flush();
         }else
         {
             if(message !="joueur1" && message !="joueur2" && message != "connectionJ2" && message != "deconexion")
             jeu.jouerUnCoup(jeu.joueur1.jouerUnCoup(message));
+            System.out.print(jeu.joueur1.isPerdu(jeu.damier));
             outputs.get(joueur).println(message);
             outputs.get(joueur).flush();
         }
