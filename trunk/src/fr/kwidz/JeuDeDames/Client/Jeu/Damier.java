@@ -56,7 +56,7 @@ public class Damier {
         //System.out.print("dammier"+blanc);
 
         if(blanc){
-            /*if(casex+1 < 10 && casey+1 < 10){
+            if(casex+1 < 10 && casey+1 < 10){
                 if(lesCases[casex+1][casey+1].pion == null){
                     chemin.add(lesCases[casex+1][casey+1]);
                 }else{
@@ -68,8 +68,9 @@ public class Damier {
                     }
 
                 }
-            }*/
+            }
 
+/*
 
             if(casex+1 < 10 && casey+1 < 10){
                 if(lesCases[casex+1][casey+1].pion != null){
@@ -82,6 +83,7 @@ public class Damier {
                     chemin.add(lesCases[casex+1][casey+1]);
                 }
             }
+*/
 
 
 
@@ -143,6 +145,17 @@ public class Damier {
 
     public void EffacerChemin(){
         this.chemin = new ArrayList<Case>();
+    }
+
+    public boolean verification(int casex, int casey, int i, int j){
+        //Verif sorti du tableau + verif pion null
+        if(((casex + i) < 10) && ((casex + i) > -1)  && ((casey + i) < 10) && ((casey + i) > -1)){
+            if(lesCases[casex+i][casey+j].pion == null){
+                return true;
+            }
+        }
+        return false;
+
     }
 
 }
