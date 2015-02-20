@@ -60,20 +60,20 @@ public class Damier {
 
 
 
-            if(this.verification(casex,casey,1,1)){
+            if(this.verification(casex,casey,1,1,blanc)==1){
                 chemin.add(lesCases[casex+1][casey+1]);
-            }else{
-                if(this.verification(casex,casey,2,2)){
+            }else if(this.verification(casex,casey,1,1,blanc)==2){
+                if(this.verification(casex,casey,2,2,blanc)==1){
                     chemin.add(lesCases[casex+2][casey+2]);
                 }
             }
 
 
 
-            if(this.verification(casex,casey,1,-1)){
+            if(this.verification(casex,casey,1,-1,blanc)==1){
                 chemin.add(lesCases[casex+1][casey-1]);
-            }else{
-                if(this.verification(casex,casey,2,-2)){
+            }else if(this.verification(casex,casey,1,-1,blanc)==2){
+                if(this.verification(casex,casey,2,-2,blanc)==1){
                     chemin.add(lesCases[casex+2][casey-2]);
                 }
             }
@@ -85,20 +85,20 @@ public class Damier {
 
 
 
-            if(this.verification(casex,casey,-1,-1)){
+            if(this.verification(casex,casey,-1,-1,blanc) == 1){
                 chemin.add(lesCases[casex-1][casey-1]);
-            }else{
-                if(this.verification(casex,casey,-2,-2)){
+            }else if(this.verification(casex,casey,-1,-1,blanc) == 2){
+                if(this.verification(casex,casey,-2,-2,blanc) ==1){
                     chemin.add(lesCases[casex-2][casey-2]);
                 }
             }
 
 
 
-            if(this.verification(casex,casey,-1,1)){
+            if(this.verification(casex,casey,-1,1,blanc)==1){
                 chemin.add(lesCases[casex-1][casey+1]);
-            }else{
-                if(this.verification(casex,casey,-2,2)){
+            }else  if(this.verification(casex,casey,-1,1,blanc)==2){
+                if(this.verification(casex,casey,-2,2,blanc) == 1){
                     chemin.add(lesCases[casex-2][casey+2]);
                 }
             }
@@ -119,14 +119,17 @@ public class Damier {
         this.chemin = new ArrayList<Case>();
     }
 
-    public boolean verification(int casex, int casey, int i, int j){
+    public int verification(int casex, int casey, int i, int j, boolean blanc){
         //Verif sorti du tableau + verif pion null
-        if(((casex + i) < 10) && ((casex + i) > -1)  && ((casey + i) < 10) && ((casey + i) > -1)){
+        if(((casex + i) < 10) && ((casex + i) > -1)  && ((casey + j) < 10) && ((casey + j) > -1)){
             if(lesCases[casex+i][casey+j].pion == null){
-                return true;
+                return 1;
+            }else{
+                if(!(lesCases[casex+i][casey+j].pion.blanc) == blanc)
+                return 2;
             }
         }
-        return false;
+        return 3;
 
     }
 
