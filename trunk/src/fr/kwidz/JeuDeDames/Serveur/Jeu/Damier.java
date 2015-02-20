@@ -41,10 +41,10 @@ public class Damier {
                 if (lesCases[i][j] instanceof CaseNoire){
                     if(lesCases[i][j].pion != null){
                         if(lesCases[i][j].pion.blanc){
-                            s+="+";
+                            s+="\033[34mO\033[0m";
                         }
                         else{
-                            s+="O";
+                            s+="\033[31mO\033[0m";
                         }
                     }
                     else
