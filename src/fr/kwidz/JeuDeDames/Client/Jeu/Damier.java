@@ -79,6 +79,18 @@ public class Damier {
             }
 
 
+            if(this.verification(casex,casey,-1,-1,blanc) == 2){
+                if(this.verification(casex,casey,-2,-2,blanc) ==1){
+                    chemin.add(lesCases[casex-2][casey-2]);
+                }
+            }
+
+            if(this.verification(casex,casey,-1,1,blanc)==2){
+                if(this.verification(casex,casey,-2,2,blanc) == 1){
+                    chemin.add(lesCases[casex-2][casey+2]);
+                }
+            }
+
         }else{
 
 
@@ -100,6 +112,20 @@ public class Damier {
             }else  if(this.verification(casex,casey,-1,1,blanc)==2){
                 if(this.verification(casex,casey,-2,2,blanc) == 1){
                     chemin.add(lesCases[casex-2][casey+2]);
+                }
+            }
+
+
+            if(this.verification(casex,casey,1,-1,blanc)==2){
+                if(this.verification(casex,casey,2,-2,blanc)==1){
+                    chemin.add(lesCases[casex+2][casey-2]);
+                }
+            }
+
+
+            if(this.verification(casex,casey,1,1,blanc)==2){
+                if(this.verification(casex,casey,2,2,blanc)==1){
+                    chemin.add(lesCases[casex+2][casey+2]);
                 }
             }
 
