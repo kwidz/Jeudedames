@@ -57,9 +57,19 @@ public class ThreadConnexion extends Thread{
     public void run() {
 
         while(true) {
+            String tmp = "";
             String message = "";
             try {
-                message = input.readLine();
+                char[] buffer = new char[5000];
+                input.read(buffer);
+                for (int i = 0;( i < buffer.length ); i++) {
+                    if (buffer[i+1] == '\0')
+                        break;
+                    message += buffer[i];
+
+                }
+
+
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);
