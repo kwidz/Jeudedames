@@ -3,8 +3,10 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 
 import fr.kwidz.JeuDeDames.Client.Reseau.ThreadEcoute;
 
+import java.awt.*;
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * Created by kwidz on 04/02/15.
@@ -50,4 +52,12 @@ public class DialogueAvecServeur {
         output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
         output.flush();
     }
+    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY,ArrayList<Point> lesPrises) {
+
+        output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
+        output.flush();
+    }
+
+
+
 }
