@@ -52,6 +52,17 @@ public class DialogueAvecServeur {
     }
 
     public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY) {
+
+      /*  Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, new ArrayList<Point>());
+
+        XMLOutputter xmlOutputter = new XMLOutputter(Format.getCompactFormat());
+        try {
+            xmlOutputter.output(d, System.out);
+            xmlOutputter.output(d, output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
         output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
         output.flush();
     }
