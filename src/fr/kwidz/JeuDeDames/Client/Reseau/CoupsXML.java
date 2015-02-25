@@ -5,6 +5,7 @@ import org.jdom2.Attribute;
 import org.jdom2.Document;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -53,8 +54,11 @@ public class CoupsXML {
         racine.addContent(Prises);
 
 
-        return new Document();
+        Document document = new Document(racine);
+        return document;
 
     }
+
+
 
 }
