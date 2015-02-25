@@ -3,8 +3,11 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 import org.jdom2.Element;
 import org.jdom2.Attribute;
 import org.jdom2.Document;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 
 import java.awt.*;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -59,6 +62,26 @@ public class CoupsXML {
 
     }
 
+    public static void main(String[] args){
 
+        ArrayList<Point> ps = new ArrayList<Point>();
+        Point p;
+        p = new Point(2,5);
+        ps.add(p);
+        p = new Point(4,5);
+        ps.add(p);
+        p = new Point(6,5);
+        ps.add(p);
+        p = new Point(8,5);
+        ps.add(p);
+        Document d = getDocument(1,4,9,4,ps);
+        XMLOutputter xmlOutputter = new XMLOutputter(Format.getPrettyFormat());
+        try {
+            xmlOutputter.output(d, System.out);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
