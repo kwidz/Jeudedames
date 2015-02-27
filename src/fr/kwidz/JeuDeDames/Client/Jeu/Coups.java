@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Coups {
     public static ArrayList pionPris = new ArrayList();
-
+    public static Case caseDepart= null;
 
 
 }
