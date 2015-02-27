@@ -159,4 +159,42 @@ public class Damier {
 
     }
 
+    // FONCTION A FINIR (elle doit se repeter tant qu'il n'y plus de possibilité:
+
+    public boolean possibilitePrendreEncore(int casex, int casey, boolean blanc){
+        boolean continuer = false;
+        if(this.verification(casex,casey,1,1,blanc)==2){
+            if(this.verification(casex,casey,2,2,blanc)==1){
+                chemin.add(lesCases[casex+2][casey+2]);
+                continuer=true;
+            }
+        }
+
+
+
+        if(this.verification(casex,casey,1,-1,blanc)==2){
+            if(this.verification(casex,casey,2,-2,blanc)==1){
+                chemin.add(lesCases[casex+2][casey-2]);
+                continuer=true;
+            }
+        }
+
+
+        if(this.verification(casex,casey,-1,-1,blanc) == 2){
+            if(this.verification(casex,casey,-2,-2,blanc) ==1){
+                chemin.add(lesCases[casex-2][casey-2]);
+                continuer =true;
+            }
+        }
+
+        if(this.verification(casex,casey,-1,1,blanc)==2){
+            if(this.verification(casex,casey,-2,2,blanc) == 1){
+                chemin.add(lesCases[casex-2][casey+2]);
+                continuer=true;
+            }
+        }
+
+        return continuer;
+    }
+
 }
