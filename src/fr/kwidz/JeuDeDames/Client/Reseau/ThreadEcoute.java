@@ -7,6 +7,7 @@ import fr.kwidz.JeuDeDames.Serveur.Jeu.Coup;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -93,7 +94,9 @@ public class ThreadEcoute extends Thread{
                     yArrive = coup.arrivee.y;
                     xArrive = coup.arrivee.x;
 
-                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive);
+                    ArrayList prises = coup.lesprises;
+
+                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises);
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");
                 }
