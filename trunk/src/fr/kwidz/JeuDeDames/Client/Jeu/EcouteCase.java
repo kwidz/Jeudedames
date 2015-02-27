@@ -140,9 +140,11 @@ public class EcouteCase implements MouseListener {
                 if(Coups.caseDepart != null){
                     System.out.println("case DepartX :" + Coups.caseDepart.caseDrawableContenu.caseX + "case departY" + Coups.caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
                     dialogue.jouerUnCoups(Coups.caseDepart.caseDrawableContenu.caseX, Coups.caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+                    Coups.caseDepart = null;
                 }else{
                     System.out.println("case DepartX :" + caseDepart.caseDrawableContenu.caseX + "case departY" + caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
                     dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+                    Coups.caseDepart = null;
                 }
 
                 Coups.pionPris.clear();
