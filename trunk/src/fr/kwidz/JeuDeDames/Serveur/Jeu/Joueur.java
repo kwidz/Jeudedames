@@ -15,19 +15,10 @@ public class Joueur {
         this.joueur1 = joueur1;
     }
 
-    public ArrayList jouerUnCoup(String message) {
-        ArrayList lesCoups = new ArrayList();
-        StringTokenizer coordonnees = new StringTokenizer(message,";");
+    public Coup jouerUnCoup(String message) {
 
-        while(coordonnees.hasMoreTokens()){
-            StringTokenizer xy = new StringTokenizer(coordonnees.nextToken(),",");
-            Point p = new Point();
-            p.x = Integer.parseInt(xy.nextToken());
-            p.y = Integer.parseInt(xy.nextToken());
-            lesCoups.add(p);
-        }
 
-        return lesCoups;
+        return new Coup(message);
     }
 
     public boolean isPerdu(Damier d){
