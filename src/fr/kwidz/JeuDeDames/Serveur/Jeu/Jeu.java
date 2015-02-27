@@ -22,7 +22,7 @@ public class Jeu {
 
 
     public void jouerUnCoup(Coup monCoup) {
-        for (int i = 0; i < monCoup.lesprises.size(); i += 2) {
+        for (int i = 0; i < monCoup.lesprises.size(); i ++) {
 
             damier.lesCases[((Point) (monCoup.lesprises.get(i))).x][((Point) (monCoup.lesprises.get(i))).y].effacerPion();
 
