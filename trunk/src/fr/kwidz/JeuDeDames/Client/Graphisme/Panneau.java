@@ -10,6 +10,7 @@ import fr.kwidz.JeuDeDames.Client.Reseau.GestionaireDeTours;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 
 public class Panneau extends JPanel{
@@ -114,12 +115,18 @@ public class Panneau extends JPanel{
     }
 
 
-    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee){
+    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee, ArrayList<Point> lesprises){
+
         Case caseDepart = this.damier.lesCases[xDepart][yDepart];
         Case caseArrivee = this.damier.lesCases[xArrivee][yArrivee];
         caseArrivee.pion = new Pion(caseDepart.pion.blanc);
         caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
         caseDepart.EffacerPion();
+        for (int i = 0; i < lesprises.size(); i++) {
+
+            Case casetmp = this.damier.lesCases[((Point)lesprises.get(i)).x][((Point)lesprises.get(i)).y];
+            casetmp.EffacerPion();
+        }
     }
 
 
