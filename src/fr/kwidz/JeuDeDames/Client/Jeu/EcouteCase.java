@@ -106,11 +106,6 @@ public class EcouteCase implements MouseListener {
     }
 
     private void jouerUnCoups() {
-        if (jeton.isJoueur1()) {
-            System.out.println("HERE IS JOUEUR1");
-        } else {
-            System.out.println("HERE IS JOUEUR2");
-        }
         if (jeton.isJeton()) {
             Case caseDepart = (Case) this.leDamier.getChemin().get(0);
             this.lacase.pion = new Pion(caseDepart.pion.blanc);
@@ -125,7 +120,18 @@ public class EcouteCase implements MouseListener {
             String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
             System.out.println(mouvement);
             dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
-            jeton.setJeton(false);
+            if(this.leDamier.possibilitePrendreEncore(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
+                this.lacase.Selectionner();
+                chemin = this.leDamier.getChemin();
+                for (int i = 1; i < chemin.size(); i++) {
+                    Case c = (Case) chemin.get(i);
+                    c.choisissable = true;
+                    c.Selectionner();
+                }
+            }else{
+                jeton.setJeton(false);
+            }
+
         }
     }
 
