@@ -9,8 +9,10 @@ import org.jdom2.input.SAXBuilder;
 
 import javax.swing.text.AbstractDocument;
 import java.awt.*;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -24,19 +26,20 @@ public class Coup {
 
     public Coup(String message){
 
-       File f = new File("/home/kwidz/Matane/Session6/JeuDeDames/src/fr/kwidz/JeuDeDames/Serveur/Jeu/test.xml");
+
+
+
 
         SAXBuilder sxb = new SAXBuilder();
         Document document = null;
         try {
-            document = sxb.build(f);
-        } catch(JDOMException e){
-            System.err.println("Erreur lors de la lecture : " + e);
-            System.exit(-1);
-        } catch(IOException e) {
-            System.err.println("Erreur lors de la lecture : " + e);
-            System.exit(-1);
+            document = sxb.build(new ByteArrayInputStream(message.getBytes()));
+        } catch (JDOMException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
 
         Element racine = document.getRootElement();
         Element PionJoue = (Element) racine.getChild("PionJoue");
