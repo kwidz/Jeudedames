@@ -21,7 +21,7 @@ public class EcouteCase implements MouseListener {
     public DialogueAvecServeur dialogue;
     public Boolean joueur1;
     ArrayList chemin = new ArrayList();
-    ArrayList pionPris = new ArrayList();
+
 
     public EcouteCase(Case unecase, Damier undamier, GestionaireDeTours jeton, DialogueAvecServeur dialogue) {
         this.lacase = unecase;
@@ -114,8 +114,8 @@ public class EcouteCase implements MouseListener {
 
             //REMARQUE PION PRIS SE VIDE A CHAQUE NOUVEAU CLIC
             System.out.println("pions pris : ");
-            for(int i = 0 ; i< pionPris.size() ; i++){
-                Point p = (Point)pionPris.get(i);
+            for(int i = 0 ; i< Coups.pionPris.size() ; i++){
+                Point p = (Point)Coups.pionPris.get(i);
                 System.out.println("pX="+p.x+"pY"+p.y);
                 this.leDamier.lesCases[p.x][p.y].EffacerPion();
             }
@@ -123,7 +123,7 @@ public class EcouteCase implements MouseListener {
             String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
             System.out.println(mouvement);
 
-            if(pionPris.size()>0 && this.leDamier.possibilitePrendreEncore(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
+            if(Coups.pionPris.size()>0 && this.leDamier.possibilitePrendreEncore(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
                 this.lacase.Selectionner();
                 chemin = this.leDamier.getChemin();
                 for (int i = 1; i < chemin.size(); i++) {
@@ -135,6 +135,7 @@ public class EcouteCase implements MouseListener {
             }else{
                 System.out.println("case DepartX :" + caseDepart.caseDrawableContenu.caseX + "case departY" + caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
                 dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
+                Coups.pionPris.clear();
                 jeton.setJeton(false);
             }
 
@@ -176,22 +177,22 @@ public class EcouteCase implements MouseListener {
         Case caseDepart = (Case) this.leDamier.getChemin().get(0);
         if(((caseDepart.caseDrawableContenu.caseX + 2)  == (this.lacase.caseDrawableContenu.caseX))  && ((caseDepart.caseDrawableContenu.caseY + 2)  == (this.lacase.caseDrawableContenu.caseY)) ){
             Point p = new Point((caseDepart.caseDrawableContenu.caseX + 1),(caseDepart.caseDrawableContenu.caseY + 1));
-            this.pionPris.add(p);
+            Coups.pionPris.add(p);
         }
 
         if(((caseDepart.caseDrawableContenu.caseX + 2)  == (this.lacase.caseDrawableContenu.caseX))  && ((caseDepart.caseDrawableContenu.caseY - 2)  == (this.lacase.caseDrawableContenu.caseY)) ){
             Point p = new Point((caseDepart.caseDrawableContenu.caseX + 1),(caseDepart.caseDrawableContenu.caseY - 1));
-            this.pionPris.add(p);
+            Coups.pionPris.add(p);
         }
 
         if(((caseDepart.caseDrawableContenu.caseX - 2)  == (this.lacase.caseDrawableContenu.caseX))  && ((caseDepart.caseDrawableContenu.caseY - 2)  == (this.lacase.caseDrawableContenu.caseY)) ){
             Point p = new Point((caseDepart.caseDrawableContenu.caseX - 1),(caseDepart.caseDrawableContenu.caseY - 1));
-            this.pionPris.add(p);
+            Coups.pionPris.add(p);
         }
 
         if(((caseDepart.caseDrawableContenu.caseX - 2)  == (this.lacase.caseDrawableContenu.caseX))  && ((caseDepart.caseDrawableContenu.caseY + 2)  == (this.lacase.caseDrawableContenu.caseY)) ){
             Point p = new Point((caseDepart.caseDrawableContenu.caseX - 1),(caseDepart.caseDrawableContenu.caseY + 1));
-            this.pionPris.add(p);
+            Coups.pionPris.add(p);
         }
     }
 }
