@@ -51,7 +51,7 @@ public class EcouteCase implements MouseListener {
                     c.DeSelectionner();
                 }
                 leDamier.EffacerChemin();
-            } else {
+            } else{
                 if (this.estSelectionnable()) {
                     chemin = leDamier.getChemin();
                     for (int i = 0; i < chemin.size(); i++) {
@@ -112,8 +112,11 @@ public class EcouteCase implements MouseListener {
             this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
             caseDepart.EffacerPion();
 
+            //REMARQUE PION PRIS SE VIDE A CHAQUE NOUVEAU CLIC
+            System.out.println("pions pris : ");
             for(int i = 0 ; i< pionPris.size() ; i++){
                 Point p = (Point)pionPris.get(i);
+                System.out.println("pX="+p.x+"pY"+p.y);
                 this.leDamier.lesCases[p.x][p.y].EffacerPion();
             }
 
@@ -148,6 +151,7 @@ public class EcouteCase implements MouseListener {
     }
 
     public boolean estSelectionnable() {
+
         if (lacase.pion != null) {
             if (jeton.isJoueur1()) {
                 if (lacase.pion.blanc) {
