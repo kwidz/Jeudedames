@@ -3,8 +3,12 @@ package fr.kwidz.JeuDeDames.Client.Graphisme;
 import fr.kwidz.JeuDeDames.Client.Jeu.Pion;
 import fr.kwidz.JeuDeDames.Client.Jeu.Piece;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by morgane on 28/01/15.
@@ -17,6 +21,7 @@ public class CaseDrawable extends JPanel{
     int height;
     public int caseX;
     public int caseY;
+    BufferedImage couronne;
 
     Piece pieceADessiner;
 
@@ -32,6 +37,12 @@ public class CaseDrawable extends JPanel{
         estSelectionnee =false;
         this.repaint();
         this.pieceADessiner = null;
+
+        try {
+            couronne = ImageIO.read(new File("Images/couronne.png"));
+        } catch (IOException ex) {
+
+        }
 
     }
 
@@ -58,11 +69,14 @@ public class CaseDrawable extends JPanel{
         if((this.pieceADessiner != null) ){
             if(this.pieceADessiner instanceof Pion){
                 g.setColor(this.couleurPion);
-                g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
-            }else{
+                g.fillOval( this.pionPosX, this.pionPosY, this.pionWidth, this.pionHeight);
+            } else{
                 //Dessiner dame
-                g.setColor(Color.BLUE);
+                g.setColor(this.couleurPion);
                 g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+                g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
+
+
             }
         }else{
             g.dispose();
