@@ -108,21 +108,21 @@ public class EcouteCase implements MouseListener {
     private void jouerUnCoups() {
         if (jeton.isJeton()) {
             Case caseDepart = (Case) this.leDamier.getChemin().get(0);
-            this.lacase.pion = new Pion(caseDepart.pion.blanc);
-            this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
-            caseDepart.EffacerPion();
+            this.lacase.piece = new Pion(caseDepart.piece.blanc);
+            this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, this.lacase.piece);
+            caseDepart.effacerPiece();
 
-            //REMARQUE PION PRIS SE VIDE A CHAQUE NOUVEAU CLIC
+
             System.out.println("pions pris : ");
             for(int i = 0 ; i< Coups.pionPris.size() ; i++){
                 Point p = (Point)Coups.pionPris.get(i);
                 System.out.println("pX="+p.x+"pY"+p.y);
-                this.leDamier.lesCases[p.x][p.y].EffacerPion();
+                this.leDamier.lesCases[p.x][p.y].effacerPiece();
             }
 
             String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
             System.out.println(mouvement);
-
+// Attention le joueur peut jouer une deuxieme fois sans prendre forcement le pion
             if(Coups.pionPris.size()>0 && this.leDamier.possibilitePrendreEncore(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
                 this.lacase.Selectionner();
                 chemin = this.leDamier.getChemin();
@@ -156,7 +156,7 @@ public class EcouteCase implements MouseListener {
 
 
     public boolean peutJoueur() {
-        if (this.lacase.estSelectionne && this.lacase.choisissable && (this.lacase.pion == null)) {
+        if (this.lacase.estSelectionne && this.lacase.choisissable && (this.lacase.piece == null)) {
             return true;
         } else {
             return false;
@@ -165,15 +165,15 @@ public class EcouteCase implements MouseListener {
 
     public boolean estSelectionnable() {
 
-        if (lacase.pion != null) {
+        if (lacase.piece != null) {
             if (jeton.isJoueur1()) {
-                if (lacase.pion.blanc) {
+                if (lacase.piece.blanc) {
                     if (this.lacase.estSelectionne == false) {
                         return true;
                     }
                 }
             } else {
-                if (lacase.pion.blanc == false) {
+                if (lacase.piece.blanc == false) {
                     if (this.lacase.estSelectionne == false) {
                         return true;
                     }
