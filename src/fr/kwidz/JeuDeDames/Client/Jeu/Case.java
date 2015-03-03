@@ -9,7 +9,7 @@ public class Case{
 
     public CaseDrawable caseDrawableContenu;
     public Boolean estSelectionne;
-    public Piece piece;
+    public Pion pion;
     public Boolean choisissable;
 
     public Case() {
@@ -33,8 +33,8 @@ public class Case{
         this.caseDrawableContenu.repaint();
     }
 
-    public void effacerPiece(){
-        this.piece = null;
-        this.caseDrawableContenu.effacerPiece();
+    public void EffacerPion(){
+        this.pion = null;
+        this.caseDrawableContenu.effacerPion();
     }
 }

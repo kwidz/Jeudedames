@@ -1,14 +1,7 @@
 package fr.kwidz.JeuDeDames.Client.Graphisme;
 
-import fr.kwidz.JeuDeDames.Client.Jeu.Pion;
-import fr.kwidz.JeuDeDames.Client.Jeu.Piece;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by morgane on 28/01/15.
@@ -21,9 +14,6 @@ public class CaseDrawable extends JPanel{
     int height;
     public int caseX;
     public int caseY;
-    BufferedImage couronne;
-
-    Piece pieceADessiner;
 
     public int pionPosX;
     public int pionPosY;
@@ -35,14 +25,7 @@ public class CaseDrawable extends JPanel{
 
     public CaseDrawable(){
         estSelectionnee =false;
-        this.repaint();
-        this.pieceADessiner = null;
-
-        try {
-            couronne = ImageIO.read(new File("Images/couronne.png"));
-        } catch (IOException ex) {
-
-        }
+this.repaint();
 
     }
 
@@ -66,18 +49,9 @@ public class CaseDrawable extends JPanel{
         //g.dispose();
         super.paintComponent(g);
 
-        if((this.pieceADessiner != null) ){
-            if(this.pieceADessiner instanceof Pion){
-                g.setColor(this.couleurPion);
-                g.fillOval( this.pionPosX, this.pionPosY, this.pionWidth, this.pionHeight);
-            } else{
-                //Dessiner dame
-                g.setColor(this.couleurPion);
-                g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
-                g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
-
-
-            }
+        if(this.pionWidth != 0){
+            g.setColor(this.couleurPion);
+            g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
         }else{
             g.dispose();
         }
@@ -86,22 +60,19 @@ public class CaseDrawable extends JPanel{
         this.repaint();
     }
 
-
-    public void dessinerPion(int x, int y, int w, int h, Color c, Piece p){
+    public void dessinerPion(int x, int y, int w, int h, Color c){
         this.pionPosX = x;
         this.pionPosY = y;
         this.pionWidth = w;
         this.pionHeight = h;
         this.couleurPion = c;
-        this.pieceADessiner = p;
        // this.g.setColor(Color.red);
         //this.g.fillOval(this.pionPosX,this.pionPosY,this.pionWidth,this.pionHeight);
        this.repaint();
     }
 
-    public void effacerPiece(){
+    public void effacerPion(){
         this.pionWidth = 0;
-        this.pieceADessiner = null;
         this.repaint();
     }
 

@@ -2,14 +2,9 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 
 
 import fr.kwidz.JeuDeDames.Client.Reseau.ThreadEcoute;
-import org.jdom2.Document;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
 
-import java.awt.*;
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
 
 /**
  * Created by kwidz on 04/02/15.
@@ -52,34 +47,7 @@ public class DialogueAvecServeur {
     }
 
     public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY) {
-
-        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, new ArrayList<Point>());
-
-        XMLOutputter xmlOutputter = new XMLOutputter(Format.getCompactFormat());
-        try {
-            xmlOutputter.output(d, System.out);
-            xmlOutputter.output(d, output);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-//        output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
+        output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
         output.flush();
     }
-    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY,ArrayList<Point> lesPrises) {
-
-        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, lesPrises);
-
-        XMLOutputter xmlOutputter = new XMLOutputter(Format.getCompactFormat());
-        try {
-            xmlOutputter.output(d, output);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        output.flush();
-    }
-
-
-
 }

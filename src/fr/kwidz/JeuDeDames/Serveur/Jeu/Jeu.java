@@ -21,16 +21,14 @@ public class Jeu {
     }
 
 
-    public void jouerUnCoup(Coup monCoup) {
-        for (int i = 0; i < monCoup.lesprises.size(); i ++) {
-
-            damier.lesCases[((Point) (monCoup.lesprises.get(i))).x][((Point) (monCoup.lesprises.get(i))).y].effacerPion();
+    public void jouerUnCoup(ArrayList lesCoups) {
+        for (int i = 0; i < lesCoups.size(); i += 2) {
+            Piece p = damier.lesCases[((Point) (lesCoups.get(i))).x][((Point) (lesCoups.get(i))).y].getPion();
+            Piece p2 = new Pion((Pion) p);
+            damier.lesCases[((Point) (lesCoups.get(i + 1))).x][((Point) (lesCoups.get(i + 1))).y].pion = p2;
+            damier.lesCases[((Point) (lesCoups.get(i))).x][((Point) (lesCoups.get(i))).y].effacerPion();
 
         }
-        Piece p = damier.lesCases[monCoup.depart.x][monCoup.depart.y].getPion();
-        Piece p2 = new Pion((Pion) p);
-        damier.lesCases[monCoup.arrivee.x][monCoup.arrivee.y].pion = p2;
-        damier.lesCases[monCoup.depart.x][monCoup.depart.y].effacerPion();
         System.out.print(damier);
     }
 

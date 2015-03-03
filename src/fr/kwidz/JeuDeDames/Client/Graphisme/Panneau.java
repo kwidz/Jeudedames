@@ -10,7 +10,6 @@ import fr.kwidz.JeuDeDames.Client.Reseau.GestionaireDeTours;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 
 public class Panneau extends JPanel{
@@ -76,11 +75,11 @@ public class Panneau extends JPanel{
                     if (this.damier.lesCases[i][j] instanceof CaseNoire) {
 
                         damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
-                        if(damier.lesCases[i][j].piece != null ){
-                            if(damier.lesCases[i][j].piece.blanc){
-                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white, damier.lesCases[i][j].piece);
+                        if(damier.lesCases[i][j].pion != null){
+                            if(damier.lesCases[i][j].pion.blanc){
+                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white);
                             }else{
-                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red, damier.lesCases[i][j].piece);
+                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red);
                             }
                         }else{
                             //damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
@@ -115,18 +114,12 @@ public class Panneau extends JPanel{
     }
 
 
-    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee, ArrayList<Point> lesprises){
-
+    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee){
         Case caseDepart = this.damier.lesCases[xDepart][yDepart];
         Case caseArrivee = this.damier.lesCases[xArrivee][yArrivee];
-        caseArrivee.piece = new Pion(caseDepart.piece.blanc);
-        caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, caseArrivee.piece);
-        caseDepart.effacerPiece();
-        for (int i = 0; i < lesprises.size(); i++) {
-
-            Case casetmp = this.damier.lesCases[((Point)lesprises.get(i)).x][((Point)lesprises.get(i)).y];
-            casetmp.effacerPiece();
-        }
+        caseArrivee.pion = new Pion(caseDepart.pion.blanc);
+        caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion);
+        caseDepart.EffacerPion();
     }
 
 

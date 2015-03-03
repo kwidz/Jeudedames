@@ -2,12 +2,10 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 
 
 import fr.kwidz.JeuDeDames.Client.Graphisme.Affichage;
-import fr.kwidz.JeuDeDames.Serveur.Jeu.Coup;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -42,22 +40,7 @@ public class ThreadEcoute extends Thread{
             System.out.println(tourne);
             String message = "";
             try {
-
-
-
-                String tmp = "";
-                message = "";
-
-                    char[] buffer = new char[5000];
-                    input.read(buffer);
-                    for (int i = 0;( i < buffer.length ); i++) {
-                        if (buffer[i + 1] == '\0')
-                            break;
-                        message += buffer[i];
-
-                    }
-
-
+                message = input.readLine();
                 System.out.println("message : " + message);
                 if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
@@ -82,21 +65,17 @@ public class ThreadEcoute extends Thread{
                     dialogue.deconexion();
                 }
                 else{
-
-
                     System.out.println("Lu: " + message);
-                    Coup coup = new Coup(message);
-
+                    StringTokenizer coordonnees = new StringTokenizer(message,";");
                     int xDepart, yDepart, xArrive, yArrive;
+                    StringTokenizer xyDepart = new StringTokenizer(coordonnees.nextToken(),",");
+                    StringTokenizer xyArrive = new StringTokenizer(coordonnees.nextToken(),",");
+                    xDepart = Integer.parseInt(xyDepart.nextToken());
+                    yDepart = Integer.parseInt(xyDepart.nextToken());
+                    xArrive = Integer.parseInt(xyArrive.nextToken());
+                    yArrive = Integer.parseInt(xyArrive.nextToken());
 
-                    xDepart = coup.depart.x;
-                    yDepart = coup.depart.y;
-                    yArrive = coup.arrivee.y;
-                    xArrive = coup.arrivee.x;
-
-                    ArrayList prises = coup.lesprises;
-
-                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises);
+                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive);
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");
                 }
@@ -105,8 +84,8 @@ public class ThreadEcoute extends Thread{
             } catch (IOException e) {
                 System.err.println("Erreur lors de la lecture : " + e);
                 System.exit(-1);
-            }
 
+            }
 
         }
         System.out.print("##########################");
