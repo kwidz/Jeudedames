@@ -1,5 +1,8 @@
 package fr.kwidz.JeuDeDames.Client.Graphisme;
 
+import fr.kwidz.JeuDeDames.Client.Jeu.Pion;
+import fr.kwidz.JeuDeDames.Client.Jeu.Piece;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -15,6 +18,8 @@ public class CaseDrawable extends JPanel{
     public int caseX;
     public int caseY;
 
+    Piece pieceADessiner;
+
     public int pionPosX;
     public int pionPosY;
     public int pionWidth = 0;
@@ -25,7 +30,8 @@ public class CaseDrawable extends JPanel{
 
     public CaseDrawable(){
         estSelectionnee =false;
-this.repaint();
+        this.repaint();
+        this.pieceADessiner = null;
 
     }
 
@@ -49,9 +55,15 @@ this.repaint();
         //g.dispose();
         super.paintComponent(g);
 
-        if(this.pionWidth != 0){
-            g.setColor(this.couleurPion);
-            g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+        if((this.pieceADessiner != null) ){
+            if(this.pieceADessiner instanceof Pion){
+                g.setColor(this.couleurPion);
+                g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+            }else{
+                //Dessiner dame
+                g.setColor(Color.BLUE);
+                g.drawString("DAME", this.pionPosX, this.pionPosY);
+            }
         }else{
             g.dispose();
         }
@@ -60,19 +72,22 @@ this.repaint();
         this.repaint();
     }
 
-    public void dessinerPion(int x, int y, int w, int h, Color c){
+
+    public void dessinerPion(int x, int y, int w, int h, Color c, Piece p){
         this.pionPosX = x;
         this.pionPosY = y;
         this.pionWidth = w;
         this.pionHeight = h;
         this.couleurPion = c;
+        this.pieceADessiner = p;
        // this.g.setColor(Color.red);
         //this.g.fillOval(this.pionPosX,this.pionPosY,this.pionWidth,this.pionHeight);
        this.repaint();
     }
 
-    public void effacerPion(){
+    public void effacerPiece(){
         this.pionWidth = 0;
+        this.pieceADessiner = null;
         this.repaint();
     }
 
