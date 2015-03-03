@@ -108,7 +108,12 @@ public class EcouteCase implements MouseListener {
     private void jouerUnCoups() {
         if (jeton.isJeton()) {
             Case caseDepart = (Case) this.leDamier.getChemin().get(0);
-            this.lacase.piece = new Pion(caseDepart.piece.blanc);
+            if(verificationDame(this.lacase.caseDrawableContenu.caseX)){
+                this.lacase.piece = new Dame(caseDepart.piece.blanc);
+            }else{
+                this.lacase.piece = new Pion(caseDepart.piece.blanc);
+            }
+
             this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, this.lacase.piece);
             caseDepart.effacerPiece();
 
@@ -206,5 +211,18 @@ public class EcouteCase implements MouseListener {
             Point p = new Point((caseDepart.caseDrawableContenu.caseX - 1),(caseDepart.caseDrawableContenu.caseY + 1));
             Coups.pionPris.add(p);
         }
+    }
+
+    public boolean verificationDame(int x){
+        if(jeton.isJoueur1()){
+            if(x>8){
+                return true;
+            }
+        }else{
+            if(x<1){
+                return true;
+            }
+        }
+        return false;
     }
 }

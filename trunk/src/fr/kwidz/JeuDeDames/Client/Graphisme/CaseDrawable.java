@@ -62,7 +62,7 @@ public class CaseDrawable extends JPanel{
             }else{
                 //Dessiner dame
                 g.setColor(Color.BLUE);
-                g.drawString("DAME", this.pionPosX, this.pionPosY);
+                g.drawString("DAME", this.pionPosX+6, this.pionPosY);
             }
         }else{
             g.dispose();
