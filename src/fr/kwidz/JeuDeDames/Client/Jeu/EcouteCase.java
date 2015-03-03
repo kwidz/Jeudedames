@@ -111,7 +111,8 @@ public class EcouteCase implements MouseListener {
             if(verificationDame(this.lacase.caseDrawableContenu.caseX)){
                 this.lacase.piece = new Dame(caseDepart.piece.blanc);
             }else{
-                this.lacase.piece = new Pion(caseDepart.piece.blanc);
+                this.lacase.piece = caseDepart.piece;
+                        //new Pion(caseDepart.piece.blanc);
             }
 
             this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, this.lacase.piece);

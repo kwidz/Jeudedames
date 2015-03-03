@@ -90,11 +90,11 @@ public class Damier {
             }else{
                 while(this.verification(casex,casey,-1,-1,blanc) == 1){
                     chemin.add(lesCases[casex-1][casey-1]);
-                    casex++;
-                    casey++;
+                    casex--;
+                    casey--;
                 }
-                while(this.verification(casex,casey,-1,1,blanc) == 1){
-                    chemin.add(lesCases[casex-1][casey+1]);
+                while(this.verification(casex,casey,1,1,blanc) == 1){
+                    chemin.add(lesCases[casex+1][casey+1]);
                     casex++;
                     casey++;
                 }
