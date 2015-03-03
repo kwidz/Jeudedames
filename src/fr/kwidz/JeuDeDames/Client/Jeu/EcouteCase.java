@@ -60,7 +60,7 @@ public class EcouteCase implements MouseListener {
                         c.DeSelectionner();
                     }
                     leDamier.EffacerChemin();
-                    this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY, this.jeton.isJoueur1());
+                    this.leDamier.TrouverCheminPossible(this.contenuCase.caseX, this.contenuCase.caseY, this.jeton.isJoueur1(), this.lacase.piece);
                     this.lacase.Selectionner();
                     chemin = this.leDamier.getChemin();
                     for (int i = 1; i < chemin.size(); i++) {
