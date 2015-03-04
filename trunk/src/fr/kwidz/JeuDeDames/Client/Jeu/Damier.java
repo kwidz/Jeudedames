@@ -52,6 +52,8 @@ public class Damier {
         chemin.add(lesCases[casex+1][casey-1]);*/
         chemin.add(lesCases[casex][casey]);
 
+
+
         //chemin.add(lesCases[0][1]);
         //System.out.print("dammier"+blanc);
 
@@ -88,6 +90,8 @@ public class Damier {
                     }
                 }
             }else{
+                int caseXDebut = casex;
+                int caseYDebut = casey;
                 while(casey > -1 ){
                     if(this.verification(casex,casey,-1,-1,blanc) == 1){
                         chemin.add(lesCases[casex-1][casey-1]);
@@ -95,6 +99,8 @@ public class Damier {
                     casex--;
                     casey--;
                 }
+                casex = caseXDebut;
+                casey = caseYDebut;
                 while(casey < 10){
                     if(this.verification(casex,casey,1,1,blanc) == 1){
                         chemin.add(lesCases[casex+1][casey+1]);
@@ -102,21 +108,29 @@ public class Damier {
                     casex++;
                     casey++;
                 }
+                casex = caseXDebut;
+                casey = caseYDebut;
 
-                while(casey > -1 ){
+
+                 while(casex < 10 ){
                     if(this.verification(casex,casey,1,-1,blanc) == 1){
                         chemin.add(lesCases[casex+1][casey-1]);
                     }
                     casex++;
                     casey--;
                 }
-                while(casey < 10){
-                    if(this.verification(casex,casey,-1,1,blanc) == 1){
+                casex = caseXDebut;
+                casey = caseYDebut;
+
+                while(casex > -1 ){
+                    if(this.verification(casex,casey,-1,+1,blanc) == 1){
                         chemin.add(lesCases[casex-1][casey+1]);
                     }
                     casex--;
                     casey++;
                 }
+                casex = caseXDebut;
+                casey = caseYDebut;
 
             }
 
@@ -159,6 +173,8 @@ public class Damier {
                     }
                 }
             }else{
+                int caseXDebut = casex;
+                int caseYDebut = casey;
                 while(casey > -1 ){
                     if(this.verification(casex,casey,-1,-1,blanc) == 1){
                         chemin.add(lesCases[casex-1][casey-1]);
@@ -166,6 +182,8 @@ public class Damier {
                     casex--;
                     casey--;
                 }
+                casex = caseXDebut;
+                casey = caseYDebut;
                 while(casey < 10){
                     if(this.verification(casex,casey,1,1,blanc) == 1){
                         chemin.add(lesCases[casex+1][casey+1]);
@@ -173,15 +191,19 @@ public class Damier {
                     casex++;
                     casey++;
                 }
+                casex = caseXDebut;
+                casey = caseYDebut;
 
-                while(casey > -1 ){
-                    if(this.verification(casex,casey,-1,1,blanc) == 1){
-                        chemin.add(lesCases[casex-1][casey+1]);
+               while(casex > -1 ){
+                    if(this.verification(casex,casey,1,-1,blanc) == 1){
+                        chemin.add(lesCases[casex+1][casey-1]);
                     }
                     casex--;
                     casey++;
                 }
-                while(casey < 10){
+                casex = caseXDebut;
+                casey = caseYDebut;
+                while(casex < 10){
                     if(this.verification(casex,casey,1,-1,blanc) == 1){
                         chemin.add(lesCases[casex+1][casey-1]);
                     }
