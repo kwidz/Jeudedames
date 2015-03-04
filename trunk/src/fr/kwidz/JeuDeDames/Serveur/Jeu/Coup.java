@@ -23,6 +23,8 @@ public class Coup {
     public ArrayList<Point> lesprises = new ArrayList<Point>();
     public Point depart = new Point();
     public Point arrivee = new Point();
+    public Point dame = new Point();
+    boolean isDame = false;
 
     public Coup(String message){
 
@@ -57,6 +59,13 @@ public class Coup {
             Element courant = (Element)i.next();
             Point p = new Point(Integer.parseInt(courant.getChild("colone").getText()),Integer.parseInt(courant.getChild("ligne").getText()));
             lesprises.add(p);
+        }
+
+        Element Dame = (Element) racine.getChild("Dame");
+        if(Dame.getContentSize() != 0){
+            isDame = true;
+            dame.y = Integer.parseInt(Dame.getChild("ligne").getText());
+            dame.x = Integer.parseInt(Dame.getChild("colone").getText());
         }
 
     }

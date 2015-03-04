@@ -41,10 +41,19 @@ public class Damier {
                 if (lesCases[i][j] instanceof CaseNoire){
                     if(lesCases[i][j].pion != null){
                         if(lesCases[i][j].pion.blanc){
+                            if(lesCases[i][j].pion instanceof Dame){
+                                s+="\033[1;34mO\033[0m";
+                            }
+                            else
                             s+="\033[34mO\033[0m";
                         }
+
                         else{
-                            s+="\033[31mO\033[0m";
+                            if(lesCases[i][j].pion instanceof Dame) {
+                                s += "\033[1;31mO\033[0m";
+                            }
+                            else
+                                s += "\033[31mO\033[0m";
                         }
                     }
                     else
