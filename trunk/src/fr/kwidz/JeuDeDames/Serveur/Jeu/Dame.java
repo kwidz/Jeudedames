@@ -10,7 +10,7 @@ public class Dame extends Piece {
 
     }
 
-    public Dame(Pion p){
+    public Dame(Piece p){
         super(p);
     }
 }

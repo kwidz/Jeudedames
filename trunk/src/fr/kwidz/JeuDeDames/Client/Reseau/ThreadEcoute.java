@@ -4,6 +4,7 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 import fr.kwidz.JeuDeDames.Client.Graphisme.Affichage;
 import fr.kwidz.JeuDeDames.Serveur.Jeu.Coup;
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.SocketException;
@@ -96,6 +97,10 @@ public class ThreadEcoute extends Thread{
 
                     ArrayList prises = coup.lesprises;
 
+                    if(coup.isDame){
+                        Point dame = new Point(coup.dame);
+                        f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises, dame);
+                    }
                     f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises);
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");

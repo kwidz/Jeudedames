@@ -24,7 +24,7 @@ public class Coup {
     public Point depart = new Point();
     public Point arrivee = new Point();
     public Point dame = new Point();
-    boolean isDame = false;
+    public boolean isDame = false;
 
     public Coup(String message){
 

@@ -33,10 +33,16 @@ public class Jeu {
             p2 = new Pion((Pion) p);
         }
          else {
-            p2 = new Dame((Pion) p);
+            p2 = new Dame(p);
         }
         damier.lesCases[monCoup.arrivee.x][monCoup.arrivee.y].pion = p2;
         damier.lesCases[monCoup.depart.x][monCoup.depart.y].effacerPion();
+
+        if(monCoup.isDame){
+            damier.lesCases[monCoup.dame.x][monCoup.dame.y].effacerPion();
+            damier.lesCases[monCoup.dame.x][monCoup.dame.y].pion=new Dame(p);
+
+        }
 
         System.out.print(damier);
     }
