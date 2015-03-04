@@ -18,7 +18,7 @@ public class CoupsXML {
 
     public static Document getDocument(int posDepX, int posDepY, int posArrX, int posArrY, ArrayList<Point> lesPrises){
         Element racine = new Element("coup");
-        Element PionJoue, PositionDepart, ligne, colone, PositionArrive, Prises, Prise;
+        Element PionJoue, PositionDepart, ligne, colone, PositionArrive, Prises, Prise,Dame;
 
         PionJoue = new Element("PionJoue");
 
@@ -56,7 +56,8 @@ public class CoupsXML {
         racine.addContent(PionJoue);
         racine.addContent(Prises);
 
-
+        Dame = new Element("Dame");
+        racine.addContent(Dame);
         Document document = new Document(racine);
         return document;
 
