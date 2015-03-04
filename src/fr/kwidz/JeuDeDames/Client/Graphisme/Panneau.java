@@ -128,6 +128,19 @@ public class Panneau extends JPanel{
             casetmp.effacerPiece();
         }
     }
+    public void jouerUnCoup(int xDepart, int yDepart, int xArrivee, int yArrivee, ArrayList<Point> lesprises, Point dame){
+
+        Case caseDepart = this.damier.lesCases[xDepart][yDepart];
+        Case caseArrivee = this.damier.lesCases[xArrivee][yArrivee];
+        caseArrivee.piece = new Dame(caseDepart.piece.blanc);
+        caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, caseArrivee.piece);
+        caseDepart.effacerPiece();
+        for (int i = 0; i < lesprises.size(); i++) {
+
+            Case casetmp = this.damier.lesCases[((Point)lesprises.get(i)).x][((Point)lesprises.get(i)).y];
+            casetmp.effacerPiece();
+        }
+    }
 
 
 }
