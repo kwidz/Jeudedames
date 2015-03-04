@@ -28,9 +28,16 @@ public class Jeu {
 
         }
         Piece p = damier.lesCases[monCoup.depart.x][monCoup.depart.y].getPion();
-        Piece p2 = new Pion((Pion) p);
+        Piece p2;
+        if(p instanceof Pion) {
+            p2 = new Pion((Pion) p);
+        }
+         else {
+            p2 = new Dame((Pion) p);
+        }
         damier.lesCases[monCoup.arrivee.x][monCoup.arrivee.y].pion = p2;
         damier.lesCases[monCoup.depart.x][monCoup.depart.y].effacerPion();
+
         System.out.print(damier);
     }
 
