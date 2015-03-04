@@ -51,24 +51,23 @@ public class DialogueAvecServeur {
         }
     }
 
-    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY) {
 
-        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, new ArrayList<Point>());
+    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY,ArrayList<Point> lesPrises) {
+
+        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, lesPrises);
 
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getCompactFormat());
         try {
-            xmlOutputter.output(d, System.out);
             xmlOutputter.output(d, output);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-//        output.println(caseDepartX+","+caseDepartY+";"+caseArriveX+","+caseArriveY);
         output.flush();
     }
-    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY,ArrayList<Point> lesPrises) {
+    public void jouerUnCoups(int caseDepartX, int caseDepartY, int caseArriveX, int caseArriveY,ArrayList<Point> lesPrises, Point dame) {
 
-        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, lesPrises);
+        Document d = CoupsXML.getDocument(caseDepartX, caseDepartY, caseArriveX, caseArriveY, lesPrises, dame);
 
         XMLOutputter xmlOutputter = new XMLOutputter(Format.getCompactFormat());
         try {

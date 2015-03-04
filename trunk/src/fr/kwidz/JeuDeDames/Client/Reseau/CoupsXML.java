@@ -84,4 +84,56 @@ public class CoupsXML {
 
     }
 
+    public static Document getDocument(int posDepX, int posDepY, int posArrX, int posArrY, ArrayList<Point> lesPrises, Point dame) {
+        Element racine = new Element("coup");
+        Element PionJoue, PositionDepart, ligne, colone, PositionArrive, Prises, Prise, Dame;
+
+        PionJoue = new Element("PionJoue");
+
+        PositionDepart = new Element("PositionDepart");
+        ligne = new Element("ligne");
+        colone = new Element("colone");
+        colone.addContent(String.valueOf(posDepX));
+        ligne.addContent(String.valueOf(posDepY));
+        PositionDepart.addContent(ligne);
+        PositionDepart.addContent(colone);
+
+        PositionArrive = new Element("PositionArrive");
+        ligne = new Element("ligne");
+        colone = new Element("colone");
+        colone.addContent(String.valueOf(posArrX));
+        ligne.addContent(String.valueOf(posArrY));
+        PositionArrive.addContent(ligne);
+        PositionArrive.addContent(colone);
+
+        PionJoue.addContent(PositionDepart);
+        PionJoue.addContent(PositionArrive);
+
+        Prises = new Element("Prises");
+
+        for (int i = 0; i < lesPrises.size(); i++) {
+            Prise = new Element("Prise");
+            ligne = new Element("ligne");
+            colone = new Element("colone");
+            ligne.addContent(String.valueOf(lesPrises.get(i).y));
+            colone.addContent(String.valueOf(lesPrises.get(i).x));
+            Prise.addContent(ligne);
+            Prise.addContent(colone);
+            Prises.addContent(Prise);
+        }
+        racine.addContent(PionJoue);
+        racine.addContent(Prises);
+
+        Dame = new Element("Dame");
+        ligne = new Element("ligne");
+        colone = new Element("colone");
+        ligne.addContent(String.valueOf(dame.y));
+        colone.addContent(String.valueOf(dame.x));
+        Dame.addContent(ligne);
+        Dame.addContent(colone);
+        racine.addContent(Dame);
+
+        Document document = new Document(racine);
+        return document;
+    }
 }
