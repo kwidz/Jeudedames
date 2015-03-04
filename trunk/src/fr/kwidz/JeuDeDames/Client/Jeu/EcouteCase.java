@@ -110,6 +110,8 @@ public class EcouteCase implements MouseListener {
             Case caseDepart = (Case) this.leDamier.getChemin().get(0);
             if(verificationDame(this.lacase.caseDrawableContenu.caseX)){
                 this.lacase.piece = new Dame(caseDepart.piece.blanc);
+                Coups.dameFaite = true;
+                Coups.coordonneeDame = new Point(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
             }else{
                 this.lacase.piece = caseDepart.piece;
                         //new Pion(caseDepart.piece.blanc);
@@ -117,6 +119,10 @@ public class EcouteCase implements MouseListener {
 
             this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, this.lacase.piece);
             caseDepart.effacerPiece();
+            if(this.lacase.piece instanceof Dame){
+                Coups.coordonneeDame = new Point(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
+                System.out.print("Coordonnee Dame = "+Coups.coordonneeDame.x+"et le y"+Coups.coordonneeDame.y);
+            }
 
 
             System.out.println("pions pris : ");
@@ -128,6 +134,8 @@ public class EcouteCase implements MouseListener {
 
             String mouvement = new String("caseDepart=" + caseDepart.caseDrawableContenu.caseX + "," + caseDepart.caseDrawableContenu.caseY + ";caseArrivee=" + this.lacase.caseDrawableContenu.caseX + "," + this.lacase.caseDrawableContenu.caseY);
             System.out.println(mouvement);
+
+
 // Attention le joueur peut jouer une deuxieme fois sans prendre forcement le pion
             if(Coups.pionPris.size()>0 && this.leDamier.possibilitePrendreEncore(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
                 this.lacase.Selectionner();
@@ -140,6 +148,9 @@ public class EcouteCase implements MouseListener {
                 if(Coups.caseDepart == null){
                     Coups.caseDepart = caseDepart;
                 }
+                if(this.lacase.piece instanceof Dame){
+                    Coups.coordonneeDame = new Point(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
+                }
 
                 System.out.print("Possibilte encore!");
             }else{
@@ -149,7 +160,13 @@ public class EcouteCase implements MouseListener {
                     Coups.caseDepart = null;
                 }else{
                     System.out.println("case DepartX :" + caseDepart.caseDrawableContenu.caseX + "case departY" + caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
-                    dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+
+                    if(Coups.dameFaite){
+                        dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris, Coups.coordonneeDame);
+                    }else{
+                        dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+                    }
+
                     Coups.caseDepart = null;
                 }
 
