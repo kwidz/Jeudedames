@@ -21,12 +21,12 @@ public class Damier {
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
-                        lesCases[i][j].piece = new Pion(true);
+                        lesCases[i][j].piece = new Dame(true);
                         System.out.print("#");
                     }
                     else
                     if(i>5){
-                        lesCases[i][j].piece = new Pion(false);
+                        lesCases[i][j].piece = new Dame(false);
                         System.out.print("#");
                     }
                     else{
@@ -90,48 +90,8 @@ public class Damier {
                     }
                 }
             }else{
-                int caseXDebut = casex;
-                int caseYDebut = casey;
-                while(casey > -1 ){
-                    if(this.verification(casex,casey,-1,-1,blanc) == 1){
-                        chemin.add(lesCases[casex-1][casey-1]);
-                    }
-                    casex--;
-                    casey--;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-                while(casey < 10){
-                    if(this.verification(casex,casey,1,1,blanc) == 1){
-                        chemin.add(lesCases[casex+1][casey+1]);
-                    }
-                    casex++;
-                    casey++;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
 
-
-                 while(casex < 10 ){
-                    if(this.verification(casex,casey,1,-1,blanc) == 1){
-                        chemin.add(lesCases[casex+1][casey-1]);
-                    }
-                    casex++;
-                    casey--;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-
-                while(casex > -1 ){
-                    if(this.verification(casex,casey,-1,+1,blanc) == 1){
-                        chemin.add(lesCases[casex-1][casey+1]);
-                    }
-                    casex--;
-                    casey++;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-
+                this.deplacementDame(casex,casey,blanc);
             }
 
 
@@ -173,43 +133,7 @@ public class Damier {
                     }
                 }
             }else{
-                int caseXDebut = casex;
-                int caseYDebut = casey;
-                while(casey > -1 ){
-                    if(this.verification(casex,casey,-1,-1,blanc) == 1){
-                        chemin.add(lesCases[casex-1][casey-1]);
-                    }
-                    casex--;
-                    casey--;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-                while(casey < 10){
-                    if(this.verification(casex,casey,1,1,blanc) == 1){
-                        chemin.add(lesCases[casex+1][casey+1]);
-                    }
-                    casex++;
-                    casey++;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-
-               while(casex > -1 ){
-                    if(this.verification(casex,casey,1,-1,blanc) == 1){
-                        chemin.add(lesCases[casex+1][casey-1]);
-                    }
-                    casex--;
-                    casey++;
-                }
-                casex = caseXDebut;
-                casey = caseYDebut;
-                while(casex < 10){
-                    if(this.verification(casex,casey,1,-1,blanc) == 1){
-                        chemin.add(lesCases[casex+1][casey-1]);
-                    }
-                    casex++;
-                    casey--;
-                }
+               this.deplacementDame(casex,casey,blanc);
 
             }
 
@@ -279,6 +203,51 @@ public class Damier {
         }
 
         return continuer;
+    }
+
+
+    public void deplacementDame(int casex, int casey, boolean blanc){
+        int caseXDebut = casex;
+        int caseYDebut = casey;
+        while(casey > -1 ){
+            if(this.verification(casex,casey,-1,-1,blanc) == 1){
+                chemin.add(lesCases[casex-1][casey-1]);
+            }
+            casex--;
+            casey--;
+        }
+        casex = caseXDebut;
+        casey = caseYDebut;
+        while(casey < 10){
+            if(this.verification(casex,casey,1,1,blanc) == 1){
+                chemin.add(lesCases[casex+1][casey+1]);
+            }
+            casex++;
+            casey++;
+        }
+        casex = caseXDebut;
+        casey = caseYDebut;
+
+
+        while(casex < 10 ){
+            if(this.verification(casex,casey,1,-1,blanc) == 1){
+                chemin.add(lesCases[casex+1][casey-1]);
+            }
+            casex++;
+            casey--;
+        }
+        casex = caseXDebut;
+        casey = caseYDebut;
+
+        while(casex > -1 ){
+            if(this.verification(casex,casey,-1,+1,blanc) == 1){
+                chemin.add(lesCases[casex-1][casey+1]);
+            }
+            casex--;
+            casey++;
+        }
+        casex = caseXDebut;
+        casey = caseYDebut;
     }
 
 }
