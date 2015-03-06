@@ -45,17 +45,12 @@ public class Damier {
 
     public void TrouverCheminPossible(int casex, int casey, boolean blanc , Piece pieceCase){  //pour l'instant cette methode renvois une case aleatoire
 
-      /*  chemin.add(lesCases[casex][casey]);
-        chemin.add(lesCases[casex+1][casey+1]);
-        chemin.add(lesCases[casex-1][casey+1]);
-        chemin.add(lesCases[casex-1][casey-1]);
-        chemin.add(lesCases[casex+1][casey-1]);*/
+
         chemin.add(lesCases[casex][casey]);
 
 
 
-        //chemin.add(lesCases[0][1]);
-        //System.out.print("dammier"+blanc);
+
 
         if(blanc){
             if(pieceCase instanceof Pion){
@@ -171,6 +166,14 @@ public class Damier {
 
     }
 
+    public boolean verifSortDuDamier(int casex, int casey, int i, int j){
+        if(((casex + i) < 10) && ((casex + i) > -1)  && ((casey + j) < 10) && ((casey + j) > -1)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 
     public boolean possibilitePrendreEncore(int casex, int casey, boolean blanc){
@@ -214,12 +217,18 @@ public class Damier {
         int caseXDebut = casex;
         int caseYDebut = casey;
         while(casey > -1 ){
-            if(this.verification(casex,casey,-1,-1,blanc) == 1){
-                chemin.add(lesCases[casex-1][casey-1]);
-            }else{
-                if(this.verification(casex,casey,-1,-1,blanc) == 4){
-                    break;
+            if(this.verifSortDuDamier(casex,casey,-1,-1)){
+                if(lesCases[casex-1][casey-1].piece == null){
+                    chemin.add(lesCases[casex-1][casey-1]);
+                }else{
+                    if(!(lesCases[casex-1][casey-1].piece.blanc) == blanc){
+                        // ici je peux peut etre prendre
+                    }else{
+                        break;
+                    }
+
                 }
+
             }
             casex--;
             casey--;
@@ -227,11 +236,16 @@ public class Damier {
         casex = caseXDebut;
         casey = caseYDebut;
         while(casey < 10){
-            if(this.verification(casex,casey,1,1,blanc) == 1){
-                chemin.add(lesCases[casex+1][casey+1]);
-            }else{
-                if(this.verification(casex,casey,-1,-1,blanc) == 4){
-                    break;
+            if(this.verifSortDuDamier(casex,casey,1,1)){
+                if(lesCases[casex+1][casey+1].piece == null){
+                    chemin.add(lesCases[casex+1][casey+1]);
+                }else{
+                    if(!(lesCases[casex+1][casey+1].piece.blanc) == blanc){
+                        // ici je peux peut etre prendre
+                    }else{
+                        break;
+                    }
+
                 }
             }
             casex++;
@@ -242,11 +256,16 @@ public class Damier {
 
 
         while(casex < 10 ){
-            if(this.verification(casex,casey,1,-1,blanc) == 1){
-                chemin.add(lesCases[casex+1][casey-1]);
-            }else{
-                if(this.verification(casex,casey,-1,-1,blanc) == 4){
-                    break;
+            if(this.verifSortDuDamier(casex,casey,1,-1)){
+                if(lesCases[casex+1][casey-1].piece == null){
+                    chemin.add(lesCases[casex+1][casey-1]);
+                }else{
+                    if(!(lesCases[casex+1][casey-1].piece.blanc) == blanc){
+                        // ici je peux peut etre prendre
+                    }else{
+                        break;
+                    }
+
                 }
             }
             casex++;
@@ -256,11 +275,16 @@ public class Damier {
         casey = caseYDebut;
 
         while(casex > -1 ){
-            if(this.verification(casex,casey,-1,+1,blanc) == 1){
-                chemin.add(lesCases[casex-1][casey+1]);
-            }else{
-                if(this.verification(casex,casey,-1,-1,blanc) == 4){
-                    break;
+            if(this.verifSortDuDamier(casex,casey,-1,1)){
+                if(lesCases[casex-1][casey+1].piece == null){
+                    chemin.add(lesCases[casex-1][casey+1]);
+                }else{
+                    if(!(lesCases[casex-1][casey+1].piece.blanc) == blanc){
+                        // ici je peux peut etre prendre
+                    }else{
+                        break;
+                    }
+
                 }
             }
             casex--;
