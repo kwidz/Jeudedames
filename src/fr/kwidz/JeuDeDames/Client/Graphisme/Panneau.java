@@ -119,7 +119,12 @@ public class Panneau extends JPanel{
 
         Case caseDepart = this.damier.lesCases[xDepart][yDepart];
         Case caseArrivee = this.damier.lesCases[xArrivee][yArrivee];
-        caseArrivee.piece = new Pion(caseDepart.piece.blanc);
+
+        if(caseDepart.piece instanceof  Pion)
+            caseArrivee.piece = new Pion(caseDepart.piece.blanc);
+        else
+            caseArrivee.piece = new Dame(caseDepart.piece.blanc);
+
         caseArrivee.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY,caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, caseArrivee.piece);
         caseDepart.effacerPiece();
         for (int i = 0; i < lesprises.size(); i++) {
