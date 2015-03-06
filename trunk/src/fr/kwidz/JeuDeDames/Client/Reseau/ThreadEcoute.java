@@ -2,6 +2,9 @@ package fr.kwidz.JeuDeDames.Client.Reseau;
 
 
 import fr.kwidz.JeuDeDames.Client.Graphisme.Affichage;
+import fr.kwidz.JeuDeDames.Client.Graphisme.Panneau;
+import fr.kwidz.JeuDeDames.Client.Graphisme.PanneauGagne;
+import fr.kwidz.JeuDeDames.Client.Graphisme.PanneauPerdu;
 import fr.kwidz.JeuDeDames.Serveur.Jeu.Coup;
 
 import java.awt.*;
@@ -85,11 +88,17 @@ public class ThreadEcoute extends Thread{
                 else if(message.equals("gagne")){
                     jetonDeJeu.setJeton(false);
                     System.out.println("vous avez gagné !");
+                    PanneauGagne p = new PanneauGagne();
+                    p.repaint();
+                    f.fenetre.setContentPane(p);
                     dialogue.deconexion();
                 }
                 else if(message.equals("perdu")){
                     jetonDeJeu.setJeton(false);
                     System.out.println("vous avez Perdu :( !");
+                    PanneauPerdu p = new PanneauPerdu();
+                    p.repaint();
+                    f.fenetre.setContentPane(p);
                     dialogue.deconexion();
                 }
                 else{
