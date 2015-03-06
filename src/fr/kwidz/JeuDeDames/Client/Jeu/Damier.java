@@ -21,7 +21,7 @@ public class Damier {
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
-                        lesCases[i][j].piece = new Pion(true);
+                        lesCases[i][j].piece = new Dame(true);
                         System.out.print("#");
                     }
                     else
@@ -292,6 +292,44 @@ public class Damier {
         }
         casex = caseXDebut;
         casey = caseYDebut;
+    }
+
+
+    //FONCTION A REFAIRE :
+    public boolean possibilitePrendreEncoreDame(int casex, int casey, boolean blanc){
+        boolean continuer = false;
+        if(this.verification(casex,casey,1,1,blanc)==2){
+            if(this.verification(casex,casey,2,2,blanc)==1){
+                chemin.add(lesCases[casex+2][casey+2]);
+                continuer=true;
+            }
+        }
+
+
+
+        if(this.verification(casex,casey,1,-1,blanc)==2){
+            if(this.verification(casex,casey,2,-2,blanc)==1){
+                chemin.add(lesCases[casex+2][casey-2]);
+                continuer=true;
+            }
+        }
+
+
+        if(this.verification(casex,casey,-1,-1,blanc) == 2){
+            if(this.verification(casex,casey,-2,-2,blanc) ==1){
+                chemin.add(lesCases[casex-2][casey-2]);
+                continuer =true;
+            }
+        }
+
+        if(this.verification(casex,casey,-1,1,blanc)==2){
+            if(this.verification(casex,casey,-2,2,blanc) == 1){
+                chemin.add(lesCases[casex-2][casey+2]);
+                continuer=true;
+            }
+        }
+
+        return continuer;
     }
 
 }

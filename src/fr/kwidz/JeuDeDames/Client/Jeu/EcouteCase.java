@@ -47,7 +47,8 @@ public class EcouteCase implements MouseListener {
                     this.pionPris();
                     jouerUnCoups();
                 }else{
-                    //JoueurCoupDame
+                    this.pionPrisDame();
+                    jouerCoupDame();
                 }
 
                 this.lacase.DeSelectionner();
@@ -238,6 +239,22 @@ public class EcouteCase implements MouseListener {
         }
     }
 
+
+    public void pionPrisDame(){
+        Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+        int xDepart = caseDepart.caseDrawableContenu.caseX;
+        int yDepart = caseDepart.caseDrawableContenu.caseY;
+        int xArrive = this.lacase.caseDrawableContenu.caseX;
+        int yArrive = this.lacase.caseDrawableContenu.caseY;
+
+        /*for(int i = xDepart,j = yDepart ; i < xArrive ; i++,j--){
+            Case caseInter = this.leDamier.lesCases[i][].
+            if(caseInter){
+
+            }
+        }*/
+    }
+
     public boolean verificationDame(int x){
         if(jeton.isJoueur1()){
             if(x>8){
@@ -249,5 +266,60 @@ public class EcouteCase implements MouseListener {
             }
         }
         return false;
+    }
+
+
+    private void jouerCoupDame(){
+        if (jeton.isJeton()) {
+            Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+            this.lacase.piece = caseDepart.piece;
+
+
+            this.lacase.caseDrawableContenu.dessinerPion(caseDepart.caseDrawableContenu.pionPosX, caseDepart.caseDrawableContenu.pionPosY, caseDepart.caseDrawableContenu.pionWidth, caseDepart.caseDrawableContenu.pionHeight, caseDepart.caseDrawableContenu.couleurPion, this.lacase.piece);
+            caseDepart.effacerPiece();
+
+            Coups.coordonneeDame = new Point(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
+            //supprime pions pris du damier
+            for(int i = 0 ; i< Coups.pionPris.size() ; i++){
+                Point p = (Point)Coups.pionPris.get(i);
+                System.out.println("pX="+p.x+"pY"+p.y);
+                this.leDamier.lesCases[p.x][p.y].effacerPiece();
+            }
+            // Attention le joueur peut jouer une deuxieme fois sans prendre forcement le pion
+            if(Coups.pionPris.size()>0 && this.leDamier.possibilitePrendreEncoreDame(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, jeton.isJoueur1())){
+                this.lacase.Selectionner();
+                chemin = this.leDamier.getChemin();
+                for (int i = 1; i < chemin.size(); i++) {
+                    Case c = (Case) chemin.get(i);
+                    c.choisissable = true;
+                    c.Selectionner();
+                }
+                if(Coups.caseDepart == null){
+                    Coups.caseDepart = caseDepart;
+                }
+
+                Coups.coordonneeDame = new Point(this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY);
+
+                System.out.print("Possibilte encore!");
+            }else{
+                if(Coups.caseDepart != null){
+                    System.out.println("case DepartX :" + Coups.caseDepart.caseDrawableContenu.caseX + "case departY" + Coups.caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
+                    dialogue.jouerUnCoups(Coups.caseDepart.caseDrawableContenu.caseX, Coups.caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+                    Coups.caseDepart = null;
+                }else{
+                    System.out.println("case DepartX :" + caseDepart.caseDrawableContenu.caseX + "case departY" + caseDepart.caseDrawableContenu.caseY+"case arrive x"+this.lacase.caseDrawableContenu.caseX+"case arrive y"+this.lacase.caseDrawableContenu.caseY);
+
+
+                    dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
+
+
+                    Coups.caseDepart = null;
+                }
+
+                Coups.pionPris.clear();
+                jeton.setJeton(false);
+            }
+
+        }
     }
 }
