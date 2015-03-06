@@ -82,6 +82,16 @@ public class ThreadEcoute extends Thread{
                     System.out.println("L'adversaire s'est déconecté ! vous avez gagné !");
                     dialogue.deconexion();
                 }
+                else if(message.equals("gagne")){
+                    jetonDeJeu.setJeton(false);
+                    System.out.println("vous avez gagné !");
+                    dialogue.deconexion();
+                }
+                else if(message.equals("perdu")){
+                    jetonDeJeu.setJeton(false);
+                    System.out.println("vous avez Perdu :( !");
+                    dialogue.deconexion();
+                }
                 else{
 
 
