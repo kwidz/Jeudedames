@@ -1,7 +1,7 @@
-package fr.kwidz.JeuDeDames.Serveur;
+package fr.kwidz.JeuDeDames.Serveur.Reseau;
 
 import fr.kwidz.JeuDeDames.Serveur.Jeu.Jeu;
-import fr.kwidz.JeuDeDames.Serveur.Reseau.ThreadConnexion;
+
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,15 +27,35 @@ public class Dialogue {
             if(message !="joueur1" && message !="joueur2" && message != "connectionJ2" && message != "deconexion")
             jeu.jouerUnCoup(jeu.joueur2.jouerUnCoup(message));
             System.out.print(jeu.joueur1.isPerdu(jeu.damier));
-            outputs.get(joueur-2).println(message);
-            outputs.get(joueur-2).flush();
+            if(jeu.joueur1.isPerdu(jeu.damier)){
+                outputs.get(joueur-2).println("Perdu");
+                outputs.get(joueur-2).flush();
+                outputs.get(joueur-1).println("gagne");
+                outputs.get(joueur-1).flush();
+                supprimer(outputs.get(joueur),1);
+                supprimer(outputs.get(joueur-2),2);
+            }
+            else {
+                outputs.get(joueur - 2).println(message);
+                outputs.get(joueur - 2).flush();
+            }
         }else
         {
             if(message !="joueur1" && message !="joueur2" && message != "connectionJ2" && message != "deconexion")
             jeu.jouerUnCoup(jeu.joueur1.jouerUnCoup(message));
             System.out.print(jeu.joueur1.isPerdu(jeu.damier));
-            outputs.get(joueur).println(message);
-            outputs.get(joueur).flush();
+            if(jeu.joueur2.isPerdu(jeu.damier)){
+                outputs.get(joueur-1).println("gagne");
+                outputs.get(joueur-1).flush();
+                outputs.get(joueur).println("perdu");
+                outputs.get(joueur).flush();
+                supprimer(outputs.get(joueur),1);
+                supprimer(outputs.get(joueur-2),2);
+            }
+            else {
+                outputs.get(joueur).println(message);
+                outputs.get(joueur).flush();
+            }
         }
         for (int i = 0; i < threads.size(); i++) {
             System.out.println(threads.get(i).joueur+" ");
