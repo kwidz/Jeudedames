@@ -41,8 +41,15 @@ public class EcouteCase implements MouseListener {
 
         if (jeton.isJeton()) {
             if (this.peutJoueur()) {
-                this.pionPris();
-                jouerUnCoups();
+
+                Case caseDepart = (Case) this.leDamier.getChemin().get(0);
+                if(caseDepart.piece instanceof Pion){
+                    this.pionPris();
+                    jouerUnCoups();
+                }else{
+                    //JoueurCoupDame
+                }
+
                 this.lacase.DeSelectionner();
                 chemin = leDamier.getChemin();
                 for (int i = 0; i < chemin.size(); i++) {
