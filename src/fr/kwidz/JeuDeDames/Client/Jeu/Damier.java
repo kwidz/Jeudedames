@@ -243,7 +243,7 @@ public class Damier {
 
     }
 
-    // FONCTION A FINIR (elle doit se repeter tant qu'il n'y plus de possibilité:
+
 
     public boolean possibilitePrendreEncore(int casex, int casey, boolean blanc){
         boolean continuer = false;

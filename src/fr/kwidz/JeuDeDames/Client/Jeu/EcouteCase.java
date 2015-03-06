@@ -166,7 +166,7 @@ public class EcouteCase implements MouseListener {
                     }else{
                         dialogue.jouerUnCoups(caseDepart.caseDrawableContenu.caseX, caseDepart.caseDrawableContenu.caseY, this.lacase.caseDrawableContenu.caseX, this.lacase.caseDrawableContenu.caseY, Coups.pionPris);
                     }
-
+                    Coups.dameFaite = false;
                     Coups.caseDepart = null;
                 }
 
