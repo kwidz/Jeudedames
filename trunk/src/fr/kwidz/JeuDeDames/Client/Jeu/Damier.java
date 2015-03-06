@@ -21,12 +21,12 @@ public class Damier {
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
-                        lesCases[i][j].piece = new Dame(true);
+                        lesCases[i][j].piece = new Pion(true);
                         System.out.print("#");
                     }
                     else
                     if(i>5){
-                        lesCases[i][j].piece = new Dame(false);
+                        lesCases[i][j].piece = new Pion(false);
                         System.out.print("#");
                     }
                     else{
@@ -159,8 +159,12 @@ public class Damier {
             if(lesCases[casex+i][casey+j].piece == null){
                 return 1;
             }else{
-                if(!(lesCases[casex+i][casey+j].piece.blanc) == blanc)
-                return 2;
+                if(!(lesCases[casex+i][casey+j].piece.blanc) == blanc){
+                    return 2;
+                }else{
+                    return 4;
+                }
+
             }
         }
         return 3;
@@ -212,6 +216,10 @@ public class Damier {
         while(casey > -1 ){
             if(this.verification(casex,casey,-1,-1,blanc) == 1){
                 chemin.add(lesCases[casex-1][casey-1]);
+            }else{
+                if(this.verification(casex,casey,-1,-1,blanc) == 4){
+                    break;
+                }
             }
             casex--;
             casey--;
@@ -221,6 +229,10 @@ public class Damier {
         while(casey < 10){
             if(this.verification(casex,casey,1,1,blanc) == 1){
                 chemin.add(lesCases[casex+1][casey+1]);
+            }else{
+                if(this.verification(casex,casey,-1,-1,blanc) == 4){
+                    break;
+                }
             }
             casex++;
             casey++;
@@ -232,6 +244,10 @@ public class Damier {
         while(casex < 10 ){
             if(this.verification(casex,casey,1,-1,blanc) == 1){
                 chemin.add(lesCases[casex+1][casey-1]);
+            }else{
+                if(this.verification(casex,casey,-1,-1,blanc) == 4){
+                    break;
+                }
             }
             casex++;
             casey--;
@@ -242,6 +258,10 @@ public class Damier {
         while(casex > -1 ){
             if(this.verification(casex,casey,-1,+1,blanc) == 1){
                 chemin.add(lesCases[casex-1][casey+1]);
+            }else{
+                if(this.verification(casex,casey,-1,-1,blanc) == 4){
+                    break;
+                }
             }
             casex--;
             casey++;
