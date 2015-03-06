@@ -239,7 +239,7 @@ public class EcouteCase implements MouseListener {
         }
     }
 
-
+/// fonciton a continuer !!
     public void pionPrisDame(){
         Case caseDepart = (Case) this.leDamier.getChemin().get(0);
         int xDepart = caseDepart.caseDrawableContenu.caseX;
