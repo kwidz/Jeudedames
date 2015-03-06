@@ -34,6 +34,7 @@ public class Dialogue {
                 outputs.get(joueur-1).flush();
                 supprimer(outputs.get(joueur),1);
                 supprimer(outputs.get(joueur-2),2);
+                System.exit(0);
             }
             else {
                 outputs.get(joueur - 2).println(message);
@@ -51,6 +52,7 @@ public class Dialogue {
                 outputs.get(joueur).flush();
                 supprimer(outputs.get(joueur),1);
                 supprimer(outputs.get(joueur-2),2);
+                System.exit(0);
             }
             else {
                 outputs.get(joueur).println(message);
