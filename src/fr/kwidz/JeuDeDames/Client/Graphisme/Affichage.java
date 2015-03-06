@@ -8,7 +8,7 @@ import fr.kwidz.JeuDeDames.Client.Reseau.GestionaireDeTours;
  * Created by morgane on 27/01/15.
  */
 public class Affichage {
-     Fenetre fenetre;
+    public Fenetre fenetre;
     public Panneau interfacePaneau;
     public Affichage(Damier d, GestionaireDeTours jeton, DialogueAvecServeur dialogue){
 
