@@ -101,7 +101,9 @@ public class ThreadEcoute extends Thread{
                         Point dame = new Point(coup.dame);
                         f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises, dame);
                     }
-                    f.interfacePaneau.jouerUnCoup(xDepart,yDepart,xArrive,yArrive, prises);
+                    else {
+                        f.interfacePaneau.jouerUnCoup(xDepart, yDepart, xArrive, yArrive, prises);
+                    }
                     jetonDeJeu.setJeton(true);
                     System.out.println("l'adversaire a joué, c'est a vous !");
                 }
