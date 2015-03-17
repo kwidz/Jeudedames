@@ -21,7 +21,7 @@ public class Damier {
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
-                        lesCases[i][j].piece = new Pion(true);
+                        lesCases[i][j].piece = new Dame(true);
                         System.out.print("#");
                     }
                     else
@@ -49,7 +49,7 @@ public class Damier {
         chemin.add(lesCases[casex][casey]);
 
 
-
+        //chemin.add(lesCases[6][2]);
 
 
         if(blanc){
