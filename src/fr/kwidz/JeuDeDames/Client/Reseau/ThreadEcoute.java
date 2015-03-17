@@ -34,11 +34,7 @@ public class ThreadEcoute extends Thread{
         this.f = f;
         this.dialogue=dialogue;
     }
-/*
-*
-* TODO : Améliorer le mvc pour éviter de changer le texte de la fenetre directement dans cette classe.
-*
-* */
+
     @Override
     public void run() {
 
@@ -69,12 +65,14 @@ public class ThreadEcoute extends Thread{
                     jetonDeJeu.setMessageFenetre("Vous êtes le joueur 1");
                     System.out.println("joueur1 Thead"+jetonDeJeu.isJoueur1());
                     System.out.println("Vous êtes le joueur 1 attendez qu'un autre joueur se connecte pour pouvoir jouer !");
+                    dialogue.joueur1.setJeton(true);
                 }else
                 if(message.equals("joueur2")){
                     jetonDeJeu.setJeton(false);
                     jetonDeJeu.setJoueur1(false);
                     jetonDeJeu.setMessageFenetre("Vous êtes le joueur 2");
                     System.out.println("Vous êtes le joueur 2 attendez que le J1 commence la partie !");
+                    dialogue.joueur1.setJeton(false);
                 }else
                 if(message.equals("connectionJ2")){
                     jetonDeJeu.setJeton(true);

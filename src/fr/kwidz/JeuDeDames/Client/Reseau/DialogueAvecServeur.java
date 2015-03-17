@@ -18,6 +18,7 @@ public class DialogueAvecServeur {
     PrintWriter output = null;
     Socket socket = null;
     InputStream input = null;
+    public GestionaireDeTours joueur1 = new GestionaireDeTours();
     private ThreadEcoute thread;
 
     public void setThread(ThreadEcoute thread) {
