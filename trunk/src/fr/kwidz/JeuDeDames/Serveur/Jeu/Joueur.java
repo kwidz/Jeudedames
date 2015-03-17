@@ -33,7 +33,7 @@ public class Joueur {
                 }else
                 if (d.lesCases[i][j].pion != null &&
                         !d.lesCases[i][j].pion.blanc) {
-                    return false;
+                    return true;
                 }
             }
         }

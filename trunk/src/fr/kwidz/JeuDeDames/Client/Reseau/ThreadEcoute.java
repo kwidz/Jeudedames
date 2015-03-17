@@ -89,6 +89,8 @@ public class ThreadEcoute extends Thread{
                     PanneauGagne p = new PanneauGagne();
                     p.repaint();
                     f.fenetre.setContentPane(p);
+                    p.repaint();
+                    f.fingame =true;
                     dialogue.deconexion();
                 }
                 else if(message.equals("perdu")){
@@ -97,6 +99,8 @@ public class ThreadEcoute extends Thread{
                     PanneauPerdu p = new PanneauPerdu();
                     p.repaint();
                     f.fenetre.setContentPane(p);
+                    p.repaint();
+                    f.fingame =true;
                     dialogue.deconexion();
                 }
                 else{
