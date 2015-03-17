@@ -87,9 +87,10 @@ public class ThreadEcoute extends Thread{
                     jetonDeJeu.setJeton(false);
                     System.out.println("vous avez gagné !");
                     PanneauGagne p = new PanneauGagne();
-                    p.repaint();
+
                     f.fenetre.setContentPane(p);
-                    p.repaint();
+                    f.fenetre.pack();
+                    f.fenetre.repaint();
                     f.fingame =true;
                     dialogue.deconexion();
                 }
@@ -97,9 +98,11 @@ public class ThreadEcoute extends Thread{
                     jetonDeJeu.setJeton(false);
                     System.out.println("vous avez Perdu :( !");
                     PanneauPerdu p = new PanneauPerdu();
-                    p.repaint();
+
                     f.fenetre.setContentPane(p);
-                    p.repaint();
+                    f.fenetre.pack();
+                    f.fenetre.repaint();
+
                     f.fingame =true;
                     dialogue.deconexion();
                 }

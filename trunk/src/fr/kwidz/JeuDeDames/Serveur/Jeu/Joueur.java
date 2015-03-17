@@ -22,7 +22,7 @@ public class Joueur {
     }
 
     public boolean isPerdu(Damier d){
-        int nombrePieces=0;
+
         for (int i = 0; i < 10 ; i++) {
             for (int j = 0; j < 10; j++) {
                 if(joueur1) {

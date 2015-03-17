@@ -5,6 +5,7 @@ package fr.kwidz.JeuDeDames.Client.Graphisme;
  */
 
 import javax.swing.JFrame;
+import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
@@ -30,6 +31,9 @@ public class Fenetre extends JFrame{
             this.setTitle("Jeu de Dames");
             this.setSize(610, 630);
             this.setLocationRelativeTo(null);
+            this.setMinimumSize(new Dimension(610,630));
+            this.setPreferredSize(new Dimension(610,630));
+
             //this.setLayout(null);
             /*Bouton b = new Bouton();
             this.add(b);
@@ -37,6 +41,7 @@ public class Fenetre extends JFrame{
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             //this.setContentPane(this.tableauJeu);
             this.setVisible(true);
+            this.pack();
         }
 
 

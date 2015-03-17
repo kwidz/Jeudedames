@@ -24,7 +24,6 @@ public class Panneau extends JPanel{
 
 
     public Panneau(Damier d, Fenetre fenetre, GestionaireDeTours jeton, DialogueAvecServeur dialogue){
-        fenetre.setContentPane(this);
         tailleFenetreW = fenetre.getWidth()/10;
         tailleFenetreH = fenetre.getHeight()/10;
         this.damier = d;
@@ -62,8 +61,11 @@ public class Panneau extends JPanel{
 
         }
 
+        System.out.println("passed");
+        fenetre.setContentPane(this);
+        fenetre.pack();
+        fenetre.repaint();
         this.repaint();
-
     }
 
     public void paintComponent(Graphics g){
@@ -76,7 +78,7 @@ public class Panneau extends JPanel{
         if(this.damier != null) {
 
             if(dialogue.joueur1.isJeton()){
-                System.out.println("affichage joueur 1");
+
                 int imoins = 9;
                 for (int i = 9; i >= 0; i--) {
                     int jmoins = 9;
@@ -106,7 +108,7 @@ public class Panneau extends JPanel{
                 }
             }
             else {
-                System.out.println("affichage joueur 2");
+
                 for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 10; j++) {
                         if (this.damier.lesCases[i][j] instanceof CaseNoire) {
