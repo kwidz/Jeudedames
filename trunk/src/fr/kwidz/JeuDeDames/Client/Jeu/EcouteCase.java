@@ -246,13 +246,89 @@ public class EcouteCase implements MouseListener {
         int yDepart = caseDepart.caseDrawableContenu.caseY;
         int xArrive = this.lacase.caseDrawableContenu.caseX;
         int yArrive = this.lacase.caseDrawableContenu.caseY;
+        int i = xDepart, j = yDepart ;
 
-        /*for(int i = xDepart,j = yDepart ; i < xArrive ; i++,j--){
-            Case caseInter = this.leDamier.lesCases[i][].
-            if(caseInter){
+        System.out.print("passe dans fonction");
+        if(xDepart < xArrive && yDepart < yArrive){
+            //descend droite
+            System.out.print("descend droite");
+            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
+            i = xDepart;
+            j = yDepart ;
+            for( i=xDepart; i > xArrive ; i++){
+                j++;
+                System.out.println("i = "+i+"j = "+j);
+                Case caseInter = (Case)this.leDamier.lesCases[i][j];
+
+                if(caseInter.piece != null){
+                    Point p = new Point(i,j);
+                    Coups.pionPris.add(p);
+                }
 
             }
-        }*/
+
+        }
+
+        if(xDepart > xArrive && yDepart > yArrive){
+            //monte gauche
+            System.out.print("monte gauche");
+            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
+            i = xDepart;
+            j = yDepart ;
+            for(i = xDepart ; i < xArrive ; i--){
+                j--;
+                System.out.println("i = "+i+"j = "+j);
+
+                Case caseInter = (Case)this.leDamier.lesCases[i][j];
+                if(caseInter.piece != null){
+                    Point p = new Point(i,j);
+                    Coups.pionPris.add(p);
+                }
+
+            }
+
+        }
+
+        if(xDepart < xArrive && yDepart > yArrive){
+            //descend gauche
+            System.out.print("descend gauche");
+            System.out.println("xDep = " + xDepart + "yDep = " + yDepart + "xArr= " + xArrive + "yArr= " + yArrive);
+            j = yDepart ;
+            for(i = xDepart; i > xArrive ; i++){
+                j--;
+                System.out.println("i = "+i+"j = "+j);
+                Case caseInter = (Case)this.leDamier.lesCases[i][j];
+
+                if(caseInter.piece != null){
+                    Point p = new Point(i,j);
+                    Coups.pionPris.add(p);
+                }
+
+            }
+
+        }
+
+        if(xDepart > xArrive && yDepart < yArrive){
+            //monte droite
+            System.out.print("monte droite");
+            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
+            i = xDepart;
+            j = yDepart ;
+            for(i = xDepart; i < xArrive ; i--){
+                j++;
+                System.out.println("i = " + i + "j = " + j);
+                Case caseInter = (Case)this.leDamier.lesCases[i][j];
+
+                if(caseInter.piece != null){
+                    Point p = new Point(i,j);
+                    Coups.pionPris.add(p);
+                }
+
+            }
+
+
+        }
+
     }
 
     public boolean verificationDame(int x){
