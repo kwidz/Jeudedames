@@ -14,10 +14,12 @@ import java.util.ArrayList;
 
 
 public class Panneau extends JPanel{
+    private DialogueAvecServeur dialogue;
     Damier damier;
     public Panneau self = this;
     int tailleFenetreH;
     int tailleFenetreW;
+    boolean joueur1;
     //ArrayList listeCaseSelectionne = new ArrayList();
 
 
@@ -27,6 +29,7 @@ public class Panneau extends JPanel{
         tailleFenetreH = fenetre.getHeight()/10;
         this.damier = d;
         this.setLayout(null);
+        this.dialogue = dialogue;
 
 
         for(int i = 0 ; i < 10 ; i++){
@@ -71,26 +74,60 @@ public class Panneau extends JPanel{
 
 
         if(this.damier != null) {
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 10; j++) {
-                    if (this.damier.lesCases[i][j] instanceof CaseNoire) {
 
-                        damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
-                        if(damier.lesCases[i][j].piece != null ){
-                            if(damier.lesCases[i][j].piece.blanc){
-                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white, damier.lesCases[i][j].piece);
+            if(dialogue.joueur1.isJeton()){
+                System.out.println("affichage joueur 1");
+                int imoins = 9;
+                for (int i = 9; i >= 0; i--) {
+                    int jmoins = 9;
+                    for (int j = 9; j >= 0; j--) {
+                        if (this.damier.lesCases[i][j] instanceof CaseNoire) {
+
+                            damier.lesCases[i][j].caseDrawableContenu.modifierBouton((j-jmoins) * this.tailleFenetreW, (i-imoins) * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
+                            if(damier.lesCases[i][j].piece != null ){
+                                if(damier.lesCases[i][j].piece.blanc){
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white, damier.lesCases[i][j].piece);
+                                }else{
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red, damier.lesCases[i][j].piece);
+                                }
                             }else{
-                                damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red, damier.lesCases[i][j].piece);
+                                //damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
                             }
-                        }else{
-                            //damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
+
+
+                        } else {
+
+                            damier.lesCases[i][j].caseDrawableContenu.modifierBouton((j-jmoins) * this.tailleFenetreW, (i-imoins) * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
+
                         }
+                        jmoins-=2;
+                    }
+                    imoins-=2;
+                }
+            }
+            else {
+                System.out.println("affichage joueur 2");
+                for (int i = 0; i < 10; i++) {
+                    for (int j = 0; j < 10; j++) {
+                        if (this.damier.lesCases[i][j] instanceof CaseNoire) {
+
+                            damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
+                            if (damier.lesCases[i][j].piece != null) {
+                                if (damier.lesCases[i][j].piece.blanc) {
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4, tailleFenetreW - 10, tailleFenetreH - 10, Color.white, damier.lesCases[i][j].piece);
+                                } else {
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4, tailleFenetreW - 10, tailleFenetreH - 10, Color.red, damier.lesCases[i][j].piece);
+                                }
+                            } else {
+                                //damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW, tailleFenetreH, Color.black);
+                            }
 
 
-                    } else {
+                        } else {
 
-                        damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
+                            damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
 
+                        }
                     }
                 }
             }
