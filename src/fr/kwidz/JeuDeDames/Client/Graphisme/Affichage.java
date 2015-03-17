@@ -17,13 +17,5 @@ public class Affichage {
         this.interfacePaneau = new Panneau(d,fenetre, jeton, dialogue);
     }
 
-    public void raffraichir(Damier d){
-        if(!fingame) {
-            interfacePaneau.setDamier(d);
-            interfacePaneau.repaint();
-        }
-        else{
-            System.out.print("le jeu est terminé !");
-        }
-    }
+
 }
