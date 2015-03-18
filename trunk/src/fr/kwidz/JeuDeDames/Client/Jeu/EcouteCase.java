@@ -238,26 +238,29 @@ public class EcouteCase implements MouseListener {
             Coups.pionPris.add(p);
         }
     }
+/*
+Todo: debug !!
+ */
 
-/// fonciton a continuer !!
+
     public void pionPrisDame(){
         Case caseDepart = (Case) this.leDamier.getChemin().get(0);
-        int xDepart = caseDepart.caseDrawableContenu.caseX;
-        int yDepart = caseDepart.caseDrawableContenu.caseY;
-        int xArrive = this.lacase.caseDrawableContenu.caseX;
-        int yArrive = this.lacase.caseDrawableContenu.caseY;
-        int i = xDepart, j = yDepart ;
+        int ligneDepart = caseDepart.caseDrawableContenu.caseX;
+        int coloneDepart = caseDepart.caseDrawableContenu.caseY;
+        int ligneArrive = this.lacase.caseDrawableContenu.caseX;
+        int coloneArrive = this.lacase.caseDrawableContenu.caseY;
+        int i = ligneDepart, j = coloneDepart ;
 
         System.out.print("passe dans fonction");
-        if(xDepart < xArrive && yDepart < yArrive){
+        if(ligneDepart < ligneArrive && coloneDepart < coloneArrive){
             //descend droite
             System.out.print("descend droite");
-            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
-            j = yDepart;
-            for(i=xDepart+1; i <= xArrive ; i++){
-                j++;
+            System.out.println("xDep = "+ligneDepart+"yDep = "+coloneDepart+"xArr= "+ligneArrive+"yArr= "+coloneArrive);
+            j = coloneDepart+1;
+            for(i=ligneDepart+1; i <= ligneArrive ; i++,j++){
+
 System.out.print("passe dans le for");
-                this.leDamier.lesCases[i][j].Selectionner();
+
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
                 System.out.print(caseInter);
                 if(caseInter.piece != null){
@@ -269,15 +272,15 @@ System.out.print("passe dans le for");
             }
 
         }
-
-        if(xDepart > xArrive && yDepart > yArrive){
+        else
+        if(ligneDepart > ligneArrive && coloneDepart > coloneArrive){
             //monte gauche
             System.out.print("monte gauche");
-            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
-            i = xDepart;
-            j = yDepart ;
-            for(i = xDepart ; i >= xArrive ; i--){
-                j--;
+            System.out.println("xDep = "+ligneDepart+"yDep = "+coloneDepart+"xArr= "+ligneArrive+"yArr= "+coloneArrive);
+
+            j = coloneDepart -1;
+            for(i = ligneDepart -1; i >= ligneArrive ; i--,j--){
+
                 System.out.print("passe dans le for");
 
 
@@ -292,17 +295,17 @@ System.out.print("passe dans le for");
             }
 
         }
-
-        if(xDepart < xArrive && yDepart > yArrive){
+        else
+        if(ligneDepart < ligneArrive && coloneDepart > coloneArrive){
             //descend gauche
             System.out.print("descend gauche");
-            System.out.println("xDep = " + xDepart + "yDep = " + yDepart + "xArr= " + xArrive + "yArr= " + yArrive);
-            j = yDepart;
-            for(i = xDepart; i <= xArrive ; i++){
-                j--;
+            System.out.println("xDep = " + ligneDepart + "yDep = " + coloneDepart + "xArr= " + ligneArrive + "yArr= " + coloneArrive);
+            j = coloneDepart-1;
+            for(i = ligneDepart+1; i <= ligneArrive ; i++,j--){
+
                 System.out.print("passe dans le for");
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
-                this.leDamier.lesCases[i][j].Selectionner();
+
                 System.out.print(caseInter);
                 if(caseInter.piece != null){
                     System.out.println("i = "+i+"j = "+j);
@@ -313,18 +316,18 @@ System.out.print("passe dans le for");
             }
 
         }
-
-        if(xDepart > xArrive && yDepart < yArrive){
+        else
+        if(ligneDepart > ligneArrive && coloneDepart < coloneArrive){
             //monte droite
             System.out.print("monte droite");
-            System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
+            System.out.println("xDep = "+ligneDepart+"yDep = "+coloneDepart+"xArr= "+ligneArrive+"yArr= "+coloneArrive);
 
-            j = yDepart;
-            for(i = xDepart; i >= xArrive ; i--){
-                j++;
+            j = coloneDepart +1;
+            for(i = ligneDepart-1; i >= ligneArrive ; i--,j++){
+
                 System.out.print("passe dans le for");
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
-                this.leDamier.lesCases[i][j].Selectionner();
+
                 System.out.print(caseInter);
                 if(caseInter.piece != null){
                     Point p = new Point(i,j);
