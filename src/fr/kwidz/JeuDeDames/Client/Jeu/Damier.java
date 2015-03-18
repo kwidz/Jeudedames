@@ -26,7 +26,7 @@ public class Damier {
                     }
                     else
                     if(i>5){
-                        lesCases[i][j].piece = new Pion(false);
+                        lesCases[i][j].piece = new Dame(false);
                         System.out.print("#");
                     }
                     else{
