@@ -253,13 +253,13 @@ public class EcouteCase implements MouseListener {
             //descend droite
             System.out.print("descend droite");
             System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
-            i = xDepart;
-            j = yDepart ;
-            for(i=xDepart; i <= xArrive ; i++){
+            j = yDepart;
+            for(i=xDepart+1; i <= xArrive ; i++){
                 j++;
-
+System.out.print("passe dans le for");
+                this.leDamier.lesCases[i][j].Selectionner();
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
-
+                System.out.print(caseInter);
                 if(caseInter.piece != null){
                     System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
@@ -278,9 +278,11 @@ public class EcouteCase implements MouseListener {
             j = yDepart ;
             for(i = xDepart ; i >= xArrive ; i--){
                 j--;
+                System.out.print("passe dans le for");
 
 
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
+                System.out.print(caseInter);
                 if(caseInter.piece != null){
                     System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
@@ -295,12 +297,13 @@ public class EcouteCase implements MouseListener {
             //descend gauche
             System.out.print("descend gauche");
             System.out.println("xDep = " + xDepart + "yDep = " + yDepart + "xArr= " + xArrive + "yArr= " + yArrive);
-            j = yDepart ;
+            j = yDepart;
             for(i = xDepart; i <= xArrive ; i++){
                 j--;
-
+                System.out.print("passe dans le for");
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
-
+                this.leDamier.lesCases[i][j].Selectionner();
+                System.out.print(caseInter);
                 if(caseInter.piece != null){
                     System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
@@ -315,13 +318,14 @@ public class EcouteCase implements MouseListener {
             //monte droite
             System.out.print("monte droite");
             System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
-            i = xDepart;
-            j = yDepart ;
+
+            j = yDepart;
             for(i = xDepart; i >= xArrive ; i--){
                 j++;
-
+                System.out.print("passe dans le for");
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
-
+                this.leDamier.lesCases[i][j].Selectionner();
+                System.out.print(caseInter);
                 if(caseInter.piece != null){
                     Point p = new Point(i,j);
                     System.out.println("i = " + i + "j = " + j);

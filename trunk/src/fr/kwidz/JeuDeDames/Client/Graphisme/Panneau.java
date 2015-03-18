@@ -76,8 +76,8 @@ public class Panneau extends JPanel{
 
 
         if(this.damier != null) {
-
-            if(dialogue.joueur1.isJeton()){
+            //dialogue.joueur1.isJeton()
+            if(false){
 
                 int imoins = 9;
                 for (int i = 9; i >= 0; i--) {
