@@ -255,12 +255,13 @@ public class EcouteCase implements MouseListener {
             System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
             i = xDepart;
             j = yDepart ;
-            for( i=xDepart; i > xArrive ; i++){
+            for(i=xDepart; i <= xArrive ; i++){
                 j++;
-                System.out.println("i = "+i+"j = "+j);
+
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
 
                 if(caseInter.piece != null){
+                    System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
                     Coups.pionPris.add(p);
                 }
@@ -275,12 +276,13 @@ public class EcouteCase implements MouseListener {
             System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
             i = xDepart;
             j = yDepart ;
-            for(i = xDepart ; i < xArrive ; i--){
+            for(i = xDepart ; i >= xArrive ; i--){
                 j--;
-                System.out.println("i = "+i+"j = "+j);
+
 
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
                 if(caseInter.piece != null){
+                    System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
                     Coups.pionPris.add(p);
                 }
@@ -294,12 +296,13 @@ public class EcouteCase implements MouseListener {
             System.out.print("descend gauche");
             System.out.println("xDep = " + xDepart + "yDep = " + yDepart + "xArr= " + xArrive + "yArr= " + yArrive);
             j = yDepart ;
-            for(i = xDepart; i > xArrive ; i++){
+            for(i = xDepart; i <= xArrive ; i++){
                 j--;
-                System.out.println("i = "+i+"j = "+j);
+
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
 
                 if(caseInter.piece != null){
+                    System.out.println("i = "+i+"j = "+j);
                     Point p = new Point(i,j);
                     Coups.pionPris.add(p);
                 }
@@ -314,13 +317,14 @@ public class EcouteCase implements MouseListener {
             System.out.println("xDep = "+xDepart+"yDep = "+yDepart+"xArr= "+xArrive+"yArr= "+yArrive);
             i = xDepart;
             j = yDepart ;
-            for(i = xDepart; i < xArrive ; i--){
+            for(i = xDepart; i >= xArrive ; i--){
                 j++;
-                System.out.println("i = " + i + "j = " + j);
+
                 Case caseInter = (Case)this.leDamier.lesCases[i][j];
 
                 if(caseInter.piece != null){
                     Point p = new Point(i,j);
+                    System.out.println("i = " + i + "j = " + j);
                     Coups.pionPris.add(p);
                 }
 
