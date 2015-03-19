@@ -21,12 +21,12 @@ public class Damier {
                 else {
                     lesCases[i][j] = new CaseNoire();
                     if(i<4){
-                        lesCases[i][j].piece = new Dame(true);
+                        lesCases[i][j].piece = new Pion(true);
                         System.out.print("#");
                     }
                     else
                     if(i>5){
-                        lesCases[i][j].piece = new Dame(false);
+                        lesCases[i][j].piece = new Pion(false);
                         System.out.print("#");
                     }
                     else{
