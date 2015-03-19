@@ -24,6 +24,8 @@ public class CaseDrawable extends JPanel{
     BufferedImage couronne;
     BufferedImage mario;
     BufferedImage luigi;
+    BufferedImage wario;
+    BufferedImage boser;
 
     Piece pieceADessiner;
 
@@ -54,6 +56,18 @@ public class CaseDrawable extends JPanel{
 
         try {
             luigi = ImageIO.read(new File("Images/luigi.png"));
+        } catch (IOException ex) {
+            System.out.print("non chargé2");
+        }
+
+        try {
+            wario = ImageIO.read(new File("Images/wario.png"));
+        } catch (IOException ex) {
+            System.out.print("non chargé");
+        }
+
+        try {
+            boser = ImageIO.read(new File("Images/boser.png"));
         } catch (IOException ex) {
             System.out.print("non chargé2");
         }
@@ -94,9 +108,15 @@ public class CaseDrawable extends JPanel{
             } else{
                 //Dessiner dame
                 g.setColor(this.couleurPion);
-
                 g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
-                g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
+                if(this.couleurPion == Color.red){
+
+                    g.drawImage(wario,this.pionPosY-15,this.pionPosY-13, this.pionWidth+30, this.pionHeight+30,null);
+                }else{
+                    g.drawImage(boser,this.pionPosY-20,this.pionPosY-12, this.pionWidth+30, this.pionHeight+30,null);
+                }
+
+                //g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
 
 
             }
