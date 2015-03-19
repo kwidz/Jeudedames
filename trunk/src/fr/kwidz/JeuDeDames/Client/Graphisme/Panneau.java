@@ -88,7 +88,7 @@ public class Panneau extends JPanel{
                             damier.lesCases[i][j].caseDrawableContenu.modifierBouton((j-jmoins) * this.tailleFenetreW, (i-imoins) * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                             if(damier.lesCases[i][j].piece != null ){
                                 if(damier.lesCases[i][j].piece.blanc){
-                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.white, damier.lesCases[i][j].piece);
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.green, damier.lesCases[i][j].piece);
                                 }else{
                                     damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4 , tailleFenetreW-10, tailleFenetreH-10, Color.red, damier.lesCases[i][j].piece);
                                 }
@@ -116,7 +116,7 @@ public class Panneau extends JPanel{
                             damier.lesCases[i][j].caseDrawableContenu.modifierBouton(j * this.tailleFenetreW, i * this.tailleFenetreH, tailleFenetreW, tailleFenetreH);
                             if (damier.lesCases[i][j].piece != null) {
                                 if (damier.lesCases[i][j].piece.blanc) {
-                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4, tailleFenetreW - 10, tailleFenetreH - 10, Color.white, damier.lesCases[i][j].piece);
+                                    damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4, tailleFenetreW - 10, tailleFenetreH - 10, Color.green, damier.lesCases[i][j].piece);
                                 } else {
                                     damier.lesCases[i][j].caseDrawableContenu.dessinerPion(4, 4, tailleFenetreW - 10, tailleFenetreH - 10, Color.red, damier.lesCases[i][j].piece);
                                 }
