@@ -31,7 +31,7 @@ public class Fenetre extends JFrame{
             this.setTitle("Jeu de Dames");
             this.setSize(610, 630);
             this.setLocationRelativeTo(null);
-            this.setMinimumSize(new Dimension(610,630));
+            this.setMinimumSize(new Dimension(310,330));
             this.setPreferredSize(new Dimension(610,630));
 
             //this.setLayout(null);
