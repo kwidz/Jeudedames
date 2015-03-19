@@ -10,18 +10,20 @@ import java.awt.event.ActionListener;
  * Created by kwidz on 15-03-19.
  */
 public class FenetreMenu extends JFrame implements ActionListener {
-    private JButton jouer = new JButton("Commencer une partie");
 
     public FenetreMenu(){
         this.getContentPane().setLayout(null);
-        JPanel p =new JPanel();
+        PanelMenu p = new PanelMenu();
         this.setTitle("Jeux de dames !");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(610,630);
+        this.setSize(610, 630);
         this.setLayout(null);
+        JButton jouer = new JButton("Commencer une partie");
         jouer.addActionListener(this);
-        jouer.setBounds(200, 240,200, 50);
+        jouer.setBounds(200, 240, 200, 50);
         this.add(jouer);
+        this.add(p);
+
         this.setVisible(true);
     }
 
