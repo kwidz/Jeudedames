@@ -10,7 +10,7 @@ import java.net.Socket;
  * Created by kwidz on 23/01/15.
  */
 public class ServeurTCPMulti {
-    public static final int portEcoute = 777;
+    public static final int portEcoute = 8080;
 
 
     public static void main(String[] args){
