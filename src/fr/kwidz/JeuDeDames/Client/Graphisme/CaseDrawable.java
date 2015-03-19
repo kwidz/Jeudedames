@@ -22,6 +22,8 @@ public class CaseDrawable extends JPanel{
     public int caseX;
     public int caseY;
     BufferedImage couronne;
+    BufferedImage mario;
+    BufferedImage luigi;
 
     Piece pieceADessiner;
 
@@ -42,6 +44,18 @@ public class CaseDrawable extends JPanel{
             couronne = ImageIO.read(new File("Images/couronne.png"));
         } catch (IOException ex) {
 
+        }
+
+        try {
+            mario = ImageIO.read(new File("Images/mario.png"));
+        } catch (IOException ex) {
+        System.out.print("non chargé");
+        }
+
+        try {
+            luigi = ImageIO.read(new File("Images/luigi.png"));
+        } catch (IOException ex) {
+            System.out.print("non chargé2");
         }
 
     }
@@ -70,10 +84,23 @@ public class CaseDrawable extends JPanel{
             if(this.pieceADessiner instanceof Pion){
                 g.setColor(this.couleurPion);
                 g.fillOval( this.pionPosX, this.pionPosY, this.pionWidth, this.pionHeight);
+                if(this.couleurPion == Color.red){
+
+                    g.drawImage(mario,this.pionPosY-15,this.pionPosY-15, this.pionWidth+30, this.pionHeight+30,null);
+                }else{
+                    g.drawImage(luigi,this.pionPosY-15,this.pionPosY-10, this.pionWidth+30, this.pionHeight+30,null);
+                }
+
             } else{
                 //Dessiner dame
                 g.setColor(this.couleurPion);
                 g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
+                if(this.couleurPion == Color.red){
+
+                    g.drawImage(mario,this.pionPosY-15,this.pionPosY-15, this.pionWidth+30, this.pionHeight+30,null);
+                }else{
+                    g.drawImage(luigi,this.pionPosY-15,this.pionPosY-10, this.pionWidth+30, this.pionHeight+30,null);
+                }
                 g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
 
 
