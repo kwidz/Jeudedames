@@ -296,38 +296,63 @@ public class Damier {
 
 
     //FONCTION A REFAIRE :
-    public boolean possibilitePrendreEncoreDame(int casex, int casey, boolean blanc){
+    public boolean possibilitePrendreEncoreDame(int ligne, int colonne, boolean blanc){
         boolean continuer = false;
-        if(this.verification(casex,casey,1,1,blanc)==2){
-            if(this.verification(casex,casey,2,2,blanc)==1){
-                chemin.add(lesCases[casex+2][casey+2]);
-                continuer=true;
+        int ligneChangeante, colonneChangeant;
+
+        colonneChangeant = colonne ;
+        ligneChangeante = ligne ;
+       while(colonneChangeant < 10){
+           if(this.verification(ligneChangeante,colonneChangeant,1,1,blanc)==2){
+               if(this.verification(ligneChangeante,colonneChangeant,2,2,blanc)==1){
+                   chemin.add(lesCases[ligneChangeante+2][colonneChangeant+2]);
+                   continuer=true;
+               }
+           }
+           colonneChangeant++;
+           ligneChangeante++;
+       }
+
+        colonneChangeant = colonne ;
+        ligneChangeante = ligne ;
+        while(colonneChangeant > -1 ){
+            if(this.verification(ligneChangeante,colonneChangeant,-1,-1,blanc)==2){
+                if(this.verification(ligneChangeante,colonneChangeant,-2,-2,blanc)==1){
+                    chemin.add(lesCases[ligneChangeante-2][colonneChangeant-2]);
+                    continuer=true;
+                }
             }
+            colonneChangeant--;
+            ligneChangeante--;
         }
 
 
-
-        if(this.verification(casex,casey,1,-1,blanc)==2){
-            if(this.verification(casex,casey,2,-2,blanc)==1){
-                chemin.add(lesCases[casex+2][casey-2]);
-                continuer=true;
+        colonneChangeant = colonne ;
+        ligneChangeante = ligne ;
+        while(ligneChangeante > -1 ){
+            if(this.verification(ligneChangeante,colonneChangeant,-1,1,blanc)==2){
+                if(this.verification(ligneChangeante,colonneChangeant,-2,2,blanc)==1){
+                    chemin.add(lesCases[ligneChangeante-2][colonneChangeant+2]);
+                    continuer=true;
+                }
             }
+            colonneChangeant++;
+            ligneChangeante--;
         }
 
-
-        if(this.verification(casex,casey,-1,-1,blanc) == 2){
-            if(this.verification(casex,casey,-2,-2,blanc) ==1){
-                chemin.add(lesCases[casex-2][casey-2]);
-                continuer =true;
+        colonneChangeant = colonne ;
+        ligneChangeante = ligne ;
+        while(ligneChangeante < 10 ){
+            if(this.verification(ligneChangeante,colonneChangeant,1,-1,blanc)==2){
+                if(this.verification(ligneChangeante,colonneChangeant,2,-2,blanc)==1){
+                    chemin.add(lesCases[ligneChangeante+2][colonneChangeant-2]);
+                    continuer=true;
+                }
             }
+            colonneChangeant--;
+            ligneChangeante++;
         }
 
-        if(this.verification(casex,casey,-1,1,blanc)==2){
-            if(this.verification(casex,casey,-2,2,blanc) == 1){
-                chemin.add(lesCases[casex-2][casey+2]);
-                continuer=true;
-            }
-        }
 
         return continuer;
     }
