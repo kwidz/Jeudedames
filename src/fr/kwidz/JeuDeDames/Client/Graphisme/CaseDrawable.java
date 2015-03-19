@@ -94,13 +94,8 @@ public class CaseDrawable extends JPanel{
             } else{
                 //Dessiner dame
                 g.setColor(this.couleurPion);
-                g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
-                if(this.couleurPion == Color.red){
 
-                    g.drawImage(mario,this.pionPosY-15,this.pionPosY-15, this.pionWidth+30, this.pionHeight+30,null);
-                }else{
-                    g.drawImage(luigi,this.pionPosY-15,this.pionPosY-10, this.pionWidth+30, this.pionHeight+30,null);
-                }
+                g.fillOval( this.pionPosX, this.pionPosY,this.pionWidth,this.pionHeight);
                 g.drawImage(couronne,this.pionPosY,this.pionPosY, this.pionWidth, this.pionHeight,null);
 
 

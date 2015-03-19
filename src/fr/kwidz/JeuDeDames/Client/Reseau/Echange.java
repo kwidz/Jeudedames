@@ -28,7 +28,7 @@ public class Echange {
         // Creation de la socket
         Socket socket = null;
         try {
-            socket = new Socket("localhost", ServeurTCPMulti.portEcoute);
+            socket = new Socket("192.168.0.103", ServeurTCPMulti.portEcoute);
         } catch(UnknownHostException e) {
             System.err.println("Erreur sur l'hôte : " + e);
             System.exit(-1);
