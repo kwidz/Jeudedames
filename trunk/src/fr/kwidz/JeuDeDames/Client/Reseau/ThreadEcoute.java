@@ -59,6 +59,7 @@ public class ThreadEcoute extends Thread{
 
 
                 System.out.println("message : " + message);
+
                 if(message.equals("joueur1")){
                     jetonDeJeu.setJeton(false);
                     jetonDeJeu.setJoueur1(true);

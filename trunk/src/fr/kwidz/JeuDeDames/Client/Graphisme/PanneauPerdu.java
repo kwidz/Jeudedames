@@ -1,8 +1,11 @@
 package fr.kwidz.JeuDeDames.Client.Graphisme;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 
 /**
@@ -11,8 +14,17 @@ import java.awt.image.BufferedImage;
 public class PanneauPerdu extends JPanel {
 
     public void paintComponent(Graphics g){
-        BufferedImage perdu;
-        g.drawString("Vous avez perdu !! ", 10, 20);
+        BufferedImage marioGagne = null;
+
+        try {
+            marioGagne = ImageIO.read(new File("Images/marioGagne.png"));
+
+        } catch (IOException ex) {
+            System.out.print("non chargé");
+        }
+        g.drawImage(marioGagne,0,0,this.getWidth(),this.getHeight(),null);
+
+
 
 
     }
